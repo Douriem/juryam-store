@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JURYAM - Curated for Your Energy</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #f5f5f0;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c9c9c4;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: #d4a373;
+            transition: width 0.3s;
+            margin: 0 auto;
+        }
+
+        .nav-links a:hover {
+            color: #d4a373;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid #d4a373;
+            border-radius: 20px;
+            color: #d4a373;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .lang-toggle:hover {
+            background: #d4a373;
+            color: #0a0a0a;
+        }
+
+        .cart-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 999px;
+            transition: transform .25s ease, color .25s ease, background .25s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-icon:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: rgba(212, 163, 115, 0.08);
+        }
+
+        .cart-svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 1.5;
+            stroke: #c9c9c4;
+        }
+
+        .close-svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 1.6;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #d4a373;
+            color: #0a0a0a;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #d4a373;
+            padding: 0.5rem;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            left: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-right: 1px solid rgba(212, 163, 115, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            left: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            color: #d4a373;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: #d4a373;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-cart:hover {
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            color: #d4a373;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: #c9c9c4;
+            font-size: 0.9rem;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #c9c9c4;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #d4a373;
+        }
+
+        .cart-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        .cart-subtotal {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #d4a373;
+        }
+
+        .cart-info {
+            text-align: center;
+            color: #c9c9c4;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #c9c9c4;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            margin-top: 80px;
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: '☽';
+            position: absolute;
+            font-size: 20rem;
+            color: rgba(212, 163, 115, 0.03);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            color: #d4a373;
+            text-shadow: 0 0 30px rgba(212, 163, 115, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInTitle 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInTitle {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #c9a578;
+            margin-bottom: 3rem;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInTagline 1.5s ease-out 0.5s forwards, shimmer 2s ease-in-out 1.5s;
+        }
+
+        @keyframes fadeInTagline {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(212, 163, 115, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(212, 163, 115, 0.8),
+                             0 0 30px rgba(212, 163, 115, 0.6),
+                             0 0 40px rgba(212, 163, 115, 0.4);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn-primary {
+            background: #d4a373;
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(212, 163, 115, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #c9a578;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 163, 115, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4a373;
+            border: 1px solid #d4a373;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 163, 115, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(10, 10, 10, 0.4) 0%, rgba(212, 163, 115, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        #about {
+            padding: 5rem 4rem;
+            background: #0a0a0a;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #c9c9c4;
+            margin-bottom: 1.5rem;
+        }
+
+        .categories-section {
+            padding: 5rem 4rem;
+            background: #0a0a0a;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #d4a373;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            color: #c9c9c4;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .categories-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(50px);
+            text-decoration: none;
+        }
+
+        .categories-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .categories-card:hover {
+            border-color: rgba(212, 163, 115, 0.4);
+            transform: translateY(-10px);
+        }
+
+        .categories-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .categories-card:hover .categories-image {
+            transform: scale(1.1);
+        }
+
+        .categories-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+            transition: all 0.4s;
+        }
+
+        .categories-card:hover .categories-overlay {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.98), rgba(10, 10, 10, 0.5));
+        }
+
+        .categories-name {
+            color: #d4a373;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .categories-count {
+            color: #c9c9c4;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+        }
+
+        .categories-card:hover .categories-count {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #contact {
+            padding: 5rem 4rem;
+            background: #0a0a0a;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 1.15rem;
+            color: #c9c9c4;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+        .contact-logo-img {
+            width: 150px;
+            height: 80px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(212, 163, 115, 0.2);
+            padding: 2rem 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #c9c9c4;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            color: #d4a373;
+            transform: translateY(-3px);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .footer-tagline {
+            text-align: center;
+            color: #6c6c6c;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+            padding-top: 0rem;
+            border-top: none;
+        }
+
+        @media (max-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+       @media (max-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+    .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #d4a373;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    }
+
+    .mobile-menu-btn .hamburger {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #d4a373;
+    position: relative;
+    transition: all 0.3s;
+    }
+
+    .mobile-menu-btn .hamburger::before,
+    .mobile-menu-btn .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: #d4a373;
+    transition: all 0.3s;
+    }
+
+    .mobile-menu-btn .hamburger::before {
+    top: -8px;
+    }
+
+    .mobile-menu-btn .hamburger::after {
+    top: 8px;
+    }
+
+    .mobile-menu-btn.active .hamburger {
+    background: transparent;
+    }
+
+    .mobile-menu-btn.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+    }
+
+    .mobile-menu-btn.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+    }
+
+    .mobile-only {
+    display: none;
+    }
+
+    .desktop-only {
+    display: inline-block;
+    }
+
+    nav + .nav-links {
+    display: none;
+    }
+
+    @media (max-width: 768px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-right .nav-links {
+        display: none;
+    }
+
+    nav + .nav-links.active {
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+        z-index: 999;
+    }
+
+    nav + .nav-links.active li {
+        margin: 1.5rem 0;
+    }
+
+    .cart-icon {
+        margin-top: 0;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .cart-sidebar {
+        width: 100%;
+        left: -100%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        margin-top: 70px;
+    }
+
+    .hero-left {
+        padding: 3rem 1.5rem;
+        min-height: 70vh;
+    }
+
+    .hero-left::before {
+        font-size: 15rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .tagline {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .hero-right {
+        min-height: 50vh;
+    }
+
+    #about,
+    .categories-section,
+    #contact {
+        padding: 3rem 1.5rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    footer {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 id="cartTitle">VOTRE PANIER</h2>
+            <button class="close-cart" onclick="toggleCart()" aria-label="Close cart">
+                <svg class="close-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path d="M18 6L6 18"></path>
+                    <path d="M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <p id="emptyCartText">Votre panier est vide</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;" id="emptyCartSub">Commencez à ajouter de la magie ✨</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span id="subtotalLabel">SOUS-TOTAL</span>
+                <span id="cartSubtotal">0 DA</span>
+            </div>
+            <p class="cart-info" id="cartInfoText">
+                💬 Contactez-nous pour finaliser votre commande
+            </p>
+        </div>
+    </div>
+
+
+
+    <nav>
+    <a href="/" class="logo">
+        <img src="assets/desktop.png" alt="Juryam">
+    </a>
+    
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span class="hamburger"></span>
+    </button>
+    
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#about">À PROPOS</a></li>
+            <li><a href="#categories">CATÉGORIES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li class="mobile-only"><button class="lang-toggle">🇫🇷 FR</button></li>
+        </ul>
+        <button class="lang-toggle desktop-only">🇫🇷 FR</button>
+        <div class="cart-icon" onclick="toggleCart()" role="button" aria-label="Open cart" tabindex="0">
+            <svg class="cart-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M6 7h12l-1 14H7z"></path>
+                <path d="M9 7a3 3 0 0 1 6 0"></path>
+            </svg>
+            <span class="cart-count" id="cartCount" style="display: none;">0</span>
+        </div>
+    </div>
+</nav>
+
+    <ul class="nav-links">
+        <li><a href="#about" onclick="closeMobileMenu()">À PROPOS</a></li>
+        <li><a href="#categories" onclick="closeMobileMenu()">CATÉGORIES</a></li>
+        <li><a href="#contact" onclick="closeMobileMenu()">CONTACT</a></li>
+        <li><button class="lang-toggle">🇫🇷 FR</button></li>
+    </ul>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-content">
+                <h1>JURYAM</h1>
+                <p class="tagline">Créé pour Votre Énergie</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('categories')">EXPLORER LES BIJOUX</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('categories')">VOIR CATÉGORIES</button>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="assets/demo1.png" alt="Jewelry Categories" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>Notre Histoire</h2>
+            <p>L'Art de l'Esprit Bohème</p>
+        </div>
+        <div class="about-content">
+            <p>
+                Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire 
+                d'esprit libre et de créativité sans limite. Inspirés par les traditions et 
+                l'esthétique naturelle, nos bijoux sont conçus pour ceux qui cherchent l'authenticité.
+            </p>
+            <p>
+                Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels 
+                et des designs intemporels qui capturent l'essence de la liberté et de l'expression personnelle.
+            </p>
+        </div>
+    </section>
+
+    <section class="categories-section" id="categories">
+        <div class="section-header">
+            <h2>Catégories</h2>
+            <p>Explorez nos catégories soigneusement sélectionnées</p>
+        </div>
+        <div class="categories-grid">
+            <a href="necklaces.html" class="categories-card" style="transition-delay: 0.1s;">
+                <img src="assets/necklaces.png" alt="Necklaces" class="categories-image">
+                <div class="categories-overlay">
+                    <h3 class="categories-name">COLLIERS</h3>
+                    <p class="categories-count">4 pièces</p>
+                </div>
+            </a>
+            <a href="rings.html" class="categories-card" style="transition-delay: 0.2s;">
+                <img src="assets/rings.png" alt="Rings" class="categories-image">
+                <div class="categories-overlay">
+                    <h3 class="categories-name">BAGUES</h3>
+                    <p class="categories-count">0 pièces</p>
+                </div>
+            </a>
+            <a href="earrings.html" class="categories-card" style="transition-delay: 0.3s;">
+                <img src="assets/earrings.png" alt="Earrings" class="categories-image">
+                <div class="categories-overlay">
+                    <h3 class="categories-name">BOUCLES D'OREILLES</h3>
+                    <p class="categories-count"> pièces</p>
+                </div>
+            </a>
+            <a href="bracelets.html" class="categories-card" style="transition-delay: 0.4s;">
+                <img src="assets/bracelets.png" alt="Bracelets" class="categories-image">
+                <div class="categories-overlay">
+                    <h3 class="categories-name">BRACELETS</h3>
+                    <p class="categories-count">0 pièces</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Contactez-Nous</h2>
+            <p>Rejoignez Notre Tribu Créative</p>
+        </div>
+        <div class="contact-content">
+            <img src="assets/juryam-logo.png" alt="Juryam Logo" class="contact-logo-img">
+            <p class="contact-text">
+                Suivez notre voyage créatif et découvrez nos nouvelles créations. 
+                Nous sommes toujours ravis de partager notre passion avec des âmes similaires.
+            </p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/duryamstore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    INSTAGRAM
+                </a>
+                <a href="https://www.tiktok.com/@juryamstore?is_from_webapp=1&sender_device=pc" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    TIKTOK
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+        <p class="footer-tagline">JURYAM © 2025 • Créé pour Votre Énergie</p>
+        </footer>
+
+    <script>
+        let cart = [];
+        let currentLang = 'fr';
+
+        const translations = {
+            fr: {
+                nav: ['À PROPOS', 'CATÉGORIES', 'CONTACT'],
+                heroTagline: 'Créé pour Votre Énergie',
+                heroBtn1: 'EXPLORER LES BIJOUX',
+                heroBtn2: 'VOIR CATÉGORIES',
+                aboutTitle: 'Notre Histoire',
+                aboutSub: "L'Art de l'Esprit Bohème",
+                aboutP1: "Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire d'esprit libre et de créativité sans limite. Inspirés par les traditions et l'esthétique naturelle, nos bijoux sont conçus pour ceux qui cherchent l'authenticité.",
+                aboutP2: "Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels et des designs intemporels qui capturent l'essence de la liberté et de l'expression personnelle.",
+                categoriesTitle: 'Catégories',
+                categoriesSub: 'Explorez nos catégories soigneusement sélectionnées',
+                contactTitle: 'Contactez-Nous',
+                contactSub: 'Rejoignez Notre Tribu Créative',
+                contactText: 'Suivez notre voyage créatif et découvrez nos nouvelles créations. Nous sommes toujours ravis de partager notre passion avec des âmes similaires.',
+                footerTagline: 'JURYAM © 2025 • Créé pour Votre Énergie',
+                cartTitle: 'VOTRE PANIER',
+                emptyCart: 'Votre panier est vide',
+                emptyCartSub: 'Commencez à ajouter de la magie ✨',
+                subtotal: 'SOUS-TOTAL',
+                cartInfo: '💬 Contactez-nous pour finaliser votre commande',
+                categories: {
+                    necklaces: 'COLLIERS',
+                    rings: 'BAGUES',
+                    earrings: "BOUCLES D'OREILLES",
+                    bracelets: 'BRACELETS',
+                    pieces: 'pièces'
+                }
+            },
+            en: {
+                nav: ['ABOUT', 'CATEGORIES', 'CONTACT'],
+                heroTagline: 'Curated for Your Energy',
+                heroBtn1: 'EXPLORE JEWELRY',
+                heroBtn2: 'VIEW CATEGORIES',
+                aboutTitle: 'Our Story',
+                aboutSub: 'The Art of Bohemian Spirit',
+                aboutP1: 'Juryam celebrates the beauty of bohemian craftsmanship, where each piece tells a story of free spirit and limitless creativity. Inspired by traditions and natural aesthetics, our jewelry is designed for those seeking authenticity.',
+                aboutP2: 'Each creation is handcrafted with love, using natural materials and timeless designs that capture the essence of freedom and personal expression.',
+                categoriesTitle: 'Categories',
+                categoriesSub: 'Explore our curated categories',
+                contactTitle: 'Contact Us',
+                contactSub: 'Join Our Creative Tribe',
+                contactText: 'Follow our creative journey and discover our new creations. We are always delighted to share our passion with like-minded souls.',
+                footerTagline: 'JURYAM © 2025 • Curated for Your Energy',
+                cartTitle: 'YOUR CART',
+                emptyCart: 'Your cart is empty',
+                emptyCartSub: 'Start adding some magic ✨',
+                subtotal: 'SUBTOTAL',
+                cartInfo: '💬 Contact us to complete your order',
+                categories: {
+                    necklaces: 'NECKLACES',
+                    rings: 'RINGS',
+                    earrings: 'EARRINGS',
+                    bracelets: 'BRACELETS',
+                    pieces: 'pieces'
+                }
+            }
+        };
+
+        function checkScroll() {
+            const header = document.querySelectorAll('.section-header');
+            const cards = document.querySelectorAll('.categories-card');
+            const screenHeight = window.innerHeight;
+            
+            header.forEach(h => {
+                const headerPos = h.getBoundingClientRect().top;
+                if (headerPos < screenHeight - 100) {
+                    h.classList.add('visible');
+                }
+            });
+            
+            cards.forEach(card => {
+                const cardPos = card.getBoundingClientRect().top;
+                if (cardPos < screenHeight - 100) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.querySelector('.cart-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function toggleMobileMenu() {
+    const mobileNav = document.querySelectorAll('.nav-links')[1]; // Second nav-links
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    
+    mobileNav.classList.toggle('active');
+    mobileBtn.classList.toggle('active');
+}
+
+        function closeMobileMenu() {
+            const mobileNav = document.querySelectorAll('.nav-links')[1];
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.textContent = '☰';
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelectorAll('.lang-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                currentLang = currentLang === 'fr' ? 'en' : 'fr';
+                const newText = currentLang === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN';
+                document.querySelectorAll('.lang-toggle').forEach(btn => btn.textContent = newText);
+                
+                const t = translations[currentLang];
+                
+                document.querySelectorAll('.nav-links a')[0].textContent = t.nav[0];
+                document.querySelectorAll('.nav-links a')[1].textContent = t.nav[1];
+                document.querySelectorAll('.nav-links a')[2].textContent = t.nav[2];
+                document.querySelectorAll('.nav-links a')[3].textContent = t.nav[0];
+                document.querySelectorAll('.nav-links a')[4].textContent = t.nav[1];
+                document.querySelectorAll('.nav-links a')[5].textContent = t.nav[2];
+                
+                document.querySelector('.tagline').textContent = t.heroTagline;
+                document.querySelectorAll('.btn')[0].textContent = t.heroBtn1;
+                document.querySelectorAll('.btn')[1].textContent = t.heroBtn2;
+                
+                document.querySelectorAll('.section-header h2')[0].textContent = t.aboutTitle;
+                document.querySelectorAll('.section-header p')[0].textContent = t.aboutSub;
+                document.querySelectorAll('.about-content p')[0].textContent = t.aboutP1;
+                document.querySelectorAll('.about-content p')[1].textContent = t.aboutP2;
+                
+                document.querySelectorAll('.section-header h2')[1].textContent = t.categoriesTitle;
+                document.querySelectorAll('.section-header p')[1].textContent = t.categoriesSub;
+                
+                document.querySelectorAll('.categories-name')[0].textContent = t.categories.necklaces;
+                document.querySelectorAll('.categories-name')[1].textContent = t.categories.rings;
+                document.querySelectorAll('.categories-name')[2].textContent = t.categories.earrings;
+                document.querySelectorAll('.categories-name')[3].textContent = t.categories.bracelets;
+                
+                document.querySelectorAll('.categories-count')[0].textContent = '4 ' + t.categories.pieces;
+                document.querySelectorAll('.categories-count')[1].textContent = '0 ' + t.categories.pieces;
+                document.querySelectorAll('.categories-count')[2].textContent = '0 ' + t.categories.pieces;
+                document.querySelectorAll('.categories-count')[3].textContent = '0 ' + t.categories.pieces;
+                
+                document.querySelectorAll('.section-header h2')[2].textContent = t.contactTitle;
+                document.querySelectorAll('.section-header p')[2].textContent = t.contactSub;
+                document.querySelector('.contact-text').textContent = t.contactText;
+                
+                document.querySelector('.footer-tagline').textContent = t.footerTagline;
+                
+                document.getElementById('cartTitle').textContent = t.cartTitle;
+                document.getElementById('emptyCartText').textContent = t.emptyCart;
+                document.getElementById('emptyCartSub').textContent = t.emptyCartSub;
+                document.getElementById('subtotalLabel').textContent = t.subtotal;
+                document.getElementById('cartInfoText').textContent = t.cartInfo;
+                
+                document.documentElement.lang = currentLang;
+            });
+        });
+    </script>
+</body>
+</html>
