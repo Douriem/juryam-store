@@ -891,9 +891,7 @@
                 <span id="subtotalLabel">SOUS-TOTAL</span>
                 <span id="cartSubtotal">0 DA</span>
             </div>
-            <p class="cart-info" id="cartInfoText">
-                💬 Contactez-nous pour finaliser votre commande
-            </p>
+            <button class="btn-checkout" onclick="openCheckout()">CHECKOUT</button>
         </div>
     </div>
 
@@ -1038,8 +1036,13 @@
         <p class="footer-tagline">JURYAM © 2025 • Créé pour Votre Énergie</p>
         </footer>
 
+    <script src="js/config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/checkout.js"></script>
+
     <script>
-        let cart = [];
         let currentLang = 'fr';
 
         const translations = {
@@ -1124,13 +1127,6 @@
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
 
-        function toggleCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.querySelector('.cart-overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
         function toggleMobileMenu() {
     const mobileNav = document.querySelectorAll('.nav-links')[1]; // Second nav-links
     const mobileBtn = document.querySelector('.mobile-menu-btn');
@@ -1210,7 +1206,6 @@
                 document.getElementById('emptyCartText').textContent = t.emptyCart;
                 document.getElementById('emptyCartSub').textContent = t.emptyCartSub;
                 document.getElementById('subtotalLabel').textContent = t.subtotal;
-                document.getElementById('cartInfoText').textContent = t.cartInfo;
                 
                 document.documentElement.lang = currentLang;
             });

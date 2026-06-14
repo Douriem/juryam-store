@@ -550,9 +550,7 @@
                 <span>SUBTOTAL</span>
                 <span id="cartSubtotal">0 DA</span>
             </div>
-            <p class="cart-info">
-                💬 Contact us to complete your order
-            </p>
+            <button class="btn-checkout" onclick="openCheckout()">CHECKOUT</button>
         </div>
     </div>
 
@@ -611,116 +609,12 @@
         <p class="footer-tagline">JURYAM © 2025 • Curated for Your Energy</p>
     </footer>
 
-    <!-- Load product data -->
+    <script src="js/config.js"></script>
     <script src="js/data.js"></script>
-    
-    <script>
-        // Cart system (shared)
-        let cart = JSON.parse(localStorage.getItem('juryamCart')) || [];
-
-        function updateCart() {
-            const cartItems = document.getElementById('cartItems');
-            const cartCount = document.getElementById('cartCount');
-            const cartSubtotal = document.getElementById('cartSubtotal');
-
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <p>Your cart is empty</p>
-                        <p style="margin-top: 1rem; font-size: 0.9rem;">Start adding some magic ✨</p>
-                    </div>
-                `;
-                cartCount.style.display = 'none';
-                cartSubtotal.textContent = '0 DA';
-            } else {
-                cartItems.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">${item.price} DA × ${item.quantity}</div>
-                            <button class="remove-item" onclick="removeFromCart('${item.id}')">Remove</button>
-                        </div>
-                    </div>
-                `).join('');
-
-                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                
-                cartCount.textContent = totalItems;
-                cartCount.style.display = 'block';
-                cartSubtotal.textContent = `${total} DA`;
-            }
-            
-            localStorage.setItem('juryamCart', JSON.stringify(cart));
-        }
-
-        function addToCart(productId) {
-            const product = getProductById(productId);
-            if (!product) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCart();
-            
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.querySelector('.cart-overlay');
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-        }
-
-        function toggleCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.querySelector('.cart-overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        // Load products for BRACELETS category
-        function loadProducts() {
-            const category = 'bracelets';
-            const products = getProductsByCategory(category);
-            const grid = document.getElementById('productsGrid');
-
-            if (products.length === 0) {
-                grid.innerHTML = '<p style="text-align: center; color: #c9c9c4;">No products available yet. Check back soon!</p>';
-                return;
-            }
-
-            grid.innerHTML = products.map((product, index) => `
-                <div class="product-card" style="transition-delay: ${index * 0.1}s;">
-                    <div class="product-image-container">
-                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                        <img src="${product.image}" alt="${product.name}" class="product-image">
-                        <button class="quick-add" onclick="event.stopPropagation(); addToCart('${product.id}')">
-                            ADD TO CART
-                        </button>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">${product.name}</h3>
-                        <p class="product-price">${product.price} DA</p>
-                    </div>
-                </div>
-            `).join('');
-
-            setTimeout(() => {
-                const cards = document.querySelectorAll('.product-card');
-                cards.forEach(card => card.classList.add('visible'));
-            }, 100);
-        }
-
-        updateCart();
-        loadProducts();
-    </script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/products.js"></script>
+    <script>loadProducts('bracelets');</script>
 </body>
 </html>
