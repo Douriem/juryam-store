@@ -1,0 +1,62 @@
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.back-nav {
+    background: none;
+    border: none;
+    color: #9a9a95;
+    font-family: 'Georgia', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.35rem;
+    margin-right: 0.15rem;
+    transition: color 0.25s ease;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.back-nav:hover,
+.back-nav:focus-visible {
+    color: #d4a373;
+    outline: none;
+}
+
+.back-nav-arrow {
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.back-nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .back-nav {
+        padding: 0.15rem 0.25rem;
+        margin-right: 0.1rem;
+    }
+
+    .back-nav-label {
+        display: none;
+    }
+
+    .nav-left {
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-nav-arrow {
+        font-size: 0.85rem;
+    }
+}

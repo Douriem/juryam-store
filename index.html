@@ -723,22 +723,8 @@
     }
 
     @media (max-width: 768px) {
-    nav {
-        padding: 1rem 1.5rem;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-
     .mobile-menu-btn {
-        display: block;
-    }
-
-    .nav-right {
         display: flex;
-        align-items: center;
-        gap: 1rem;
     }
 
     .nav-right .nav-links {
@@ -764,10 +750,6 @@
 
     nav + .nav-links.active li {
         margin: 1.5rem 0;
-    }
-
-    .cart-icon {
-        margin-top: 0;
     }
 
     .mobile-only {
@@ -864,8 +846,10 @@
         font-size: 0.85rem;
         padding: 0.8rem 1.5rem;
     }
-}
+    }
     </style>
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/back-nav.css">
 </head>
 <body>
     <div class="cart-overlay" onclick="toggleCart()"></div>
@@ -897,14 +881,14 @@
 
 
 
-    <nav>
+    <nav class="nav-main">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <span class="hamburger"></span>
+    </button>
+
     <a href="/" class="logo">
         <img src="assets/desktop.png" alt="Juryam">
     </a>
-    
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <span class="hamburger"></span>
-    </button>
     
     <div class="nav-right">
         <ul class="nav-links">
@@ -1041,6 +1025,7 @@
     <script src="js/cart.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/checkout.js"></script>
+    <script src="js/back-nav.js"></script>
 
     <script>
         let currentLang = 'fr';
