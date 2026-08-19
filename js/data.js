@@ -12,7 +12,7 @@ const PRODUCTS = {
         {
             id: 'neck_2',
             name: 'mystical fairy',
-            price: 550,
+            price: 850,
             image: 'assets/necklace2.png',
             description: 'Stunning labradorite stone.',
             category: 'necklaces',
@@ -20,7 +20,7 @@ const PRODUCTS = {
         },{
             id: 'neck_3',
             name: 'love potion',
-            price: 400,
+            price: 450,
             image: 'assets/necklace3.png',
             description: 'Stunning labradorite stone.',
             category: 'necklaces',
@@ -35,14 +35,14 @@ const PRODUCTS = {
             image: 'assets/rings.png',
             description: 'Hand-forged brass ring.',
             category: 'rings',
-            badge: 'NEW'
+            badge: 'OUT OF STOCK'
         }
     ],
     earrings: [
         {
             id: 'ear_1',
             name: 'Wildflower Earrings',
-            price: 550,
+            price: 650,
             image: 'assets/earrings6.png',
             description: 'crystals hearts.',
             category: 'earrings',
@@ -51,7 +51,7 @@ const PRODUCTS = {
         {
             id: 'ear_2',
             name: 'Crystal Hearts Earrings',
-            price: 450,
+            price: 600,
             image: 'assets/earrings4.png',
             description: 'Elegant quartz crystals.',
             category: 'earrings',
@@ -69,7 +69,7 @@ const PRODUCTS = {
         {
             id: 'ear_4',
             name: 'Sea Siren Earrings',
-            price: 350,
+            price: 400,
             image: 'assets/earrings2.png',
             description: 'Elegant quartz crystals.',
             category: 'earrings',
@@ -87,7 +87,7 @@ const PRODUCTS = {
         {
             id: 'ear_6',
             name: 'Moonwashed Shell Earrings',
-            price: 600,
+            price: 750,
             image: 'assets/earrings1.png',
             description: 'Elegant quartz crystals.',
             category: 'earrings',
@@ -97,9 +97,9 @@ const PRODUCTS = {
     bracelets: [
         {
             id: 'brac_1',
-            name: 'Serpent Bracelet',
-            price: 400,
-            image: 'assets/bracelets.png',
+            name: 'crystal bracelet',
+            price: 600,
+            image: 'assets/crystals.jpeg',
             description: 'Oxidized silver serpent.',
             category: 'bracelets',
             badge: null
