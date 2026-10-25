@@ -4,4 +4,3 @@ const JURYAM_CONFIG = {
     // Replace with your Formspree form URL (connect to Google Sheets in Formspree dashboard)
     FORMSPREE_URL: 'https://formspree.io/f/mbdeqbql'
 };
-g

@@ -22,16 +22,17 @@ function loadCart() {
     if (cart.length > 0) saveCart();
 }
 
-function getCartItemKey(productId, size) {
-    return size ? `${productId}_size${size}` : productId;
+function getCartItemKey(productId, size, variant) {
+    let key = size ? `${productId}_size${size}` : productId;
+    return variant ? `${key}_v${variant.id}` : key;
 }
 
-function addToCart(productId, quantity, size) {
+function addToCart(productId, quantity, size, variant, silent) {
     const product = getProductById(productId);
     if (!product) return;
 
     const qty = Math.max(1, quantity || 1);
-    const cartKey = getCartItemKey(productId, size);
+    const cartKey = getCartItemKey(productId, size, variant);
     const existingItem = cart.find(item => item.cartKey === cartKey);
 
     if (existingItem) {
@@ -41,13 +42,16 @@ function addToCart(productId, quantity, size) {
             ...product,
             cartKey,
             quantity: qty,
-            size: size || null
+            size: size || null,
+            variant: variant ? variant.label : null
         });
     }
 
-    saveCart();
-    updateCartUI();
-    showCartNotification();
+    if (!silent) {
+        saveCart();
+        updateCartUI();
+        showCartNotification();
+    }
 }
 
 function removeFromCart(cartKey) {
@@ -96,7 +100,7 @@ function clearCart() {
 
 function formatCartSummary() {
     return cart.map(item => {
-        const sizeText = item.size ? ` (Size ${item.size})` : '';
+        const sizeText = (item.size ? ` (Size ${item.size})` : '') + (item.variant ? ` (${item.variant})` : '');
         return `${item.name}${sizeText} × ${item.quantity} — ${item.price * item.quantity} DA`;
     }).join('\n');
 }

@@ -118,6 +118,16 @@ sharedStyles.textContent = `
         text-align: center;
     }
 
+    .variant-row { margin-bottom: 0.75rem; }
+    .variant-row .qty-controls { margin-top: 0.5rem; }
+    .variant-totals {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(212, 163, 115, 0.2);
+        color: #d4a373;
+        font-weight: 600;
+    }
     .size-options {
         display: flex;
         flex-wrap: wrap;
@@ -295,6 +305,7 @@ document.head.appendChild(sharedStyles);
 let modalQuantity = 1;
 let modalSelectedSize = null;
 let modalProductId = null;
+let modalVariantQty = {};
 
 function injectModals() {
     if (document.getElementById('addToCartModal')) return;
@@ -308,7 +319,16 @@ function injectModals() {
                 </div>
                 <div class="modal-body">
                     <div class="modal-product" id="modalProductPreview"></div>
-                    <div class="modal-field">
+                    <div class="modal-field" id="variantField" style="display:none;">
+                        <label>Color / Type</label>
+                        <div class="size-options" id="variantOptions"></div>
+                        <div id="variantQtyList"></div>
+                        <div class="variant-totals">
+                            <span>Total quantity: <span id="variantTotalQty">0</span></span>
+                            <span>Total price: <span id="variantTotalPrice">0</span> DA</span>
+                        </div>
+                    </div>
+                    <div class="modal-field" id="qtyField">
                         <label>Quantity</label>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="changeModalQty(-1)">−</button>
@@ -377,6 +397,7 @@ function injectModals() {
     document.getElementById('addToCartModal').addEventListener('click', function(e) {
         if (e.target === this) closeAddToCartModal();
     });
+    document.getElementById('variantField').addEventListener('click', handleVariantClick);
     document.getElementById('checkoutModal').addEventListener('click', function(e) {
         if (e.target === this) closeCheckout();
     });
@@ -392,6 +413,7 @@ function openAddToCartModal(productId) {
     modalProductId = productId;
     modalQuantity = 1;
     modalSelectedSize = null;
+    modalVariantQty = {};
 
     document.getElementById('modalProductPreview').innerHTML = `
         <img src="${product.image}" alt="${product.name}">
@@ -415,7 +437,65 @@ function openAddToCartModal(productId) {
         sizeOptions.innerHTML = '';
     }
 
+    const hasVariants = !!(product.variants && product.variants.length);
+    document.getElementById('variantField').style.display = hasVariants ? 'block' : 'none';
+    document.getElementById('qtyField').style.display = hasVariants ? 'none' : 'block';
+    if (hasVariants) {
+        document.getElementById('variantOptions').innerHTML = product.variants.map(v =>
+            `<button type="button" class="size-btn" data-variant="${v.id}">${v.label}</button>`
+        ).join('');
+        renderVariantSelection();
+    }
+
     document.getElementById('addToCartModal').classList.add('active');
+}
+
+function handleVariantClick(e) {
+    const product = getProductById(modalProductId);
+    if (!product || !product.variants) return;
+
+    const optionBtn = e.target.closest('[data-variant]');
+    if (optionBtn) {
+        const id = optionBtn.dataset.variant;
+        if (id in modalVariantQty) delete modalVariantQty[id];
+        else modalVariantQty[id] = 1;
+        renderVariantSelection();
+        return;
+    }
+
+    const qtyBtn = e.target.closest('[data-variant-delta]');
+    if (qtyBtn) {
+        const id = qtyBtn.dataset.variantId;
+        if (!(id in modalVariantQty)) return;
+        modalVariantQty[id] = Math.max(1, modalVariantQty[id] + parseInt(qtyBtn.dataset.variantDelta, 10));
+        renderVariantSelection();
+    }
+}
+
+function renderVariantSelection() {
+    const product = getProductById(modalProductId);
+    if (!product || !product.variants) return;
+
+    document.querySelectorAll('#variantOptions [data-variant]').forEach(btn => {
+        btn.classList.toggle('selected', btn.dataset.variant in modalVariantQty);
+    });
+
+    document.getElementById('variantQtyList').innerHTML = product.variants
+        .filter(v => v.id in modalVariantQty)
+        .map(v => `
+            <div class="variant-row">
+                <div>${v.label}</div>
+                <div class="qty-controls">
+                    <button type="button" class="qty-btn" data-variant-id="${v.id}" data-variant-delta="-1">−</button>
+                    <span class="qty-value">${modalVariantQty[v.id]}</span>
+                    <button type="button" class="qty-btn" data-variant-id="${v.id}" data-variant-delta="1">+</button>
+                </div>
+            </div>
+        `).join('');
+
+    const totalQty = Object.values(modalVariantQty).reduce((a, b) => a + b, 0);
+    document.getElementById('variantTotalQty').textContent = totalQty;
+    document.getElementById('variantTotalPrice').textContent = totalQty * product.price;
 }
 
 function closeAddToCartModal() {
@@ -444,7 +524,19 @@ function confirmAddToCart() {
         return;
     }
 
-    addToCart(modalProductId, modalQuantity, modalSelectedSize);
+    if (product.variants && product.variants.length) {
+        const chosen = product.variants.filter(v => v.id in modalVariantQty);
+        if (chosen.length === 0) {
+            alert('Please select at least one Color / Type');
+            return;
+        }
+        chosen.forEach(v => addToCart(modalProductId, modalVariantQty[v.id], null, v, true));
+        saveCart();
+        updateCartUI();
+        showCartNotification();
+    } else {
+        addToCart(modalProductId, modalQuantity, modalSelectedSize);
+    }
     closeAddToCartModal();
     toggleCart(true);
 }
@@ -484,6 +576,7 @@ function updateCartSidebar() {
             <div class="cart-item-details">
                 <div class="cart-item-name">${item.name}</div>
                 ${item.size ? `<div class="cart-item-size">Size ${item.size}</div>` : ''}
+                ${item.variant ? `<div class="cart-item-size">${item.variant}</div>` : ''}
                 <div class="cart-item-price">${item.price} DA</div>
                 <div class="cart-item-controls">
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity - 1})">−</button>
@@ -548,7 +641,7 @@ function updateCheckoutSummary() {
         <h4>Your Order</h4>
         ${cart.map(item => `
             <div class="checkout-item">
-                <span>${item.name}${item.size ? ` (Size ${item.size})` : ''} × ${item.quantity}</span>
+                <span>${item.name}${item.size ? ` (Size ${item.size})` : ''}${item.variant ? ` (${item.variant})` : ''} × ${item.quantity}</span>
                 <span>${item.price * item.quantity} DA</span>
             </div>
         `).join('')}

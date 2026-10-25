@@ -102,7 +102,19 @@ const PRODUCTS = {
             image: 'assets/crystals.jpeg',
             description: 'Oxidized silver serpent.',
             category: 'bracelets',
-            badge: null
+            badge: null,
+            variants: [
+                { id: 'purple-amethyst', label: 'Purple / Amethyst' },
+                { id: 'pink-rose-quartz', label: 'Pink / Rose Quartz' },
+                { id: 'turquoise-turquoise-stone', label: 'Turquoise / Turquoise Stone' },
+                { id: 'brown-tigers-eye', label: "Brown / Tiger's Eye" },
+                { id: 'green-jade', label: 'Green / Jade' },
+                { id: 'green-aventurine', label: 'Green / Aventurine' },
+                { id: 'multicolor-agate', label: 'Multicolor / Agate' },
+                { id: 'white-moonstone', label: 'White / Moonstone' },
+                { id: 'blue-lapis-lazuli', label: 'Blue / Lapis Lazuli' },
+                { id: 'natural-natural-stone', label: 'Natural / Natural Stone' }
+            ]
         }
     ]
 };
