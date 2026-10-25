@@ -148,9 +148,24 @@
   ],
   "bracelets": [
     {
+      "id": "brac_2",
+      "name": "EL HAJRA EL MOUBARAKA",
+      "price": 9000,
+      "image": "assets/el-hajra-el-moubaraka-1792934817828.jpg",
+      "description": "LALALO LALALLO",
+      "category": "bracelets",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "na3ima-crb",
+          "label": "NA3ima / CRB"
+        }
+      ]
+    },
+    {
       "id": "brac_1",
       "name": "crystal bracelet",
-      "price": 600,
+      "price": 678,
       "image": "assets/crystals.jpeg",
       "description": "Oxidized silver serpent.",
       "category": "bracelets",
@@ -195,21 +210,6 @@
         {
           "id": "natural-natural-stone",
           "label": "Natural / Natural Stone"
-        }
-      ]
-    },
-    {
-      "id": "brac_2",
-      "name": "EL HAJRA EL MOUBARAKA",
-      "price": 9000,
-      "image": "assets/el-hajra-el-moubaraka-1792934817828.jpg",
-      "description": "LALALO LALALLO",
-      "category": "bracelets",
-      "badge": "NEW",
-      "variants": [
-        {
-          "id": "na3ima-crb",
-          "label": "NA3ima / CRB"
         }
       ]
     }
