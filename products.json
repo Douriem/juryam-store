@@ -1,0 +1,202 @@
+{
+  "necklaces": [
+    {
+      "id": "neck_1",
+      "name": "Celestial Moon Necklace",
+      "price": 600,
+      "image": "assets/necklace1.png",
+      "description": "Delicate crescent moon pendant.",
+      "category": "necklaces",
+      "badge": "NEW"
+    },
+    {
+      "id": "neck_2",
+      "name": "mystical fairy",
+      "price": 850,
+      "image": "assets/necklace2.png",
+      "description": "Stunning labradorite stone.",
+      "category": "necklaces",
+      "badge": null
+    },
+    {
+      "id": "neck_3",
+      "name": "love potion",
+      "price": 450,
+      "image": "assets/necklace3.png",
+      "description": "Stunning labradorite stone.",
+      "category": "necklaces",
+      "badge": null
+    },
+    {
+      "id": "neck_4",
+      "name": "Crystal Necklace",
+      "price": 1400,
+      "image": "assets/pearl-crystal-necklace.png",
+      "description": "Natural stone and pearl necklace.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "gold-gold-plated",
+          "label": "Gold / Gold-Plated"
+        },
+        {
+          "id": "silver-silver-plated",
+          "label": "Silver / Silver-Plated"
+        },
+        {
+          "id": "pearl-natural-pearl",
+          "label": "Pearl / Natural Pearl"
+        },
+        {
+          "id": "white-white-stone",
+          "label": "White / White Stone"
+        },
+        {
+          "id": "pink-rose-quartz",
+          "label": "Pink / Rose Quartz"
+        },
+        {
+          "id": "purple-amethyst",
+          "label": "Purple / Amethyst"
+        },
+        {
+          "id": "green-jade",
+          "label": "Green / Jade"
+        },
+        {
+          "id": "blue-turquoise",
+          "label": "Blue / Turquoise"
+        },
+        {
+          "id": "black-black-stone",
+          "label": "Black / Black Stone"
+        },
+        {
+          "id": "multicolor-natural-stones",
+          "label": "Multicolor / Natural Stones"
+        }
+      ]
+    }
+  ],
+  "rings": [
+    {
+      "id": "ring_1",
+      "name": "Golden Sun Ring",
+      "price": 500,
+      "image": "assets/rings.png",
+      "description": "Hand-forged brass ring.",
+      "category": "rings",
+      "badge": "OUT OF STOCK"
+    }
+  ],
+  "earrings": [
+    {
+      "id": "ear_1",
+      "name": "Wildflower Earrings",
+      "price": 650,
+      "image": "assets/earrings6.png",
+      "description": "crystals hearts.",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_2",
+      "name": "Crystal Hearts Earrings",
+      "price": 600,
+      "image": "assets/earrings4.png",
+      "description": "Elegant quartz crystals.",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_3",
+      "name": "Glittery Loops Earrings",
+      "price": 600,
+      "image": "assets/earrings3.png",
+      "description": "Elegant quartz crystals.",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_4",
+      "name": "Sea Siren Earrings",
+      "price": 400,
+      "image": "assets/earrings2.png",
+      "description": "Elegant quartz crystals.",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_5",
+      "name": "Crystal Earrings",
+      "price": 650,
+      "image": "assets/earrings5.png",
+      "description": "Elegant quartz crystals.",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_6",
+      "name": "Moonwashed Shell Earrings",
+      "price": 750,
+      "image": "assets/earrings1.png",
+      "description": "Elegant quartz crystals.",
+      "category": "earrings",
+      "badge": "NEW"
+    }
+  ],
+  "bracelets": [
+    {
+      "id": "brac_1",
+      "name": "crystal bracelet",
+      "price": 600,
+      "image": "assets/crystals.jpeg",
+      "description": "Oxidized silver serpent.",
+      "category": "bracelets",
+      "badge": null,
+      "variants": [
+        {
+          "id": "purple-amethyst",
+          "label": "Purple / Amethyst"
+        },
+        {
+          "id": "pink-rose-quartz",
+          "label": "Pink / Rose Quartz"
+        },
+        {
+          "id": "turquoise-turquoise-stone",
+          "label": "Turquoise / Turquoise Stone"
+        },
+        {
+          "id": "brown-tigers-eye",
+          "label": "Brown / Tiger's Eye"
+        },
+        {
+          "id": "green-jade",
+          "label": "Green / Jade"
+        },
+        {
+          "id": "green-aventurine",
+          "label": "Green / Aventurine"
+        },
+        {
+          "id": "multicolor-agate",
+          "label": "Multicolor / Agate"
+        },
+        {
+          "id": "white-moonstone",
+          "label": "White / Moonstone"
+        },
+        {
+          "id": "blue-lapis-lazuli",
+          "label": "Blue / Lapis Lazuli"
+        },
+        {
+          "id": "natural-natural-stone",
+          "label": "Natural / Natural Stone"
+        }
+      ]
+    }
+  ]
+}

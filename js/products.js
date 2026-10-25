@@ -1,4 +1,5 @@
-function loadProducts(category) {
+async function loadProducts(category) {
+    await productsReady;
     const products = getProductsByCategory(category);
     const grid = document.getElementById('productsGrid');
     if (!grid) return;

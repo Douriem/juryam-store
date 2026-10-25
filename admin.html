@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin - JURYAM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; background: #0a0a0a; color: #f5f5f0; min-height: 100vh; }
+        a { color: #d4a373; }
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+        header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+        h1 { color: #d4a373; letter-spacing: 0.15em; font-weight: 400; font-size: 1.5rem; }
+        h2 { color: #d4a373; font-weight: 400; margin-bottom: 1rem; letter-spacing: 0.08em; }
+        .muted { color: #c9c9c4; font-size: 0.9rem; }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,163,115,0.2); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        label { display: block; color: #d4a373; font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; text-transform: uppercase; }
+        input, select, textarea { width: 100%; padding: 0.7rem; background: #111; color: #f5f5f0; border: 1px solid rgba(212,163,115,0.3); border-radius: 6px; font-family: inherit; font-size: 1rem; }
+        textarea { min-height: 110px; resize: vertical; }
+        .field { margin-bottom: 1rem; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .btn { padding: 0.65rem 1.2rem; background: #d4a373; color: #0a0a0a; border: none; border-radius: 6px; cursor: pointer; font-family: inherit; font-weight: 600; letter-spacing: 0.08em; }
+        .btn:disabled { opacity: 0.5; cursor: wait; }
+        .btn-ghost { background: transparent; color: #d4a373; border: 1px solid rgba(212,163,115,0.5); }
+        .btn-danger { background: transparent; color: #e07a7a; border: 1px solid rgba(224,122,122,0.5); }
+        .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 0.7rem 0.5rem; border-bottom: 1px solid rgba(212,163,115,0.15); vertical-align: middle; }
+        th { color: #d4a373; font-weight: 400; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        td img { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; display: block; }
+        .cat-title td { color: #d4a373; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.8rem; padding-top: 1.5rem; }
+        #status { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); padding: 0.8rem 1.4rem; border-radius: 8px; background: #d4a373; color: #0a0a0a; font-weight: 600; display: none; z-index: 10; max-width: 90vw; }
+        #status.error { background: #e07a7a; }
+        #preview { max-width: 120px; border-radius: 6px; margin-top: 0.5rem; display: none; }
+        .hidden { display: none !important; }
+        @media (max-width: 600px) { .row { grid-template-columns: 1fr; } .col-desc { display: none; } }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>JURYAM ADMIN</h1>
+        <div class="actions" id="userBar" style="align-items:center;">
+            <span class="muted" id="userName"></span>
+            <button class="btn btn-ghost hidden" id="logoutBtn" type="button">LOG OUT</button>
+        </div>
+    </header>
+
+    <section class="card" id="loginView">
+        <h2>Sign in with GitHub</h2>
+        <p class="muted" style="margin-bottom:1rem;">
+            Create a fine-grained token at
+            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>
+            for the repo <strong id="repoName"></strong> with <strong>Contents: Read and write</strong>.
+            Only GitHub accounts with write access to the repo can sign in. The token stays in this browser tab only.
+        </p>
+        <form id="loginForm">
+            <div class="field">
+                <label for="token">GitHub token</label>
+                <input type="password" id="token" autocomplete="off" required>
+            </div>
+            <button class="btn" type="submit" id="loginBtn">SIGN IN</button>
+        </form>
+    </section>
+
+    <div id="appView" class="hidden">
+        <section class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:1rem;">
+                <h2 style="margin:0;">Products</h2>
+                <button class="btn" type="button" id="newBtn">+ ADD PRODUCT</button>
+            </div>
+            <table>
+                <thead><tr><th></th><th>Name</th><th>Price</th><th class="col-desc">Variants</th><th></th></tr></thead>
+                <tbody id="productRows"></tbody>
+            </table>
+        </section>
+
+        <section class="card hidden" id="formCard">
+            <h2 id="formTitle">Add product</h2>
+            <form id="productForm">
+                <div class="row">
+                    <div class="field"><label for="fName">Name</label><input id="fName" required></div>
+                    <div class="field"><label for="fPrice">Price (DA)</label><input id="fPrice" type="number" min="0" step="1" required></div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <label for="fCategory">Category</label>
+                        <select id="fCategory" required>
+                            <option value="necklaces">Necklaces</option>
+                            <option value="rings">Rings</option>
+                            <option value="earrings">Earrings</option>
+                            <option value="bracelets">Bracelets</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="fBadge">Badge</label>
+                        <select id="fBadge">
+                            <option value="">None</option>
+                            <option value="NEW">NEW</option>
+                            <option value="OUT OF STOCK">OUT OF STOCK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field"><label for="fDesc">Description</label><input id="fDesc"></div>
+                <div class="field">
+                    <label for="fImage">Image</label>
+                    <input id="fImage" type="file" accept="image/png,image/jpeg,image/webp">
+                    <img id="preview" alt="">
+                </div>
+                <div class="field">
+                    <label for="fVariants">Color / Type options (one per line, optional)</label>
+                    <textarea id="fVariants" placeholder="Purple / Amethyst&#10;Pink / Rose Quartz"></textarea>
+                </div>
+                <div class="actions">
+                    <button class="btn" type="submit" id="saveBtn">SAVE</button>
+                    <button class="btn btn-ghost" type="button" id="cancelBtn">CANCEL</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+<div id="status"></div>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
