@@ -6,57 +6,57 @@
 }
 
 .back-nav {
-    background: none;
-    border: none;
-    color: #9a9a95;
-    font-family: 'Georgia', serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.5px;
-    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    margin-right: 0.35rem;
+    padding: 0;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.2rem 0.35rem;
-    margin-right: 0.15rem;
-    transition: color 0.25s ease;
+    justify-content: center;
     flex-shrink: 0;
-    line-height: 1;
+    background: rgba(212, 163, 115, 0.06);
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    border-radius: 50%;
+    color: #d4a373;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.back-nav-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.25s ease;
 }
 
 .back-nav:hover,
 .back-nav:focus-visible {
-    color: #d4a373;
+    background: rgba(212, 163, 115, 0.18);
+    border-color: #d4a373;
     outline: none;
 }
 
-.back-nav-arrow {
-    font-size: 0.9rem;
-    line-height: 1;
+.back-nav:hover .back-nav-icon,
+.back-nav:focus-visible .back-nav-icon {
+    transform: translateX(-2px);
 }
 
-.back-nav-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.back-nav:active {
+    transform: scale(0.94);
 }
 
 @media (max-width: 768px) {
     .back-nav {
-        padding: 0.15rem 0.25rem;
-        margin-right: 0.1rem;
+        width: 34px;
+        height: 34px;
+        margin-right: 0.15rem;
     }
 
-    .back-nav-label {
-        display: none;
+    .back-nav-icon {
+        width: 18px;
+        height: 18px;
     }
 
     .nav-left {
         gap: 0.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .back-nav-arrow {
-        font-size: 0.85rem;
     }
 }

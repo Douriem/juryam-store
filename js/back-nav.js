@@ -25,7 +25,7 @@ function initBackNav() {
     btn.type = 'button';
     btn.className = 'back-nav';
     btn.setAttribute('aria-label', 'Go back');
-    btn.innerHTML = '<span class="back-nav-arrow" aria-hidden="true">←</span><span class="back-nav-label">Back</span>';
+    btn.innerHTML = '<svg class="back-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>';
     btn.addEventListener('click', goBack);
 
     let navLeft = nav.querySelector('.nav-left');
