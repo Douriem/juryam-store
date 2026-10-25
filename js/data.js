@@ -26,6 +26,27 @@ const PRODUCTS = {
             category: 'necklaces',
             badge: null
         },
+        {
+            id: 'neck_4',
+            name: 'Crystal Necklace',
+            price: 1400,
+            image: 'assets/pearl-crystal-necklace.png',
+            description: 'Natural stone and pearl necklace.',
+            category: 'necklaces',
+            badge: 'NEW',
+            variants: [
+                { id: 'gold-gold-plated', label: 'Gold / Gold-Plated' },
+                { id: 'silver-silver-plated', label: 'Silver / Silver-Plated' },
+                { id: 'pearl-natural-pearl', label: 'Pearl / Natural Pearl' },
+                { id: 'white-white-stone', label: 'White / White Stone' },
+                { id: 'pink-rose-quartz', label: 'Pink / Rose Quartz' },
+                { id: 'purple-amethyst', label: 'Purple / Amethyst' },
+                { id: 'green-jade', label: 'Green / Jade' },
+                { id: 'blue-turquoise', label: 'Blue / Turquoise' },
+                { id: 'black-black-stone', label: 'Black / Black Stone' },
+                { id: 'multicolor-natural-stones', label: 'Multicolor / Natural Stones' }
+            ]
+        },
     ],
     rings: [
         {
