@@ -288,6 +288,15 @@
       "description": "",
       "category": "earrings",
       "badge": "NEW"
+    },
+    {
+      "id": "ear_11",
+      "name": "Sibyl earrings",
+      "price": 700,
+      "image": "assets/sibyl-earrings-1793208021389.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
     }
   ],
   "bracelets": [
