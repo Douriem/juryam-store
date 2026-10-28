@@ -95,6 +95,15 @@
       "description": "",
       "category": "necklaces",
       "badge": null
+    },
+    {
+      "id": "neck_7",
+      "name": "enchanted necklace",
+      "price": 700,
+      "image": "assets/enchanted-necklace-1793206256532.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": null
     }
   ],
   "rings": [
