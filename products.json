@@ -140,6 +140,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_12",
+      "name": "midnight shimmer necklace",
+      "price": 700,
+      "image": "assets/midnight-shimmer-necklace-1793207146490.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
