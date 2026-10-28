@@ -149,6 +149,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_13",
+      "name": "Eclipse Hoop necklace",
+      "price": 700,
+      "image": "assets/eclipse-hoop-necklace-1793207244428.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
