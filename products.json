@@ -279,6 +279,15 @@
       "description": "",
       "category": "earrings",
       "badge": "NEW"
+    },
+    {
+      "id": "ear_10",
+      "name": "Fiery Red Earrings",
+      "price": 660,
+      "image": "assets/fiery-red-earrings-1793207681737.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
     }
   ],
   "bracelets": [
