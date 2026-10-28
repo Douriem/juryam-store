@@ -122,6 +122,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_10",
+      "name": "sparkle bloom necklace",
+      "price": 700,
+      "image": "assets/sparkle-bloom-necklace-1793206975439.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
