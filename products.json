@@ -180,6 +180,15 @@
       "description": "Elegant quartz crystals.",
       "category": "earrings",
       "badge": "NEW"
+    },
+    {
+      "id": "ear_7",
+      "name": "Heartlight",
+      "price": 900,
+      "image": "assets/heartlight-1793206452197.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
     }
   ],
   "bracelets": [
