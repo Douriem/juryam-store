@@ -207,6 +207,15 @@
       "description": "",
       "category": "earrings",
       "badge": "NEW"
+    },
+    {
+      "id": "ear_9",
+      "name": "Orbit earrings",
+      "price": 700,
+      "image": "assets/orbit-earrings-1793206814260.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
     }
   ],
   "bracelets": [
