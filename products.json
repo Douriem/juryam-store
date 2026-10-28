@@ -176,6 +176,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_16",
+      "name": "Dusk Necklace",
+      "price": 650,
+      "image": "assets/dusk-necklace-1793207559089.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
