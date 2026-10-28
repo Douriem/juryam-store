@@ -167,6 +167,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_15",
+      "name": "Violet Oracle Necklace",
+      "price": 700,
+      "image": "assets/violet-oracle-necklace-1793207430451.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
