@@ -104,6 +104,15 @@
       "description": "",
       "category": "necklaces",
       "badge": null
+    },
+    {
+      "id": "neck_8",
+      "name": "Midnight Gaze",
+      "price": 600,
+      "image": "assets/midnight-gaze-1793206364967.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
