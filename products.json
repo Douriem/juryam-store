@@ -131,6 +131,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_11",
+      "name": "Garden Spell necklace",
+      "price": 650,
+      "image": "assets/garden-spell-necklace-1793207082339.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
