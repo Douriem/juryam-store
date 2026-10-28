@@ -189,6 +189,15 @@
       "description": "",
       "category": "earrings",
       "badge": "NEW"
+    },
+    {
+      "id": "ear_8",
+      "name": "stardrop",
+      "price": 700,
+      "image": "assets/stardrop-1793206585439.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
     }
   ],
   "bracelets": [
