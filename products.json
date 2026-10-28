@@ -77,6 +77,15 @@
           "label": "Multicolor / Natural Stones"
         }
       ]
+    },
+    {
+      "id": "neck_5",
+      "name": "mystical necklace",
+      "price": 700,
+      "image": "assets/mystical-necklace-1793184837216.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
