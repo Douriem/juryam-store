@@ -113,6 +113,15 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_9",
+      "name": "Wild Bloom necklace",
+      "price": 700,
+      "image": "assets/wild-bloom-necklace-1793206702461.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW"
     }
   ],
   "rings": [
