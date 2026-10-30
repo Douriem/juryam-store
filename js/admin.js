@@ -240,9 +240,12 @@ async function saveProduct(event) {
             image: file ? await uploadImage(file, name) : existing.image,
             description: $('fDesc').value.trim(),
             category,
-            badge: $('fBadge').value || null
+            badge: $('fBadge').value || null,
+            // Used to show the newest pieces first on the homepage and Explore page
+            createdAt: existing ? existing.createdAt : new Date().toISOString()
         };
-        const variants = parseVariants();
+        const previous = existing && existing.variants ? existing.variants : [];
+        const variants = parseVariants().map(v => ({ ...previous.find(o => o.id === v.id), ...v }));
         if (variants.length) product.variants = variants;
 
         data[category] = data[category] || [];

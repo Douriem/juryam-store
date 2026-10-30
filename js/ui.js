@@ -143,6 +143,15 @@ sharedStyles.textContent = `
         font-size: 0.9rem;
         transition: all 0.3s;
     }
+    .size-btn .swatch {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 0.45rem;
+        vertical-align: -1px;
+        border: 1px solid rgba(245, 245, 240, 0.35);
+    }
     .size-btn:hover, .size-btn.selected {
         border-color: #d4a373;
         color: #d4a373;
@@ -177,6 +186,7 @@ sharedStyles.textContent = `
     .modal-btn-secondary:hover { background: rgba(212, 163, 115, 0.1); }
 
     .checkout-form input,
+    .checkout-form select,
     .checkout-form textarea {
         width: 100%;
         padding: 0.75rem 1rem;
@@ -186,12 +196,77 @@ sharedStyles.textContent = `
         font-family: 'Georgia', serif;
         font-size: 0.95rem;
     }
+    .checkout-form select {
+        appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, #d4a373 50%), linear-gradient(135deg, #d4a373 50%, transparent 50%);
+        background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+        background-size: 5px 5px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    .checkout-form select option { background: #111; color: #f5f5f0; }
     .checkout-form input:focus,
+    .checkout-form select:focus,
     .checkout-form textarea:focus {
         outline: none;
         border-color: #d4a373;
     }
     .checkout-form textarea { resize: vertical; min-height: 70px; }
+
+    .delivery-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+    .modal-field .delivery-option {
+        margin-bottom: 0;
+        text-transform: none;
+        letter-spacing: normal;
+        font-size: inherit;
+        color: inherit;
+    }
+    .delivery-option {
+        position: relative;
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.75rem 0.9rem;
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        background: rgba(212, 163, 115, 0.03);
+        cursor: pointer;
+        transition: border-color 0.3s, background 0.3s;
+    }
+    .delivery-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .delivery-option:has(input:checked) {
+        border-color: #d4a373;
+        background: rgba(212, 163, 115, 0.1);
+    }
+    .delivery-option:has(input:focus-visible) { outline: 1px solid #d4a373; outline-offset: 2px; }
+    .delivery-option-title { color: #f5f5f0; font-size: 0.9rem; }
+    .delivery-option-meta { color: #c9c9c4; font-size: 0.78rem; }
+    .delivery-option-price { color: #d4a373; font-size: 0.95rem; margin-top: 0.15rem; }
+    .delivery-hint { color: #8a8a85; font-size: 0.8rem; margin-top: 0.4rem; font-style: italic; }
+
+    .checkout-pay {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.9rem 0 0.4rem;
+        border-top: 1px solid rgba(212, 163, 115, 0.15);
+        color: #c9c9c4;
+        font-size: 0.85rem;
+    }
+    .checkout-pay strong { color: #d4a373; font-size: 1.15rem; font-weight: 400; white-space: nowrap; }
+    .checkout-pending { color: #8a8a85; font-style: italic; }
+
+    @media (max-width: 420px) {
+        .delivery-options { grid-template-columns: 1fr; }
+    }
 
     .checkout-summary {
         background: rgba(212, 163, 115, 0.05);
@@ -366,10 +441,25 @@ function injectModals() {
                             <input type="tel" id="orderPhone" name="phone" required>
                         </div>
                         <div class="modal-field">
-                            <label for="orderCity">City *</label>
-                            <input type="text" id="orderCity" name="city" required>
+                            <label for="orderWilaya">Wilaya *</label>
+                            <select id="orderWilaya" name="wilaya" required>
+                                <option value="">Select your wilaya</option>
+                                ${wilayaOptions()}
+                            </select>
                         </div>
                         <div class="modal-field">
+                            <label for="orderCommune">Commune *</label>
+                            <input type="text" id="orderCommune" name="commune" required>
+                        </div>
+                        <div class="modal-field">
+                            <label>Delivery *</label>
+                            <div class="delivery-options" id="deliveryMethods"></div>
+                        </div>
+                        <div class="modal-field" id="deliveryServiceField">
+                            <label>Shipping speed *</label>
+                            <div class="delivery-options" id="deliveryServices"></div>
+                        </div>
+                        <div class="modal-field" id="addressField">
                             <label for="orderAddress">Address *</label>
                             <input type="text" id="orderAddress" name="address" required>
                         </div>
@@ -377,6 +467,7 @@ function injectModals() {
                             <label for="orderNotes">Notes</label>
                             <textarea id="orderNotes" name="notes" placeholder="Any special requests..."></textarea>
                         </div>
+                        <div class="checkout-pay" id="checkoutPay"></div>
                         <button type="submit" class="btn-checkout" id="sendOrderBtn">SEND ORDER</button>
                     </form>
                 </div>
@@ -401,6 +492,7 @@ function injectModals() {
     document.getElementById('checkoutModal').addEventListener('click', function(e) {
         if (e.target === this) closeCheckout();
     });
+    document.getElementById('checkoutForm').addEventListener('change', handleDeliveryChange);
     document.getElementById('confirmationModal').addEventListener('click', function(e) {
         if (e.target === this) closeConfirmation();
     });
@@ -442,7 +534,7 @@ function openAddToCartModal(productId) {
     document.getElementById('qtyField').style.display = hasVariants ? 'none' : 'block';
     if (hasVariants) {
         document.getElementById('variantOptions').innerHTML = product.variants.map(v =>
-            `<button type="button" class="size-btn" data-variant="${v.id}">${v.label}</button>`
+            `<button type="button" class="size-btn" data-variant="${v.id}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}</button>`
         ).join('');
         renderVariantSelection();
     }
@@ -459,6 +551,10 @@ function handleVariantClick(e) {
         const id = optionBtn.dataset.variant;
         if (id in modalVariantQty) delete modalVariantQty[id];
         else modalVariantQty[id] = 1;
+        const chosen = product.variants.find(v => v.id === id);
+        if (chosen && chosen.image) {
+            document.querySelector('#modalProductPreview img').src = chosen.image;
+        }
         renderVariantSelection();
         return;
     }
@@ -634,8 +730,12 @@ function updateCheckoutSummary() {
     if (!summary) return;
 
     const subtotal = getCartTotal();
-    const delivery = JURYAM_CONFIG.DELIVERY_COST;
-    const total = subtotal + delivery;
+    const fee = getDeliveryFee();
+    const rate = delivery.wilaya ? getDeliveryRate(delivery.wilaya, delivery.service) : null;
+    const deliveryLabel = rate
+        ? `Delivery · ${rate.name}, ${delivery.method === 'home' ? 'home' : 'stop-desk'}`
+        : 'Delivery';
+    const pending = '<span class="checkout-pending">Select your wilaya</span>';
 
     summary.innerHTML = `
         <h4>Your Order</h4>
@@ -647,15 +747,82 @@ function updateCheckoutSummary() {
         `).join('')}
         <div class="checkout-totals">
             <div class="checkout-row"><span>Subtotal</span><span>${subtotal} DA</span></div>
-            <div class="checkout-row"><span>Delivery</span><span>${delivery} DA</span></div>
-            <div class="checkout-row total"><span>Total</span><span>${total} DA</span></div>
+            <div class="checkout-row"><span>${deliveryLabel}</span><span>${fee === null ? pending : `${fee} DA`}</span></div>
+            <div class="checkout-row total"><span>Total</span><span>${fee === null ? pending : `${subtotal + fee} DA`}</span></div>
         </div>
     `;
+    renderDeliveryChoices();
+}
+
+function wilayaOptions() {
+    return DELIVERY_RATES[JURYAM_CONFIG.DELIVERY_SERVICES[0]].rows
+        .slice()
+        .sort((a, b) => a[1] - b[1])
+        .map(r => `<option value="${r[1]}">${String(r[1]).padStart(2, '0')} - ${r[0]}</option>`)
+        .join('');
+}
+
+function deliveryOption(name, value, checked, title, meta, price) {
+    return `
+        <label class="delivery-option">
+            <input type="radio" name="${name}" value="${value}" ${checked ? 'checked' : ''}>
+            <span class="delivery-option-title">${title}</span>
+            <span class="delivery-option-meta">${meta}</span>
+            <span class="delivery-option-price">${price}</span>
+        </label>
+    `;
+}
+
+function daysLabel(days) {
+    return `${days} ${days === 1 ? 'day' : 'days'}`;
+}
+
+// Prices on each option follow the chosen wilaya, so the fee is visible before ordering.
+function renderDeliveryChoices() {
+    const methods = document.getElementById('deliveryMethods');
+    if (!methods) return;
+
+    const rate = delivery.wilaya ? getDeliveryRate(delivery.wilaya, delivery.service) : null;
+    const price = key => rate ? `${rate[key]} DA` : '—';
+
+    methods.innerHTML =
+        deliveryOption('delivery_method', 'home', delivery.method === 'home', 'Home delivery', 'To your address', price('home')) +
+        deliveryOption('delivery_method', 'desk', delivery.method === 'desk', 'Stop-desk', 'Pick up at the courier office', price('desk'));
+
+    const services = JURYAM_CONFIG.DELIVERY_SERVICES;
+    document.getElementById('deliveryServiceField').style.display = services.length > 1 ? '' : 'none';
+    document.getElementById('deliveryServices').innerHTML = services.map(key => {
+        const r = delivery.wilaya ? getDeliveryRate(delivery.wilaya, key) : null;
+        return deliveryOption('delivery_service', key, delivery.service === key, DELIVERY_RATES[key].label,
+            r ? `About ${daysLabel(r.days)}` : 'Select your wilaya', r ? `${r[delivery.method]} DA` : '—');
+    }).join('');
+
+    // Stop-desk parcels are collected at the office, so a street address is optional.
+    const address = document.getElementById('orderAddress');
+    address.required = delivery.method === 'home';
+    document.querySelector('#addressField label').textContent = delivery.method === 'home' ? 'Address *' : 'Address (optional)';
+
+    const fee = getDeliveryFee();
+    document.getElementById('checkoutPay').innerHTML = fee === null
+        ? '<span>Total to pay</span><span class="checkout-pending">Select your wilaya to see delivery</span>'
+        : `<span>Total to pay (incl. ${fee} DA delivery)</span><strong>${getCartTotal() + fee} DA</strong>`;
+}
+
+function handleDeliveryChange(e) {
+    const field = e.target;
+    if (field.id === 'orderWilaya') delivery.wilaya = field.value ? Number(field.value) : null;
+    else if (field.name === 'delivery_method') delivery.method = field.value;
+    else if (field.name === 'delivery_service') delivery.service = field.value;
+    else return;
+    updateCheckoutSummary();
 }
 
 function showOrderConfirmation() {
     closeCheckout();
     document.getElementById('checkoutForm').reset();
+    delivery.wilaya = null;
+    delivery.method = 'home';
+    delivery.service = JURYAM_CONFIG.DELIVERY_SERVICES[0];
     document.getElementById('confirmationModal').classList.add('active');
 }
 
@@ -663,7 +830,15 @@ function closeConfirmation() {
     document.getElementById('confirmationModal').classList.remove('active');
 }
 
+function addDeliveryNote() {
+    const subtotal = document.querySelector('.cart-subtotal');
+    if (!subtotal || document.querySelector('.cart-delivery-note')) return;
+    subtotal.insertAdjacentHTML('afterend',
+        '<p class="cart-info cart-delivery-note" style="margin: -0.5rem 0 0.75rem; text-align: left;">Delivery fee is calculated at checkout from your wilaya.</p>');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     injectModals();
+    addDeliveryNote();
     updateCartUI();
 });

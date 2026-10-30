@@ -43,7 +43,8 @@ function addToCart(productId, quantity, size, variant, silent) {
             cartKey,
             quantity: qty,
             size: size || null,
-            variant: variant ? variant.label : null
+            variant: variant ? variant.label : null,
+            image: variant && variant.image ? variant.image : product.image
         });
     }
 
@@ -84,8 +85,28 @@ function getCartCount() {
     return cart.reduce((count, item) => count + item.quantity, 0);
 }
 
+// Delivery choice made in the checkout form; fee is null until a wilaya is picked.
+const delivery = {
+    wilaya: null,
+    method: 'home',
+    service: JURYAM_CONFIG.DELIVERY_SERVICES[0]
+};
+
+function getDeliveryRate(wilayaCode, service) {
+    const row = DELIVERY_RATES[service].rows.find(r => r[1] === Number(wilayaCode));
+    if (!row) return null;
+    const [name, code, zone, home, desk, days] = row;
+    return { name, code, zone, home, desk, days };
+}
+
+function getDeliveryFee() {
+    if (!delivery.wilaya) return null;
+    const rate = getDeliveryRate(delivery.wilaya, delivery.service);
+    return rate ? rate[delivery.method] : null;
+}
+
 function getOrderTotal() {
-    return getCartTotal() + JURYAM_CONFIG.DELIVERY_COST;
+    return getCartTotal() + (getDeliveryFee() || 0);
 }
 
 function saveCart() {

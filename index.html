@@ -444,6 +444,14 @@
             pointer-events: none;
         }
 
+        #about,
+        #explore,
+        #categories,
+        #contact {
+            /* keep section titles clear of the fixed nav when scrolled to */
+            scroll-margin-top: 2rem;
+        }
+
         #about {
             padding: 5rem 4rem;
             background: #0a0a0a;
@@ -498,7 +506,9 @@
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
+            max-width: 1040px;
+            margin: 0 auto;
         }
 
         .categories-card {
@@ -567,6 +577,40 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* GSAP reveal (js/category-reveal.js) — CSS transitions pause until each card is revealed */
+        .categories-grid.gsap-ready .categories-card:not(.is-revealed),
+        .categories-grid.gsap-ready .categories-card:not(.is-revealed) .categories-image,
+        .categories-grid.gsap-ready .categories-card:not(.is-revealed) .categories-name,
+        .categories-grid.gsap-ready .categories-card:not(.is-revealed) .categories-count {
+            transition: none;
+        }
+
+        .card-trace {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .categories-card.is-revealed .card-trace {
+            opacity: 0.35;
+            transition: opacity 0.4s;
+        }
+
+        .categories-card.is-revealed:hover .card-trace {
+            opacity: 1;
+        }
+
+        .card-trace span {
+            position: absolute;
+            background: #d4a373;
+        }
+
+        .trace-top { top: 0; left: 0; right: 0; height: 1px; transform-origin: left; }
+        .trace-right { top: 0; right: 0; bottom: 0; width: 1px; transform-origin: top; }
+        .trace-bottom { bottom: 0; left: 0; right: 0; height: 1px; transform-origin: right; }
+        .trace-left { top: 0; left: 0; bottom: 0; width: 1px; transform-origin: bottom; }
 
         #contact {
             padding: 5rem 4rem;
@@ -649,14 +693,9 @@
         @media (max-width: 1024px) {
             .categories-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
             }
         }
-
-       @media (max-width: 1024px) {
-    .categories-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
     .mobile-menu-btn {
     display: none;
@@ -722,6 +761,139 @@
     display: none;
     }
 
+    /* Mobile menu — Categories drill-down */
+    .mobile-nav-item {
+    max-height: 4rem;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), margin 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+    }
+
+    @keyframes menuDrop {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+    }
+
+    nav + .nav-links.submenu-open .mobile-nav-item {
+    max-height: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    padding: 0.25rem 0;
+    color: #c9c9c4;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s;
+    }
+
+    .mobile-nav-toggle:hover,
+    .submenu-open .mobile-nav-toggle {
+    color: #d4a373;
+    }
+
+    .mobile-nav-toggle svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin 0.3s ease;
+    }
+
+    .mobile-nav-back {
+    width: 0 !important;
+    opacity: 0;
+    transform: translateX(6px);
+    margin-right: -0.5rem;
+    }
+
+    .submenu-open .mobile-nav-back {
+    width: 16px !important;
+    opacity: 1;
+    transform: translateX(0);
+    margin-right: 0;
+    }
+
+    .submenu-open .mobile-nav-chevron {
+    width: 0 !important;
+    opacity: 0;
+    transform: translateX(-6px);
+    margin-left: -0.5rem;
+    }
+
+    .mobile-submenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .submenu-open .mobile-submenu {
+    grid-template-rows: 1fr;
+    }
+
+    .mobile-submenu-inner {
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.15rem;
+    }
+
+    .mobile-submenu-inner::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    margin-top: 0.9rem;
+    background: rgba(212, 163, 115, 0.4);
+    }
+
+    nav + .nav-links .mobile-submenu a {
+    color: #c9c9c4;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s;
+    }
+
+    nav + .nav-links.submenu-open .mobile-submenu a {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    nav + .nav-links .mobile-submenu a:nth-child(1) { transition-delay: 0.08s; }
+    nav + .nav-links .mobile-submenu a:nth-child(2) { transition-delay: 0.12s; }
+    nav + .nav-links .mobile-submenu a:nth-child(3) { transition-delay: 0.16s; }
+    nav + .nav-links .mobile-submenu a:nth-child(4) { transition-delay: 0.20s; }
+    nav + .nav-links .mobile-submenu a:nth-child(5) { transition-delay: 0.24s; }
+
+    nav + .nav-links .mobile-submenu a:hover {
+    color: #d4a373;
+    }
+
+    nav + .nav-links .mobile-submenu a.submenu-all {
+    color: #d4a373;
+    font-style: italic;
+    letter-spacing: 1px;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+    .mobile-nav-item,
+    .mobile-submenu,
+    nav + .nav-links .mobile-submenu a {
+        transition: none;
+    }
+    }
+
     @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
@@ -731,25 +903,37 @@
         display: none;
     }
 
+    /* Compact dropdown panel anchored under the hamburger */
     nav + .nav-links.active {
         display: flex;
         position: fixed;
-        left: 0;
-        top: 70px;
+        left: 0.75rem;
+        top: 68px;
         flex-direction: column;
+        gap: 0;
         background-color: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(10px);
-        width: 100%;
-        text-align: center;
-        transition: left 0.3s ease;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
-        padding: 2rem 0;
-        border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+        width: min(260px, calc(100vw - 1.5rem));
+        max-height: calc(100vh - 84px);
+        overflow-y: auto;
+        text-align: left;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+        padding: 0.75rem 1.5rem;
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 4px;
         z-index: 999;
+        transform-origin: top left;
+        animation: menuDrop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     nav + .nav-links.active li {
-        margin: 1.5rem 0;
+        margin: 0.85rem 0;
+    }
+
+    nav + .nav-links .mobile-submenu-inner {
+        align-items: flex-start;
+        gap: 0.95rem;
+        padding-left: 1.5rem;
     }
 
     .mobile-only {
@@ -811,8 +995,25 @@
     }
 
     .categories-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+    }
+
+    .categories-overlay {
+        padding: 1.25rem 0.85rem 0.9rem;
+    }
+
+    .categories-name {
+        font-size: 0.85rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.25rem;
+    }
+
+    /* no hover on touch screens, so keep the count visible */
+    .categories-count {
+        font-size: 0.75rem;
+        opacity: 1;
+        transform: none;
     }
 
     footer {
@@ -848,6 +1049,7 @@
     }
     }
     </style>
+    <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/back-nav.css">
 </head>
@@ -882,19 +1084,19 @@
 
 
     <nav class="nav-main">
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span class="hamburger"></span>
     </button>
 
     <a href="/" class="logo">
         <img src="assets/desktop.png" alt="Juryam">
     </a>
-    
+
     <div class="nav-right">
         <ul class="nav-links">
-            <li><a href="#about">À PROPOS</a></li>
-            <li><a href="#categories">CATÉGORIES</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#about" data-i18n="navAbout">À PROPOS</a></li>
+            <li><a href="#categories" data-i18n="navCategories">CATÉGORIES</a></li>
+            <li><a href="#contact" data-i18n="navContact">CONTACT</a></li>
             <li class="mobile-only"><button class="lang-toggle">🇫🇷 FR</button></li>
         </ul>
         <button class="lang-toggle desktop-only">🇫🇷 FR</button>
@@ -908,21 +1110,36 @@
     </div>
 </nav>
 
-    <ul class="nav-links">
-        <li><a href="#about" onclick="closeMobileMenu()">À PROPOS</a></li>
-        <li><a href="#categories" onclick="closeMobileMenu()">CATÉGORIES</a></li>
-        <li><a href="#contact" onclick="closeMobileMenu()">CONTACT</a></li>
-        <li><button class="lang-toggle">🇫🇷 FR</button></li>
+    <ul class="nav-links" id="mobileNav">
+        <li class="mobile-nav-item"><a href="#about" onclick="closeMobileMenu()" data-i18n="navAbout">À PROPOS</a></li>
+        <li class="mobile-nav-categories">
+            <button type="button" class="mobile-nav-toggle" onclick="toggleCategorySubmenu()" aria-expanded="false" aria-controls="mobileCategoryMenu">
+                <svg class="mobile-nav-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+                <span data-i18n="navCategories">CATÉGORIES</span>
+                <svg class="mobile-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+            </button>
+            <div class="mobile-submenu" id="mobileCategoryMenu">
+                <div class="mobile-submenu-inner">
+                    <a href="necklaces.html" onclick="closeMobileMenu()" data-i18n="catNecklaces">COLLIERS</a>
+                    <a href="rings.html" onclick="closeMobileMenu()" data-i18n="catRings">BAGUES</a>
+                    <a href="earrings.html" onclick="closeMobileMenu()" data-i18n="catEarrings">BOUCLES D'OREILLES</a>
+                    <a href="bracelets.html" onclick="closeMobileMenu()" data-i18n="catBracelets">BRACELETS</a>
+                    <a href="explore.html" onclick="closeMobileMenu()" class="submenu-all" data-i18n="shopAll">Toute la boutique</a>
+                </div>
+            </div>
+        </li>
+        <li class="mobile-nav-item"><a href="#contact" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a></li>
+        <li class="mobile-nav-item"><button class="lang-toggle">🇫🇷 FR</button></li>
     </ul>
 
     <section class="hero">
         <div class="hero-left">
             <div class="hero-content">
                 <h1>JURYAM</h1>
-                <p class="tagline">Créé pour Votre Énergie</p>
+                <p class="tagline" data-i18n="heroTagline">Créé pour Votre Énergie</p>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('categories')">EXPLORER LES BIJOUX</button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('categories')">VOIR CATÉGORIES</button>
+                    <button class="btn btn-primary" onclick="scrollToSection('explore')" data-i18n="heroBtn1">EXPLORER LES BIJOUX</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('categories')" data-i18n="heroBtn2">VOIR CATÉGORIES</button>
                 </div>
             </div>
         </div>
@@ -934,54 +1151,70 @@
 
     <section id="about">
         <div class="section-header">
-            <h2>Notre Histoire</h2>
-            <p>L'Art de l'Esprit Bohème</p>
+            <h2 data-i18n="aboutTitle">Notre Histoire</h2>
+            <p data-i18n="aboutSub">L'Art de l'Esprit Bohème</p>
         </div>
         <div class="about-content">
-            <p>
-                Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire 
-                d'esprit libre et de créativité sans limite. Inspirés par les traditions et 
+            <p data-i18n="aboutP1">
+                Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire
+                d'esprit libre et de créativité sans limite. Inspirés par les traditions et
                 l'esthétique naturelle, nos bijoux sont conçus pour ceux qui cherchent l'authenticité.
             </p>
-            <p>
-                Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels 
+            <p data-i18n="aboutP2">
+                Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels
                 et des designs intemporels qui capturent l'essence de la liberté et de l'expression personnelle.
             </p>
         </div>
     </section>
 
+    <section class="explore-section" id="explore">
+        <div class="section-header">
+            <h2 data-i18n="exploreTitle">Explorer la Boutique</h2>
+            <p data-i18n="exploreSub">Nos dernières créations, choisies pour vous</p>
+        </div>
+        <div class="carousel zoomable">
+            <button type="button" class="carousel-arrow prev" onclick="scrollCarousel(-1)" aria-label="Previous products" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+            </button>
+            <div class="carousel-track" id="exploreTrack"></div>
+            <button type="button" class="carousel-arrow next" onclick="scrollCarousel(1)" aria-label="Next products">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+            </button>
+        </div>
+    </section>
+
     <section class="categories-section" id="categories">
         <div class="section-header">
-            <h2>Catégories</h2>
-            <p>Explorez nos catégories soigneusement sélectionnées</p>
+            <h2 data-i18n="categoriesTitle">Catégories</h2>
+            <p data-i18n="categoriesSub">Explorez nos catégories soigneusement sélectionnées</p>
         </div>
         <div class="categories-grid">
             <a href="necklaces.html" class="categories-card" style="transition-delay: 0.1s;">
                 <img src="assets/necklaces.png" alt="Necklaces" class="categories-image">
                 <div class="categories-overlay">
-                    <h3 class="categories-name">COLLIERS</h3>
-                    <p class="categories-count">4 pièces</p>
+                    <h3 class="categories-name" data-i18n="catNecklaces">COLLIERS</h3>
+                    <p class="categories-count" data-category="necklaces"></p>
                 </div>
             </a>
             <a href="rings.html" class="categories-card" style="transition-delay: 0.2s;">
                 <img src="assets/rings.png" alt="Rings" class="categories-image">
                 <div class="categories-overlay">
-                    <h3 class="categories-name">BAGUES</h3>
-                    <p class="categories-count">0 pièces</p>
+                    <h3 class="categories-name" data-i18n="catRings">BAGUES</h3>
+                    <p class="categories-count" data-category="rings"></p>
                 </div>
             </a>
             <a href="earrings.html" class="categories-card" style="transition-delay: 0.3s;">
                 <img src="assets/earrings.png" alt="Earrings" class="categories-image">
                 <div class="categories-overlay">
-                    <h3 class="categories-name">BOUCLES D'OREILLES</h3>
-                    <p class="categories-count"> pièces</p>
+                    <h3 class="categories-name" data-i18n="catEarrings">BOUCLES D'OREILLES</h3>
+                    <p class="categories-count" data-category="earrings"></p>
                 </div>
             </a>
             <a href="bracelets.html" class="categories-card" style="transition-delay: 0.4s;">
                 <img src="assets/bracelets.png" alt="Bracelets" class="categories-image">
                 <div class="categories-overlay">
-                    <h3 class="categories-name">BRACELETS</h3>
-                    <p class="categories-count">0 pièces</p>
+                    <h3 class="categories-name" data-i18n="catBracelets">BRACELETS</h3>
+                    <p class="categories-count" data-category="bracelets"></p>
                 </div>
             </a>
         </div>
@@ -989,17 +1222,17 @@
 
     <section id="contact">
         <div class="section-header">
-            <h2>Contactez-Nous</h2>
-            <p>Rejoignez Notre Tribu Créative</p>
+            <h2 data-i18n="contactTitle">Contactez-Nous</h2>
+            <p data-i18n="contactSub">Rejoignez Notre Tribu Créative</p>
         </div>
         <div class="contact-content">
             <img src="assets/juryam-logo.png" alt="Juryam Logo" class="contact-logo-img">
-            <p class="contact-text">
-                Suivez notre voyage créatif et découvrez nos nouvelles créations. 
+            <p class="contact-text" data-i18n="contactText">
+                Suivez notre voyage créatif et découvrez nos nouvelles créations.
                 Nous sommes toujours ravis de partager notre passion avec des âmes similaires.
             </p>
             <div class="social-links">
-                <a href="https://www.instagram.com/duryamstore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link">
+                <a href="https://www.instagram.com/juryamstore?mdxt=MWg5dXVvbDdsbjN1cw==" target="_blank" rel="noopener" class="social-link">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
@@ -1016,23 +1249,36 @@
     </section>
 
     <footer>
-        
-        <p class="footer-tagline">JURYAM © 2025 • Créé pour Votre Énergie</p>
-        </footer>
+        <p class="footer-tagline">
+            <span data-i18n="footerTagline">JURYAM © 2025 • Créé pour Votre Énergie</span> •
+            <a href="https://douriemportfolio.netlify.app/" target="_blank" rel="noopener" class="footer-credit">
+                <span data-i18n="footerCredit">Réalisé par DouriemDev</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            </a>
+        </p>
+    </footer>
 
     <script src="js/config.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/delivery-rates.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/checkout.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/back-nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/category-reveal.js"></script>
 
     <script>
         let currentLang = 'fr';
 
         const translations = {
             fr: {
-                nav: ['À PROPOS', 'CATÉGORIES', 'CONTACT'],
+                navAbout: 'À PROPOS',
+                navCategories: 'CATÉGORIES',
+                navContact: 'CONTACT',
+                shopAll: 'Toute la boutique',
                 heroTagline: 'Créé pour Votre Énergie',
                 heroBtn1: 'EXPLORER LES BIJOUX',
                 heroBtn2: 'VOIR CATÉGORIES',
@@ -1040,27 +1286,33 @@
                 aboutSub: "L'Art de l'Esprit Bohème",
                 aboutP1: "Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire d'esprit libre et de créativité sans limite. Inspirés par les traditions et l'esthétique naturelle, nos bijoux sont conçus pour ceux qui cherchent l'authenticité.",
                 aboutP2: "Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels et des designs intemporels qui capturent l'essence de la liberté et de l'expression personnelle.",
+                exploreTitle: 'Explorer la Boutique',
+                exploreSub: 'Nos dernières créations, choisies pour vous',
+                showAll: 'TOUT VOIR',
+                showAllSub: 'Toute la collection',
                 categoriesTitle: 'Catégories',
                 categoriesSub: 'Explorez nos catégories soigneusement sélectionnées',
                 contactTitle: 'Contactez-Nous',
                 contactSub: 'Rejoignez Notre Tribu Créative',
                 contactText: 'Suivez notre voyage créatif et découvrez nos nouvelles créations. Nous sommes toujours ravis de partager notre passion avec des âmes similaires.',
                 footerTagline: 'JURYAM © 2025 • Créé pour Votre Énergie',
+                footerCredit: 'Réalisé par DouriemDev',
                 cartTitle: 'VOTRE PANIER',
                 emptyCart: 'Votre panier est vide',
                 emptyCartSub: 'Commencez à ajouter de la magie ✨',
                 subtotal: 'SOUS-TOTAL',
-                cartInfo: '💬 Contactez-nous pour finaliser votre commande',
-                categories: {
-                    necklaces: 'COLLIERS',
-                    rings: 'BAGUES',
-                    earrings: "BOUCLES D'OREILLES",
-                    bracelets: 'BRACELETS',
-                    pieces: 'pièces'
-                }
+                catNecklaces: 'COLLIERS',
+                catRings: 'BAGUES',
+                catEarrings: "BOUCLES D'OREILLES",
+                catBracelets: 'BRACELETS',
+                piece: 'pièce',
+                pieces: 'pièces'
             },
             en: {
-                nav: ['ABOUT', 'CATEGORIES', 'CONTACT'],
+                navAbout: 'ABOUT',
+                navCategories: 'CATEGORIES',
+                navContact: 'CONTACT',
+                shopAll: 'Shop all',
                 heroTagline: 'Curated for Your Energy',
                 heroBtn1: 'EXPLORE JEWELRY',
                 heroBtn2: 'VIEW CATEGORIES',
@@ -1068,39 +1320,42 @@
                 aboutSub: 'The Art of Bohemian Spirit',
                 aboutP1: 'Juryam celebrates the beauty of bohemian craftsmanship, where each piece tells a story of free spirit and limitless creativity. Inspired by traditions and natural aesthetics, our jewelry is designed for those seeking authenticity.',
                 aboutP2: 'Each creation is handcrafted with love, using natural materials and timeless designs that capture the essence of freedom and personal expression.',
+                exploreTitle: 'Explore the Store',
+                exploreSub: 'Our latest creations, curated for you',
+                showAll: 'SHOW ALL',
+                showAllSub: 'The full collection',
                 categoriesTitle: 'Categories',
                 categoriesSub: 'Explore our curated categories',
                 contactTitle: 'Contact Us',
                 contactSub: 'Join Our Creative Tribe',
                 contactText: 'Follow our creative journey and discover our new creations. We are always delighted to share our passion with like-minded souls.',
                 footerTagline: 'JURYAM © 2025 • Curated for Your Energy',
+                footerCredit: 'Made by DouriemDev',
                 cartTitle: 'YOUR CART',
                 emptyCart: 'Your cart is empty',
                 emptyCartSub: 'Start adding some magic ✨',
                 subtotal: 'SUBTOTAL',
-                cartInfo: '💬 Contact us to complete your order',
-                categories: {
-                    necklaces: 'NECKLACES',
-                    rings: 'RINGS',
-                    earrings: 'EARRINGS',
-                    bracelets: 'BRACELETS',
-                    pieces: 'pieces'
-                }
+                catNecklaces: 'NECKLACES',
+                catRings: 'RINGS',
+                catEarrings: 'EARRINGS',
+                catBracelets: 'BRACELETS',
+                piece: 'piece',
+                pieces: 'pieces'
             }
         };
 
         function checkScroll() {
             const header = document.querySelectorAll('.section-header');
-            const cards = document.querySelectorAll('.categories-card');
+            const cards = document.querySelectorAll('.categories-card, #exploreTrack .product-card:not(.product-skeleton)');
             const screenHeight = window.innerHeight;
-            
+
             header.forEach(h => {
                 const headerPos = h.getBoundingClientRect().top;
                 if (headerPos < screenHeight - 100) {
                     h.classList.add('visible');
                 }
             });
-            
+
             cards.forEach(card => {
                 const cardPos = card.getBoundingClientRect().top;
                 if (cardPos < screenHeight - 100) {
@@ -1112,19 +1367,42 @@
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
 
+        function setMobileMenu(open) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.toggle('active', open);
+            menuBtn.classList.toggle('active', open);
+            menuBtn.setAttribute('aria-expanded', open);
+            if (!open) setCategorySubmenu(false);
+        }
+
         function toggleMobileMenu() {
-    const mobileNav = document.querySelectorAll('.nav-links')[1]; // Second nav-links
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    
-    mobileNav.classList.toggle('active');
-    mobileBtn.classList.toggle('active');
-}
+            setMobileMenu(!document.getElementById('mobileNav').classList.contains('active'));
+        }
 
         function closeMobileMenu() {
-            const mobileNav = document.querySelectorAll('.nav-links')[1];
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            mobileNav.classList.remove('active');
-            menuBtn.textContent = '☰';
+            setMobileMenu(false);
+        }
+
+        document.addEventListener('click', e => {
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileNav.classList.contains('active') &&
+                !mobileNav.contains(e.target) && !e.target.closest('.mobile-menu-btn')) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+
+        function setCategorySubmenu(open) {
+            document.getElementById('mobileNav').classList.toggle('submenu-open', open);
+            document.querySelector('.mobile-nav-toggle').setAttribute('aria-expanded', open);
+        }
+
+        function toggleCategorySubmenu() {
+            setCategorySubmenu(!document.getElementById('mobileNav').classList.contains('submenu-open'));
         }
 
         function scrollToSection(sectionId) {
@@ -1144,54 +1422,84 @@
             });
         });
 
+        // Explore the Store carousel: 9 newest products + a final "Show all" card
+        const exploreTrack = document.getElementById('exploreTrack');
+
+        function showAllCard() {
+            const t = translations[currentLang];
+            return `
+                <a href="explore.html" class="show-all-card">
+                    <span class="show-all-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </span>
+                    <span class="show-all-label" data-i18n="showAll">${t.showAll}</span>
+                    <span class="show-all-sub" data-i18n="showAllSub">${t.showAllSub}</span>
+                </a>
+            `;
+        }
+
+        function loadExploreCarousel() {
+            return withProducts(exploreTrack, 4, () => {
+                const products = getStoreOrder().slice(0, 9);
+                if (products.length === 0) {
+                    exploreTrack.innerHTML = renderGridMessage('No products available yet.', 'Check back soon!');
+                } else {
+                    exploreTrack.innerHTML = products.map((product, index) =>
+                        renderProductCard(product, { delay: index * 0.08 })
+                    ).join('') + showAllCard();
+                }
+                exploreTrack.scrollLeft = 0;
+                updateCarouselArrows();
+                checkScroll();
+            }, 'retryProducts(); loadExploreCarousel()');
+        }
+
+        function scrollCarousel(direction) {
+            exploreTrack.scrollBy({ left: direction * exploreTrack.clientWidth, behavior: 'smooth' });
+        }
+
+        function updateCarouselArrows() {
+            const max = exploreTrack.scrollWidth - exploreTrack.clientWidth;
+            document.querySelector('.carousel-arrow.prev').disabled = exploreTrack.scrollLeft <= 2;
+            document.querySelector('.carousel-arrow.next').disabled = exploreTrack.scrollLeft >= max - 2;
+        }
+
+        exploreTrack.addEventListener('scroll', updateCarouselArrows, { passive: true });
+        window.addEventListener('resize', updateCarouselArrows);
+
+        function updateCategoryCounts() {
+            if (!hasProducts()) return;
+            const t = translations[currentLang];
+            document.querySelectorAll('.categories-count[data-category]').forEach(el => {
+                const count = getProductsByCategory(el.dataset.category).length;
+                el.textContent = `${count} ${count === 1 ? t.piece : t.pieces}`;
+            });
+        }
+
+        loadExploreCarousel();
+        productsReady.then(updateCategoryCounts);
+
         document.querySelectorAll('.lang-toggle').forEach(toggle => {
             toggle.addEventListener('click', () => {
                 currentLang = currentLang === 'fr' ? 'en' : 'fr';
                 const newText = currentLang === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN';
                 document.querySelectorAll('.lang-toggle').forEach(btn => btn.textContent = newText);
-                
+
                 const t = translations[currentLang];
-                
-                document.querySelectorAll('.nav-links a')[0].textContent = t.nav[0];
-                document.querySelectorAll('.nav-links a')[1].textContent = t.nav[1];
-                document.querySelectorAll('.nav-links a')[2].textContent = t.nav[2];
-                document.querySelectorAll('.nav-links a')[3].textContent = t.nav[0];
-                document.querySelectorAll('.nav-links a')[4].textContent = t.nav[1];
-                document.querySelectorAll('.nav-links a')[5].textContent = t.nav[2];
-                
-                document.querySelector('.tagline').textContent = t.heroTagline;
-                document.querySelectorAll('.btn')[0].textContent = t.heroBtn1;
-                document.querySelectorAll('.btn')[1].textContent = t.heroBtn2;
-                
-                document.querySelectorAll('.section-header h2')[0].textContent = t.aboutTitle;
-                document.querySelectorAll('.section-header p')[0].textContent = t.aboutSub;
-                document.querySelectorAll('.about-content p')[0].textContent = t.aboutP1;
-                document.querySelectorAll('.about-content p')[1].textContent = t.aboutP2;
-                
-                document.querySelectorAll('.section-header h2')[1].textContent = t.categoriesTitle;
-                document.querySelectorAll('.section-header p')[1].textContent = t.categoriesSub;
-                
-                document.querySelectorAll('.categories-name')[0].textContent = t.categories.necklaces;
-                document.querySelectorAll('.categories-name')[1].textContent = t.categories.rings;
-                document.querySelectorAll('.categories-name')[2].textContent = t.categories.earrings;
-                document.querySelectorAll('.categories-name')[3].textContent = t.categories.bracelets;
-                
-                document.querySelectorAll('.categories-count')[0].textContent = '4 ' + t.categories.pieces;
-                document.querySelectorAll('.categories-count')[1].textContent = '0 ' + t.categories.pieces;
-                document.querySelectorAll('.categories-count')[2].textContent = '0 ' + t.categories.pieces;
-                document.querySelectorAll('.categories-count')[3].textContent = '0 ' + t.categories.pieces;
-                
-                document.querySelectorAll('.section-header h2')[2].textContent = t.contactTitle;
-                document.querySelectorAll('.section-header p')[2].textContent = t.contactSub;
-                document.querySelector('.contact-text').textContent = t.contactText;
-                
-                document.querySelector('.footer-tagline').textContent = t.footerTagline;
-                
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const value = t[el.dataset.i18n];
+                    if (value !== undefined) el.textContent = value;
+                });
+                updateCategoryCounts();
+
                 document.getElementById('cartTitle').textContent = t.cartTitle;
-                document.getElementById('emptyCartText').textContent = t.emptyCart;
-                document.getElementById('emptyCartSub').textContent = t.emptyCartSub;
+                const emptyCartText = document.getElementById('emptyCartText');
+                const emptyCartSub = document.getElementById('emptyCartSub');
+                if (emptyCartText) emptyCartText.textContent = t.emptyCart;
+                if (emptyCartSub) emptyCartSub.textContent = t.emptyCartSub;
                 document.getElementById('subtotalLabel').textContent = t.subtotal;
-                
+
                 document.documentElement.lang = currentLang;
             });
         });

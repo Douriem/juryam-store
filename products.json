@@ -124,24 +124,6 @@
       "badge": "NEW"
     },
     {
-      "id": "neck_10",
-      "name": "sparkle bloom necklace",
-      "price": 700,
-      "image": "assets/sparkle-bloom-necklace-1793206975439.jpeg",
-      "description": "",
-      "category": "necklaces",
-      "badge": "NEW"
-    },
-    {
-      "id": "neck_11",
-      "name": "Garden Spell necklace",
-      "price": 650,
-      "image": "assets/garden-spell-necklace-1793207082339.jpeg",
-      "description": "",
-      "category": "necklaces",
-      "badge": "NEW"
-    },
-    {
       "id": "neck_12",
       "name": "midnight shimmer necklace",
       "price": 700,
@@ -185,6 +167,66 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW"
+    },
+    {
+      "id": "neck_17",
+      "name": "Wild Horn Necklace",
+      "price": 700,
+      "image": "assets/wild-horn-necklace-1793363352192.jpeg",
+      "description": "Braided wooden beads with a polished black horn pendant.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:12.192000Z"
+    },
+    {
+      "id": "neck_18",
+      "name": "Fairy Moss Necklace",
+      "price": 700,
+      "image": "assets/fairy-moss-necklace-1793363782390.jpeg",
+      "description": "Silver filigree pendant with a chiffon bloom and green bead tassels.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:36:22.390000Z"
+    },
+    {
+      "id": "neck_19",
+      "name": "Bluebell Charm Necklace",
+      "price": 700,
+      "image": "assets/bluebell-charm-necklace-1793363783390.jpeg",
+      "description": "Sky-blue glass charms on a waxed cord, with a lampwork flower centre.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:36:23.390000Z"
+    },
+    {
+      "id": "neck_20",
+      "name": "Crystal Fang Necklace",
+      "price": 700,
+      "image": "assets/crystal-fang-necklace-orange-1793363784390.jpeg",
+      "description": "Faceted crystal chain with a fang pendant and crystal drop. Available in orange, pink and blue.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "orange",
+          "label": "Orange",
+          "image": "assets/crystal-fang-necklace-orange-1793363784390.jpeg",
+          "swatch": "#c27a43"
+        },
+        {
+          "id": "pink",
+          "label": "Pink",
+          "image": "assets/crystal-fang-necklace-pink-1793363784390.jpeg",
+          "swatch": "#d48f9b"
+        },
+        {
+          "id": "blue",
+          "label": "Blue",
+          "image": "assets/crystal-fang-necklace-blue-1793363784390.jpeg",
+          "swatch": "#5f97bd"
+        }
+      ],
+      "createdAt": "2026-10-30T12:36:24.390000Z"
     }
   ],
   "rings": [
@@ -275,7 +317,7 @@
       "id": "ear_9",
       "name": "Orbit earrings",
       "price": 700,
-      "image": "assets/orbit-earrings-1793206814260.jpeg",
+      "image": "assets/orbit-earrings-clean-1793206814260.jpeg",
       "description": "",
       "category": "earrings",
       "badge": "NEW"
@@ -294,6 +336,94 @@
       "name": "Sibyl earrings",
       "price": 700,
       "image": "assets/sibyl-earrings-1793208021389.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_12",
+      "name": "Moonthread Earrings",
+      "price": 700,
+      "image": "assets/moonthread-earrings-1793363351192.jpeg",
+      "description": "Silver thread woven into a teardrop around a filigree crescent.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:11.192000Z"
+    },
+    {
+      "id": "ear_13",
+      "name": "Moon Spiral Earrings",
+      "price": 700,
+      "image": "assets/moon-spiral-earrings-1793363353192.jpeg",
+      "description": "Hand-woven silver spirals with a crystal heart.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:13.192000Z"
+    },
+    {
+      "id": "ear_14",
+      "name": "Stone Relic Earrings",
+      "price": 700,
+      "image": "assets/stone-relic-earrings-1793363354192.jpeg",
+      "description": "Smoky resin ovals holding fragments of natural stone.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:14.192000Z"
+    },
+    {
+      "id": "ear_15",
+      "name": "Rose Arch Earrings",
+      "price": 700,
+      "image": "assets/rose-arch-earrings-1793363355192.jpeg",
+      "description": "Rose-pink arches with faceted crystal drops.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:15.192000Z"
+    },
+    {
+      "id": "ear_16",
+      "name": "Starlit Bead Hoops",
+      "price": 700,
+      "image": "assets/starlit-bead-hoops-1793363356192.jpeg",
+      "description": "Star-carved beads strung with pink glass seed beads.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:16.192000Z"
+    },
+    {
+      "id": "ear_17",
+      "name": "Sunflower Hoop Earrings",
+      "price": 700,
+      "image": "assets/sunflower-hoop-earrings-1793363357192.jpeg",
+      "description": "Silver hoops with an amber stone and a flower charm.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:17.192000Z"
+    },
+    {
+      "id": "ear_18",
+      "name": "Bohemian Coin Hoops",
+      "price": 700,
+      "image": "assets/bohemian-coin-hoops-1793363358192.jpeg",
+      "description": "Large hoops layered with silver and denim discs.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-10-30T12:29:18.192000Z"
+    },
+    {
+      "id": "ear_19",
+      "name": "Sparkle Bloom Earrings",
+      "price": 700,
+      "image": "assets/sparkle-bloom-earrings-1793206975439.jpeg",
+      "description": "",
+      "category": "earrings",
+      "badge": "NEW"
+    },
+    {
+      "id": "ear_20",
+      "name": "Garden Spell Earrings",
+      "price": 650,
+      "image": "assets/garden-spell-earrings-1793207082339.jpeg",
       "description": "",
       "category": "earrings",
       "badge": "NEW"
