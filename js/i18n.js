@@ -103,7 +103,15 @@ const I18N = {
         orderReceived: 'COMMANDE REÇUE !<br>Merci pour votre commande.<br>Nous vous contacterons bientôt 😊',
         continueShopping: 'CONTINUER MES ACHATS',
         orderFailed: 'Une erreur est survenue. Réessayez ou contactez-nous sur Instagram.',
-        orderOffline: "Impossible d'envoyer la commande. Vérifiez votre connexion et réessayez."
+        orderOffline: "Impossible d'envoyer la commande. Vérifiez votre connexion et réessayez.",
+
+        // bundle promos
+        fromPrice: 'À partir de',
+        offer: 'Offre :',
+        promo: 'Promo',
+        tier_skinny: 'bracelets fins',
+        tier_bone: 'joncs en os',
+        tier_python: 'joncs python'
     },
     en: {
         navAbout: 'ABOUT',
@@ -201,7 +209,14 @@ const I18N = {
         orderReceived: 'ORDER RECEIVED!<br>Thank you for your order.<br>We\'ll contact you soon 😊',
         continueShopping: 'CONTINUE SHOPPING',
         orderFailed: 'Something went wrong. Please try again or contact us on Instagram.',
-        orderOffline: 'Could not send order. Please check your connection and try again.'
+        orderOffline: 'Could not send order. Please check your connection and try again.',
+
+        fromPrice: 'From',
+        offer: 'Offer:',
+        promo: 'Promo',
+        tier_skinny: 'skinny bracelets',
+        tier_bone: 'bone bangles',
+        tier_python: 'python bangles'
     }
 };
 

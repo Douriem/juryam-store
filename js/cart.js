@@ -44,6 +44,8 @@ function addToCart(productId, quantity, size, variant, silent) {
             quantity: qty,
             size: size || null,
             variant: variant ? variant.label : null,
+            price: variant && variant.price ? variant.price : product.price,
+            tier: variant && variant.tier ? variant.tier : null,
             image: variant && variant.image ? variant.image : product.image
         });
     }
@@ -77,8 +79,44 @@ function updateQuantity(cartKey, quantity) {
     updateCheckoutSummary();
 }
 
-function getCartTotal() {
+function getCartSubtotal() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
+// Bundle promos: a product can price several pieces of one tier together, e.g.
+// "bundles": { "python": { "2": 1300, "3": 1800 } }. Colours can be mixed inside a tier,
+// and the pieces are split into whichever bundles come out cheapest.
+function bundlePrice(unit, count, bundles) {
+    const best = [0];
+    for (let n = 1; n <= count; n++) {
+        best[n] = best[n - 1] + unit;
+        for (const size in bundles) {
+            if (Number(size) <= n) best[n] = Math.min(best[n], best[n - Number(size)] + bundles[size]);
+        }
+    }
+    return best[count];
+}
+
+function getCartPromos(items = cart) {
+    const groups = {};
+    items.forEach(item => {
+        const bundles = item.tier && item.bundles && item.bundles[item.tier];
+        if (!bundles) return;
+        const key = `${item.id}:${item.tier}`;
+        groups[key] = groups[key] || { tier: item.tier, unit: item.price, count: 0, bundles };
+        groups[key].count += item.quantity;
+    });
+    return Object.values(groups)
+        .map(g => ({ tier: g.tier, count: g.count, amount: g.unit * g.count - bundlePrice(g.unit, g.count, g.bundles) }))
+        .filter(promo => promo.amount > 0);
+}
+
+function getCartDiscount() {
+    return getCartPromos().reduce((total, promo) => total + promo.amount, 0);
+}
+
+function getCartTotal() {
+    return getCartSubtotal() - getCartDiscount();
 }
 
 function getCartCount() {
@@ -123,7 +161,9 @@ function formatCartSummary() {
     return cart.map(item => {
         const sizeText = (item.size ? ` (Size ${item.size})` : '') + (item.variant ? ` (${item.variant})` : '');
         return `${item.name}${sizeText} × ${item.quantity} — ${item.price * item.quantity} DA`;
-    }).join('\n');
+    }).concat(getCartPromos().map(promo =>
+        `Promo ${promo.count} ${I18N.en['tier_' + promo.tier] || promo.tier} — −${promo.amount} DA`
+    )).join('\n');
 }
 
 loadCart();

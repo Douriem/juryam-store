@@ -15,7 +15,8 @@ async function submitOrder(event) {
     const formData = new FormData(form);
 
     formData.append('order_items', formatCartSummary());
-    formData.append('subtotal', `${getCartTotal()} DA`);
+    formData.append('subtotal', `${getCartSubtotal()} DA`);
+    if (getCartDiscount()) formData.append('promo', `−${getCartDiscount()} DA`);
     const rate = getDeliveryRate(delivery.wilaya, delivery.service);
     formData.set('wilaya', `${rate.code} - ${rate.name}`);
     formData.set('delivery_method', delivery.method === 'home' ? 'Home delivery' : 'Stop-desk');

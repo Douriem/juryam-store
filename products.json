@@ -417,6 +417,16 @@
         }
       ],
       "createdAt": "2026-11-04T16:53:54.524Z"
+    },
+    {
+      "id": "neck_33",
+      "name": "Lagoon Pendant Necklace",
+      "price": 800,
+      "image": "assets/lagoon-pendant-necklace-1793823586886.jpeg",
+      "description": "A turquoise glass disc with a silver serpent-link drop, on a double aqua cord.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-04T20:19:46.886Z"
     }
   ],
   "rings": [
@@ -674,7 +684,7 @@
     {
       "id": "brac_2",
       "name": "Boho Bracelet Collection",
-      "price": 700,
+      "price": 400,
       "image": "assets/boho-bracelet-collection-1793811235524.jpeg",
       "description": "Eight styles to pick from: two beaded stretch bracelets, two carved bone bangles and four wide printed bangles (silver leopard, copper serpent, green houndstooth and wild python). Choose your style below.",
       "category": "bracelets",
@@ -684,51 +694,79 @@
           "id": "ebony-bead",
           "label": "Ebony Bead Bracelet",
           "image": "assets/boho-bracelet-ebony-bead-1793811236524.jpeg",
-          "swatch": "#2a2420"
+          "swatch": "#2a2420",
+          "tier": "skinny",
+          "price": 400
         },
         {
           "id": "sand-shell",
           "label": "Sand Shell Bracelet",
           "image": "assets/boho-bracelet-sand-shell-bead-1793811236524.jpeg",
-          "swatch": "#d9c9a3"
+          "swatch": "#d9c9a3",
+          "tier": "skinny",
+          "price": 400
         },
         {
           "id": "tribal-bone",
           "label": "Tribal Bone Bangle",
           "image": "assets/boho-bracelet-tribal-bone-1793811236524.jpeg",
-          "swatch": "#efe6c6"
+          "swatch": "#efe6c6",
+          "tier": "bone",
+          "price": 500
         },
         {
           "id": "spotted-bone",
           "label": "Spotted Bone Bangle",
           "image": "assets/boho-bracelet-spotted-bone-1793811236524.jpeg",
-          "swatch": "#e4d6a8"
+          "swatch": "#e4d6a8",
+          "tier": "bone",
+          "price": 500
         },
         {
           "id": "silver-leopard",
           "label": "Silver Leopard Bangle",
           "image": "assets/boho-bracelet-silver-leopard-1793811236524.jpeg",
-          "swatch": "#a9a7ac"
+          "swatch": "#a9a7ac",
+          "tier": "python",
+          "price": 700
         },
         {
           "id": "copper-serpent",
           "label": "Copper Serpent Bangle",
           "image": "assets/boho-bracelet-copper-serpent-1793811236524.jpeg",
-          "swatch": "#6b4a3e"
+          "swatch": "#6b4a3e",
+          "tier": "python",
+          "price": 700
         },
         {
           "id": "green-houndstooth",
           "label": "Green Houndstooth Bangle",
           "image": "assets/boho-bracelet-green-houndstooth-1793811236524.jpeg",
-          "swatch": "#8fcf72"
+          "swatch": "#8fcf72",
+          "tier": "python",
+          "price": 700
         },
         {
           "id": "wild-python",
           "label": "Wild Python Bangle",
           "image": "assets/boho-bracelet-wild-python-1793811236524.jpeg",
-          "swatch": "#c0476f"
+          "swatch": "#c0476f",
+          "tier": "python",
+          "price": 700
         }
       ],
+      "bundles": {
+        "skinny": {
+          "2": 700
+        },
+        "bone": {
+          "2": 850
+        },
+        "python": {
+          "2": 1300,
+          "3": 1800
+        }
+      },
       "createdAt": "2026-11-04T16:53:55.524Z"
     }
   ],

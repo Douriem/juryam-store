@@ -247,6 +247,7 @@ async function saveProduct(event) {
         const previous = existing && existing.variants ? existing.variants : [];
         const variants = parseVariants().map(v => ({ ...previous.find(o => o.id === v.id), ...v }));
         if (variants.length) product.variants = variants;
+        if (existing && existing.bundles) product.bundles = existing.bundles;
 
         data[category] = data[category] || [];
         data[category].push(product);

@@ -16,10 +16,31 @@ function renderProductCard(product, { eager = false, delay = 0 } = {}) {
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-price">${product.price} DA${renderSwatches(product)}</p>
+                <p class="product-price">${priceLabel(product)}${renderSwatches(product)}</p>
             </div>
         </div>
     `;
+}
+
+// Products whose styles are priced differently show their lowest price
+function priceLabel(product) {
+    const prices = (product.variants || []).map(v => v.price).filter(Boolean);
+    const lowest = prices.length ? Math.min(...prices) : product.price;
+    return prices.length && Math.max(...prices) !== lowest
+        ? `<span data-i18n="fromPrice">${t('fromPrice')}</span> ${lowest} DA`
+        : `${product.price} DA`;
+}
+
+// "Offer: 2 skinny bracelets = 700 DA · 3 python bangles = 1800 DA"
+function bundleOffers(product) {
+    if (!product.bundles) return '';
+    const offers = [];
+    for (const tier in product.bundles) {
+        for (const size in product.bundles[tier]) {
+            offers.push(`${size} ${t('tier_' + tier)} = ${product.bundles[tier][size]} DA`);
+        }
+    }
+    return `${t('offer')} ${offers.join(' · ')}`;
 }
 
 function renderSwatches(product) {

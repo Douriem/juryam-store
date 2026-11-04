@@ -118,6 +118,22 @@ sharedStyles.textContent = `
         text-align: center;
     }
 
+    .modal-offer {
+        margin-top: 0.35rem;
+        color: #d4a373;
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    .price-was { color: #8a8a85; font-weight: 400; margin-right: 0.25rem; }
+    .cart-promo,
+    .checkout-promo { color: #d4a373; }
+    .cart-promo {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        font-size: 0.9rem;
+    }
+
     .variant-row { margin-bottom: 0.75rem; }
     .variant-row .qty-controls { margin-top: 0.5rem; }
     .variant-totals {
@@ -642,7 +658,7 @@ function openPhotoViewer(src) {
     ).join('');
     document.getElementById('photoViewerNames').innerHTML = viewerSlides.length > 1 || (product.variants || []).length
         ? viewerSlides.flatMap((s, i) => s.variants.length
-            ? s.variants.map(v => `<button type="button" class="size-btn" data-slide="${i}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}</button>`)
+            ? s.variants.map(v => `<button type="button" class="size-btn" data-slide="${i}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}${v.price ? ` · ${v.price} DA` : ''}</button>`)
             : [`<button type="button" class="size-btn" data-slide="${i}">${t('viewerAll')}</button>`]).join('')
         : '';
     document.querySelectorAll('.photo-viewer-arrow').forEach(b => b.style.display = viewerSlides.length > 1 ? '' : 'none');
@@ -699,7 +715,8 @@ function openAddToCartModal(productId) {
         <img src="${product.image}" alt="${product.name}">
         <div class="modal-product-info">
             <h4>${product.name}</h4>
-            <p>${product.price} DA</p>
+            <p>${priceLabel(product)}</p>
+            ${product.bundles ? `<p class="modal-offer">${bundleOffers(product)}</p>` : ''}
         </div>
     `;
     document.getElementById('modalQtyValue').textContent = '1';
@@ -722,7 +739,7 @@ function openAddToCartModal(productId) {
     document.getElementById('qtyField').style.display = hasVariants ? 'none' : 'block';
     if (hasVariants) {
         document.getElementById('variantOptions').innerHTML = product.variants.map(v =>
-            `<button type="button" class="size-btn" data-variant="${v.id}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}</button>`
+            `<button type="button" class="size-btn" data-variant="${v.id}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}${v.price ? ` · ${v.price} DA` : ''}</button>`
         ).join('');
         renderVariantSelection();
     }
@@ -777,9 +794,16 @@ function renderVariantSelection() {
             </div>
         `).join('');
 
-    const totalQty = Object.values(modalVariantQty).reduce((a, b) => a + b, 0);
+    const picked = product.variants.filter(v => v.id in modalVariantQty).map(v => ({
+        id: product.id, tier: v.tier, price: v.price || product.price, quantity: modalVariantQty[v.id], bundles: product.bundles
+    }));
+    const totalQty = picked.reduce((total, item) => total + item.quantity, 0);
+    const fullPrice = picked.reduce((total, item) => total + item.price * item.quantity, 0);
+    const discount = getCartPromos(picked).reduce((total, promo) => total + promo.amount, 0);
     document.getElementById('variantTotalQty').textContent = totalQty;
-    document.getElementById('variantTotalPrice').textContent = totalQty * product.price;
+    document.getElementById('variantTotalPrice').innerHTML = discount
+        ? `<s class="price-was">${fullPrice}</s> ${fullPrice - discount}`
+        : fullPrice;
 }
 
 function closeAddToCartModal() {
@@ -870,9 +894,15 @@ function updateCartSidebar() {
                 <button class="remove-item" onclick="removeFromCart('${item.cartKey}')">${t('remove')}</button>
             </div>
         </div>
-    `).join('');
+    `).join('') + promoRows('cart-promo');
 
     if (cartSubtotal) cartSubtotal.textContent = `${getCartTotal()} DA`;
+}
+
+function promoRows(className) {
+    return getCartPromos().map(promo => `
+        <div class="${className}"><span>${t('promo')} · ${promo.count} ${t('tier_' + promo.tier)}</span><span>−${promo.amount} DA</span></div>
+    `).join('');
 }
 
 function showCartNotification() {
@@ -917,7 +947,8 @@ function updateCheckoutSummary() {
     const summary = document.getElementById('checkoutSummary');
     if (!summary) return;
 
-    const subtotal = getCartTotal();
+    const subtotal = getCartSubtotal();
+    const total = getCartTotal();
     const fee = getDeliveryFee();
     const rate = delivery.wilaya ? getDeliveryRate(delivery.wilaya, delivery.service) : null;
     const deliveryLabel = rate
@@ -935,8 +966,9 @@ function updateCheckoutSummary() {
         `).join('')}
         <div class="checkout-totals">
             <div class="checkout-row"><span>${t('subtotalRow')}</span><span>${subtotal} DA</span></div>
+            ${promoRows('checkout-row checkout-promo')}
             <div class="checkout-row"><span>${deliveryLabel}</span><span>${fee === null ? pending : `${fee} DA`}</span></div>
-            <div class="checkout-row total"><span>${t('total')}</span><span>${fee === null ? pending : `${subtotal + fee} DA`}</span></div>
+            <div class="checkout-row total"><span>${t('total')}</span><span>${fee === null ? pending : `${total + fee} DA`}</span></div>
         </div>
     `;
     renderDeliveryChoices();
