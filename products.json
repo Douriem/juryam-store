@@ -10,15 +10,6 @@
       "badge": "NEW"
     },
     {
-      "id": "neck_2",
-      "name": "mystical fairy",
-      "price": 850,
-      "image": "assets/necklace2.png",
-      "description": "Stunning labradorite stone.",
-      "category": "necklaces",
-      "badge": null
-    },
-    {
       "id": "neck_3",
       "name": "love potion",
       "price": 450,
@@ -135,7 +126,7 @@
     {
       "id": "neck_13",
       "name": "Eclipse Hoop necklace",
-      "price": 700,
+      "price": 650,
       "image": "assets/eclipse-hoop-necklace-1793207244428.jpeg",
       "description": "",
       "category": "necklaces",
@@ -144,7 +135,7 @@
     {
       "id": "neck_14",
       "name": "Luna necklace",
-      "price": 700,
+      "price": 650,
       "image": "assets/luna-necklace-1793207319267.jpeg",
       "description": "",
       "category": "necklaces",
@@ -227,6 +218,205 @@
         }
       ],
       "createdAt": "2026-10-30T12:36:24.390000Z"
+    },
+    {
+      "id": "neck_21",
+      "name": "Scarlet Mandala Necklace",
+      "price": 850,
+      "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
+      "description": "Layered cords with faceted beads and two mandala medallions with drop charms. Available in scarlet and yellow.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "scarlet",
+          "label": "Scarlet",
+          "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
+          "swatch": "#9b1c2c"
+        },
+        {
+          "id": "yellow",
+          "label": "Yellow",
+          "image": "assets/necklace2.png",
+          "swatch": "#d4b23c"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:39.524Z"
+    },
+    {
+      "id": "neck_22",
+      "name": "Ripple Necklace",
+      "price": 600,
+      "image": "assets/ripple-necklace-crimson-1793811220524.jpeg",
+      "description": "Three beaded rings around a small stone on a braided cord. Available in crimson and midnight.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "crimson",
+          "label": "Crimson",
+          "image": "assets/ripple-necklace-crimson-1793811220524.jpeg",
+          "swatch": "#9e3a48"
+        },
+        {
+          "id": "midnight",
+          "label": "Midnight",
+          "image": "assets/ripple-necklace-midnight-1793811221524.jpeg",
+          "swatch": "#2e3038"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:40.524Z"
+    },
+    {
+      "id": "neck_23",
+      "name": "Khamsa Charm Necklace",
+      "price": 800,
+      "image": "assets/khamsa-charm-necklace-turquoise-1793811222524.jpeg",
+      "description": "Hand of Fatima charms with glass beads and a long chain tassel. Available in turquoise and gold.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "turquoise",
+          "label": "Turquoise",
+          "image": "assets/khamsa-charm-necklace-turquoise-1793811222524.jpeg",
+          "swatch": "#3fa39a"
+        },
+        {
+          "id": "gold",
+          "label": "Gold",
+          "image": "assets/khamsa-charm-necklace-gold-1793811223524.jpeg",
+          "swatch": "#c9a63a"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:42.524Z"
+    },
+    {
+      "id": "neck_24",
+      "name": "Khamsa Tassel Necklace",
+      "price": 800,
+      "image": "assets/khamsa-tassel-necklace-rose-1793811224524.jpeg",
+      "description": "A large Hand of Fatima pendant on a cord with a beaded tassel. Available in rose and mint.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "rose",
+          "label": "Rose",
+          "image": "assets/khamsa-tassel-necklace-rose-1793811224524.jpeg",
+          "swatch": "#d48fa0"
+        },
+        {
+          "id": "mint",
+          "label": "Mint",
+          "image": "assets/khamsa-tassel-necklace-mint-1793811225524.jpeg",
+          "swatch": "#9fd3b5"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:44.524Z"
+    },
+    {
+      "id": "neck_25",
+      "name": "Lunar Links Necklace",
+      "price": 700,
+      "image": "assets/lunar-links-necklace-pearl-1793811226524.jpeg",
+      "description": "Chunky open-ring links leading to a carved round pendant. Available in pearl and sage.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "pearl",
+          "label": "Pearl",
+          "image": "assets/lunar-links-necklace-pearl-1793811226524.jpeg",
+          "swatch": "#e3e0d9"
+        },
+        {
+          "id": "sage",
+          "label": "Sage",
+          "image": "assets/lunar-links-necklace-sage-1793811227524.jpeg",
+          "swatch": "#9cc79a"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:46.524Z"
+    },
+    {
+      "id": "neck_26",
+      "name": "Indigo Tide Necklace",
+      "price": 700,
+      "image": "assets/indigo-tide-necklace-1793811228524.jpeg",
+      "description": "A blue glass disc with lilac and cobalt bead drops on a fine chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:48.524Z"
+    },
+    {
+      "id": "neck_27",
+      "name": "Lilac Rain Necklace",
+      "price": 600,
+      "image": "assets/lilac-rain-necklace-1793811229524.jpeg",
+      "description": "A long Y-drop of lilac, mint and crystal beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:49.524Z"
+    },
+    {
+      "id": "neck_29",
+      "name": "Lilac Cameo Choker",
+      "price": 1200,
+      "image": "assets/lilac-cameo-choker-1793811231524.jpeg",
+      "description": "Black velvet choker with an oval lilac stone in an antique frame.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:51.524Z"
+    },
+    {
+      "id": "neck_30",
+      "name": "Heartlock Choker",
+      "price": 1200,
+      "image": "assets/heartlock-choker-1793811232524.jpeg",
+      "description": "Black faux-leather choker with a silver open-heart centre.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:52.524Z"
+    },
+    {
+      "id": "neck_31",
+      "name": "Tiger's Heart Necklace",
+      "price": 700,
+      "image": "assets/tigers-heart-necklace-1793811233524.jpeg",
+      "description": "Black bead chain with a tiger's eye heart pendant.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:53.524Z"
+    },
+    {
+      "id": "neck_32",
+      "name": "Jade Fishbone Necklace",
+      "price": 700,
+      "image": "assets/jade-fishbone-necklace-1793811234524.jpeg",
+      "description": "Cream cord with a green stone and a silver fishbone charm. Available in green and white.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "green",
+          "label": "Green",
+          "image": "assets/jade-fishbone-necklace-1793811234524.jpeg",
+          "swatch": "#5fa77a"
+        },
+        {
+          "id": "white",
+          "label": "White",
+          "image": "assets/jade-fishbone-necklace-1793811234524.jpeg",
+          "swatch": "#ece8de"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:54.524Z"
     }
   ],
   "rings": [
@@ -343,7 +533,7 @@
     {
       "id": "ear_12",
       "name": "Moonthread Earrings",
-      "price": 700,
+      "price": 600,
       "image": "assets/moonthread-earrings-1793363351192.jpeg",
       "description": "Silver thread woven into a teardrop around a filigree crescent.",
       "category": "earrings",
@@ -353,7 +543,7 @@
     {
       "id": "ear_13",
       "name": "Moon Spiral Earrings",
-      "price": 700,
+      "price": 600,
       "image": "assets/moon-spiral-earrings-1793363353192.jpeg",
       "description": "Hand-woven silver spirals with a crystal heart.",
       "category": "earrings",
@@ -363,7 +553,7 @@
     {
       "id": "ear_14",
       "name": "Stone Relic Earrings",
-      "price": 700,
+      "price": 600,
       "image": "assets/stone-relic-earrings-1793363354192.jpeg",
       "description": "Smoky resin ovals holding fragments of natural stone.",
       "category": "earrings",
@@ -373,7 +563,7 @@
     {
       "id": "ear_15",
       "name": "Rose Arch Earrings",
-      "price": 700,
+      "price": 600,
       "image": "assets/rose-arch-earrings-1793363355192.jpeg",
       "description": "Rose-pink arches with faceted crystal drops.",
       "category": "earrings",
@@ -383,7 +573,7 @@
     {
       "id": "ear_16",
       "name": "Starlit Bead Hoops",
-      "price": 700,
+      "price": 600,
       "image": "assets/starlit-bead-hoops-1793363356192.jpeg",
       "description": "Star-carved beads strung with pink glass seed beads.",
       "category": "earrings",
@@ -393,7 +583,7 @@
     {
       "id": "ear_17",
       "name": "Sunflower Hoop Earrings",
-      "price": 700,
+      "price": 600,
       "image": "assets/sunflower-hoop-earrings-1793363357192.jpeg",
       "description": "Silver hoops with an amber stone and a flower charm.",
       "category": "earrings",
@@ -480,6 +670,79 @@
           "label": "Natural / Natural Stone"
         }
       ]
+    },
+    {
+      "id": "brac_2",
+      "name": "Boho Bracelet Collection",
+      "price": 700,
+      "image": "assets/boho-bracelet-collection-1793811235524.jpeg",
+      "description": "Eight styles to pick from: two beaded stretch bracelets, two carved bone bangles and four wide printed bangles (silver leopard, copper serpent, green houndstooth and wild python). Choose your style below.",
+      "category": "bracelets",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "ebony-bead",
+          "label": "Ebony Bead Bracelet",
+          "image": "assets/boho-bracelet-ebony-bead-1793811236524.jpeg",
+          "swatch": "#2a2420"
+        },
+        {
+          "id": "sand-shell",
+          "label": "Sand Shell Bracelet",
+          "image": "assets/boho-bracelet-sand-shell-bead-1793811236524.jpeg",
+          "swatch": "#d9c9a3"
+        },
+        {
+          "id": "tribal-bone",
+          "label": "Tribal Bone Bangle",
+          "image": "assets/boho-bracelet-tribal-bone-1793811236524.jpeg",
+          "swatch": "#efe6c6"
+        },
+        {
+          "id": "spotted-bone",
+          "label": "Spotted Bone Bangle",
+          "image": "assets/boho-bracelet-spotted-bone-1793811236524.jpeg",
+          "swatch": "#e4d6a8"
+        },
+        {
+          "id": "silver-leopard",
+          "label": "Silver Leopard Bangle",
+          "image": "assets/boho-bracelet-silver-leopard-1793811236524.jpeg",
+          "swatch": "#a9a7ac"
+        },
+        {
+          "id": "copper-serpent",
+          "label": "Copper Serpent Bangle",
+          "image": "assets/boho-bracelet-copper-serpent-1793811236524.jpeg",
+          "swatch": "#6b4a3e"
+        },
+        {
+          "id": "green-houndstooth",
+          "label": "Green Houndstooth Bangle",
+          "image": "assets/boho-bracelet-green-houndstooth-1793811236524.jpeg",
+          "swatch": "#8fcf72"
+        },
+        {
+          "id": "wild-python",
+          "label": "Wild Python Bangle",
+          "image": "assets/boho-bracelet-wild-python-1793811236524.jpeg",
+          "swatch": "#c0476f"
+        }
+      ],
+      "createdAt": "2026-11-04T16:53:55.524Z"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set_1",
+      "name": "Red Coral Necklace + Bracelet",
+      "price": 1200,
+      "image": "assets/red-coral-set-1793811230524.jpeg",
+      "description": "Matching red coral set: a branch-coral necklace and bracelet, sold together.",
+      "category": "sets",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-04T16:53:50.524Z"
     }
   ]
 }

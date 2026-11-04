@@ -374,6 +374,93 @@ sharedStyles.textContent = `
         z-index: 10000;
         animation: slideIn 0.3s ease;
     }
+
+    .modal-product img { cursor: zoom-in; transition: border-color 0.3s; }
+    .modal-product img:hover { border-color: #d4a373; }
+
+    /* Photo viewer: the product photos on a dimmed page, swipe between styles */
+    .photo-viewer {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        z-index: 4000;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        animation: fadeIn 0.25s ease;
+    }
+    .photo-viewer.active { display: flex; }
+    .photo-viewer-frame {
+        position: relative;
+        width: min(60vw, calc(76vh * 0.8));
+    }
+    .photo-viewer-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        border: 1px solid rgba(212, 163, 115, 0.25);
+        background: #0a0a0a;
+    }
+    .photo-viewer-track::-webkit-scrollbar { display: none; }
+    .photo-viewer-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        scroll-snap-align: center;
+        display: block;
+    }
+    .photo-viewer-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid rgba(212, 163, 115, 0.4);
+        background: rgba(10, 10, 10, 0.6);
+        color: #d4a373;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+    .photo-viewer-arrow.prev { left: -58px; }
+    .photo-viewer-arrow.next { right: -58px; }
+    .photo-viewer-arrow:disabled { opacity: 0.25; cursor: default; }
+    .photo-viewer-close {
+        position: absolute;
+        top: 1rem;
+        right: 1.25rem;
+        background: none;
+        border: none;
+        color: #d4a373;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+    .photo-viewer-names {
+        width: min(60vw, 640px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4rem;
+    }
+    .photo-viewer-names:empty { display: none; }
+    .photo-viewer-names .size-btn { font-size: 0.8rem; padding: 0.35rem 0.7rem; }
+    .photo-viewer-names .size-btn.active {
+        border-color: #d4a373;
+        color: #0a0a0a;
+        background: #d4a373;
+    }
+    @media (max-width: 700px) {
+        .photo-viewer-frame, .photo-viewer-names { width: 86vw; }
+        .photo-viewer-arrow { display: none; }
+    }
 `;
 document.head.appendChild(sharedStyles);
 
@@ -389,22 +476,22 @@ function injectModals() {
         <div class="modal-overlay" id="addToCartModal">
             <div class="modal-box">
                 <div class="modal-header">
-                    <h3>ADD TO CART</h3>
+                    <h3 data-i18n="addToCart">${t('addToCart')}</h3>
                     <button class="modal-close" onclick="closeAddToCartModal()" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-product" id="modalProductPreview"></div>
                     <div class="modal-field" id="variantField" style="display:none;">
-                        <label>Color / Type</label>
+                        <label data-i18n="colorType">${t('colorType')}</label>
                         <div class="size-options" id="variantOptions"></div>
                         <div id="variantQtyList"></div>
                         <div class="variant-totals">
-                            <span>Total quantity: <span id="variantTotalQty">0</span></span>
-                            <span>Total price: <span id="variantTotalPrice">0</span> DA</span>
+                            <span><span data-i18n="totalQty">${t('totalQty')}</span> <span id="variantTotalQty">0</span></span>
+                            <span><span data-i18n="totalPrice">${t('totalPrice')}</span> <span id="variantTotalPrice">0</span> DA</span>
                         </div>
                     </div>
                     <div class="modal-field" id="qtyField">
-                        <label>Quantity</label>
+                        <label data-i18n="quantity">${t('quantity')}</label>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="changeModalQty(-1)">−</button>
                             <span class="qty-value" id="modalQtyValue">1</span>
@@ -412,12 +499,12 @@ function injectModals() {
                         </div>
                     </div>
                     <div class="modal-field" id="sizeField" style="display:none;">
-                        <label>Ring Size</label>
+                        <label data-i18n="ringSize">${t('ringSize')}</label>
                         <div class="size-options" id="sizeOptions"></div>
                     </div>
                     <div class="modal-actions">
-                        <button class="modal-btn modal-btn-secondary" onclick="closeAddToCartModal()">CANCEL</button>
-                        <button class="modal-btn modal-btn-primary" onclick="confirmAddToCart()">ADD TO CART</button>
+                        <button class="modal-btn modal-btn-secondary" onclick="closeAddToCartModal()" data-i18n="cancel">${t('cancel')}</button>
+                        <button class="modal-btn modal-btn-primary" onclick="confirmAddToCart()" data-i18n="addToCart">${t('addToCart')}</button>
                     </div>
                 </div>
             </div>
@@ -426,49 +513,49 @@ function injectModals() {
         <div class="modal-overlay" id="checkoutModal">
             <div class="modal-box checkout-box">
                 <div class="modal-header">
-                    <h3>CHECKOUT</h3>
+                    <h3 data-i18n="checkoutTitle">${t('checkoutTitle')}</h3>
                     <button class="modal-close" onclick="closeCheckout()" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="checkout-summary" id="checkoutSummary"></div>
                     <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
                         <div class="modal-field">
-                            <label for="orderName">Full Name *</label>
+                            <label for="orderName" data-i18n="fullName">${t('fullName')}</label>
                             <input type="text" id="orderName" name="name" required>
                         </div>
                         <div class="modal-field">
-                            <label for="orderPhone">Phone *</label>
+                            <label for="orderPhone" data-i18n="phone">${t('phone')}</label>
                             <input type="tel" id="orderPhone" name="phone" required>
                         </div>
                         <div class="modal-field">
-                            <label for="orderWilaya">Wilaya *</label>
+                            <label for="orderWilaya" data-i18n="wilaya">${t('wilaya')}</label>
                             <select id="orderWilaya" name="wilaya" required>
-                                <option value="">Select your wilaya</option>
+                                <option value="" data-i18n="selectWilaya">${t('selectWilaya')}</option>
                                 ${wilayaOptions()}
                             </select>
                         </div>
                         <div class="modal-field">
-                            <label for="orderCommune">Commune *</label>
+                            <label for="orderCommune" data-i18n="commune">${t('commune')}</label>
                             <input type="text" id="orderCommune" name="commune" required>
                         </div>
                         <div class="modal-field">
-                            <label>Delivery *</label>
+                            <label data-i18n="deliveryField">${t('deliveryField')}</label>
                             <div class="delivery-options" id="deliveryMethods"></div>
                         </div>
                         <div class="modal-field" id="deliveryServiceField">
-                            <label>Shipping speed *</label>
+                            <label data-i18n="shippingSpeed">${t('shippingSpeed')}</label>
                             <div class="delivery-options" id="deliveryServices"></div>
                         </div>
                         <div class="modal-field" id="addressField">
-                            <label for="orderAddress">Address *</label>
+                            <label for="orderAddress">${t('address')}</label>
                             <input type="text" id="orderAddress" name="address" required>
                         </div>
                         <div class="modal-field">
-                            <label for="orderNotes">Notes</label>
-                            <textarea id="orderNotes" name="notes" placeholder="Any special requests..."></textarea>
+                            <label for="orderNotes" data-i18n="notes">${t('notes')}</label>
+                            <textarea id="orderNotes" name="notes" data-i18n-placeholder="notesPlaceholder" placeholder="${t('notesPlaceholder')}"></textarea>
                         </div>
                         <div class="checkout-pay" id="checkoutPay"></div>
-                        <button type="submit" class="btn-checkout" id="sendOrderBtn">SEND ORDER</button>
+                        <button type="submit" class="btn-checkout" id="sendOrderBtn" data-i18n="sendOrder">${t('sendOrder')}</button>
                     </form>
                 </div>
             </div>
@@ -478,10 +565,20 @@ function injectModals() {
             <div class="modal-box">
                 <div class="modal-body order-confirmation">
                     <div class="confirm-icon">✅</div>
-                    <h3>ORDER RECEIVED!<br>Thank you for your order.<br>We'll contact you soon 😊</h3>
-                    <button class="modal-btn modal-btn-primary" style="margin-top:1.5rem; width:100%;" onclick="closeConfirmation()">CONTINUE SHOPPING</button>
+                    <h3 data-i18n-html="orderReceived">${t('orderReceived')}</h3>
+                    <button class="modal-btn modal-btn-primary" style="margin-top:1.5rem; width:100%;" onclick="closeConfirmation()" data-i18n="continueShopping">${t('continueShopping')}</button>
                 </div>
             </div>
+        </div>
+
+        <div class="photo-viewer" id="photoViewer">
+            <button class="photo-viewer-close" onclick="closePhotoViewer()" aria-label="Close">&times;</button>
+            <div class="photo-viewer-frame">
+                <div class="photo-viewer-track" id="photoViewerTrack"></div>
+                <button class="photo-viewer-arrow prev" onclick="stepPhotoViewer(-1)" aria-label="Previous photo">&#8249;</button>
+                <button class="photo-viewer-arrow next" onclick="stepPhotoViewer(1)" aria-label="Next photo">&#8250;</button>
+            </div>
+            <div class="photo-viewer-names" id="photoViewerNames"></div>
         </div>
     `);
 
@@ -496,6 +593,97 @@ function injectModals() {
     document.getElementById('confirmationModal').addEventListener('click', function(e) {
         if (e.target === this) closeConfirmation();
     });
+    document.getElementById('modalProductPreview').addEventListener('click', e => {
+        const img = e.target.closest('img');
+        if (img) openPhotoViewer(img.getAttribute('src'));
+    });
+    const viewer = document.getElementById('photoViewer');
+    viewer.addEventListener('click', e => {
+        if (e.target === viewer) closePhotoViewer();
+    });
+    document.getElementById('photoViewerTrack').addEventListener('scroll', syncPhotoViewer, { passive: true });
+    document.getElementById('photoViewerNames').addEventListener('click', e => {
+        const btn = e.target.closest('[data-slide]');
+        if (btn) showPhotoViewerSlide(parseInt(btn.dataset.slide, 10));
+    });
+    document.addEventListener('keydown', e => {
+        if (!viewer.classList.contains('active')) return;
+        if (e.key === 'Escape') closePhotoViewer();
+        if (e.key === 'ArrowRight') stepPhotoViewer(1);
+        if (e.key === 'ArrowLeft') stepPhotoViewer(-1);
+    });
+}
+
+/* Photo viewer: the main photo first, then each variant's own photo */
+let viewerSlides = [];
+let viewerIndex = 0;
+
+function photoViewerSlides(product) {
+    const slides = [];
+    const add = (image, variant) => {
+        let slide = slides.find(s => s.image === image);
+        if (!slide) slides.push(slide = { image, variants: [] });
+        if (variant) slide.variants.push(variant);
+    };
+    const variants = product.variants || [];
+    if (!variants.some(v => v.image === product.image)) add(product.image, null);
+    variants.forEach(v => add(v.image || product.image, v));
+    return slides;
+}
+
+function openPhotoViewer(src) {
+    const product = getProductById(modalProductId);
+    if (!product) return;
+    viewerSlides = photoViewerSlides(product);
+    const start = Math.max(0, viewerSlides.findIndex(s => s.image === src));
+
+    document.getElementById('photoViewerTrack').innerHTML = viewerSlides.map(s =>
+        `<img src="${s.image}" alt="${escapeAttr(s.variants.length ? `${product.name} - ${s.variants.map(v => v.label).join(' / ')}` : product.name)}">`
+    ).join('');
+    document.getElementById('photoViewerNames').innerHTML = viewerSlides.length > 1 || (product.variants || []).length
+        ? viewerSlides.flatMap((s, i) => s.variants.length
+            ? s.variants.map(v => `<button type="button" class="size-btn" data-slide="${i}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}</button>`)
+            : [`<button type="button" class="size-btn" data-slide="${i}">${t('viewerAll')}</button>`]).join('')
+        : '';
+    document.querySelectorAll('.photo-viewer-arrow').forEach(b => b.style.display = viewerSlides.length > 1 ? '' : 'none');
+
+    document.getElementById('photoViewer').classList.add('active');
+    showPhotoViewerSlide(start, 'instant');
+}
+
+function showPhotoViewerSlide(i, behavior = 'smooth') {
+    const track = document.getElementById('photoViewerTrack');
+    viewerIndex = Math.min(Math.max(i, 0), viewerSlides.length - 1);
+    track.scrollTo({ left: viewerIndex * track.clientWidth, behavior });
+    markPhotoViewer();
+}
+
+function stepPhotoViewer(delta) {
+    showPhotoViewerSlide(viewerIndex + delta);
+}
+
+function syncPhotoViewer() {
+    const track = document.getElementById('photoViewerTrack');
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i !== viewerIndex) {
+        viewerIndex = i;
+        markPhotoViewer();
+    }
+}
+
+function markPhotoViewer() {
+    document.querySelectorAll('#photoViewerNames [data-slide]').forEach(btn => {
+        const on = parseInt(btn.dataset.slide, 10) === viewerIndex;
+        btn.classList.toggle('active', on);
+    });
+    document.querySelector('.photo-viewer-arrow.prev').disabled = viewerIndex === 0;
+    document.querySelector('.photo-viewer-arrow.next').disabled = viewerIndex === viewerSlides.length - 1;
+    const thumb = document.querySelector('#modalProductPreview img');
+    if (thumb && viewerSlides[viewerIndex]) thumb.src = viewerSlides[viewerIndex].image;
+}
+
+function closePhotoViewer() {
+    document.getElementById('photoViewer').classList.remove('active');
 }
 
 function openAddToCartModal(productId) {
@@ -616,14 +804,14 @@ function confirmAddToCart() {
 
     const product = getProductById(modalProductId);
     if (product.category === 'rings' && !modalSelectedSize) {
-        alert('Please select a ring size');
+        alert(t('pickRingSize'));
         return;
     }
 
     if (product.variants && product.variants.length) {
         const chosen = product.variants.filter(v => v.id in modalVariantQty);
         if (chosen.length === 0) {
-            alert('Please select at least one Color / Type');
+            alert(t('pickVariant'));
             return;
         }
         chosen.forEach(v => addToCart(modalProductId, modalVariantQty[v.id], null, v, true));
@@ -658,8 +846,8 @@ function updateCartSidebar() {
     if (cart.length === 0) {
         cartItems.innerHTML = `
             <div class="empty-cart">
-                <p id="emptyCartText">Your cart is empty</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;" id="emptyCartSub">Start adding some magic ✨</p>
+                <p id="emptyCartText">${t('emptyCart')}</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;" id="emptyCartSub">${t('emptyCartSub')}</p>
             </div>
         `;
         if (cartSubtotal) cartSubtotal.textContent = '0 DA';
@@ -671,7 +859,7 @@ function updateCartSidebar() {
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-details">
                 <div class="cart-item-name">${item.name}</div>
-                ${item.size ? `<div class="cart-item-size">Size ${item.size}</div>` : ''}
+                ${item.size ? `<div class="cart-item-size">${t('size')} ${item.size}</div>` : ''}
                 ${item.variant ? `<div class="cart-item-size">${item.variant}</div>` : ''}
                 <div class="cart-item-price">${item.price} DA</div>
                 <div class="cart-item-controls">
@@ -679,7 +867,7 @@ function updateCartSidebar() {
                     <span>${item.quantity}</span>
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity + 1})">+</button>
                 </div>
-                <button class="remove-item" onclick="removeFromCart('${item.cartKey}')">Remove</button>
+                <button class="remove-item" onclick="removeFromCart('${item.cartKey}')">${t('remove')}</button>
             </div>
         </div>
     `).join('');
@@ -693,7 +881,7 @@ function showCartNotification() {
 
     const notification = document.createElement('div');
     notification.className = 'cart-notification';
-    notification.textContent = 'Added to cart!';
+    notification.textContent = t('addedToCart');
     document.body.appendChild(notification);
 
     setTimeout(() => {
@@ -733,22 +921,22 @@ function updateCheckoutSummary() {
     const fee = getDeliveryFee();
     const rate = delivery.wilaya ? getDeliveryRate(delivery.wilaya, delivery.service) : null;
     const deliveryLabel = rate
-        ? `Delivery · ${rate.name}, ${delivery.method === 'home' ? 'home' : 'stop-desk'}`
-        : 'Delivery';
-    const pending = '<span class="checkout-pending">Select your wilaya</span>';
+        ? `${t('delivery')} · ${rate.name}, ${delivery.method === 'home' ? t('homeShort') : 'stop-desk'}`
+        : t('delivery');
+    const pending = `<span class="checkout-pending">${t('selectWilaya')}</span>`;
 
     summary.innerHTML = `
-        <h4>Your Order</h4>
+        <h4>${t('yourOrder')}</h4>
         ${cart.map(item => `
             <div class="checkout-item">
-                <span>${item.name}${item.size ? ` (Size ${item.size})` : ''}${item.variant ? ` (${item.variant})` : ''} × ${item.quantity}</span>
+                <span>${item.name}${item.size ? ` (${t('size')} ${item.size})` : ''}${item.variant ? ` (${item.variant})` : ''} × ${item.quantity}</span>
                 <span>${item.price * item.quantity} DA</span>
             </div>
         `).join('')}
         <div class="checkout-totals">
-            <div class="checkout-row"><span>Subtotal</span><span>${subtotal} DA</span></div>
+            <div class="checkout-row"><span>${t('subtotalRow')}</span><span>${subtotal} DA</span></div>
             <div class="checkout-row"><span>${deliveryLabel}</span><span>${fee === null ? pending : `${fee} DA`}</span></div>
-            <div class="checkout-row total"><span>Total</span><span>${fee === null ? pending : `${subtotal + fee} DA`}</span></div>
+            <div class="checkout-row total"><span>${t('total')}</span><span>${fee === null ? pending : `${subtotal + fee} DA`}</span></div>
         </div>
     `;
     renderDeliveryChoices();
@@ -774,7 +962,7 @@ function deliveryOption(name, value, checked, title, meta, price) {
 }
 
 function daysLabel(days) {
-    return `${days} ${days === 1 ? 'day' : 'days'}`;
+    return `${days} ${days === 1 ? t('day') : t('days')}`;
 }
 
 // Prices on each option follow the chosen wilaya, so the fee is visible before ordering.
@@ -786,26 +974,26 @@ function renderDeliveryChoices() {
     const price = key => rate ? `${rate[key]} DA` : '—';
 
     methods.innerHTML =
-        deliveryOption('delivery_method', 'home', delivery.method === 'home', 'Home delivery', 'To your address', price('home')) +
-        deliveryOption('delivery_method', 'desk', delivery.method === 'desk', 'Stop-desk', 'Pick up at the courier office', price('desk'));
+        deliveryOption('delivery_method', 'home', delivery.method === 'home', t('homeDelivery'), t('toAddress'), price('home')) +
+        deliveryOption('delivery_method', 'desk', delivery.method === 'desk', t('stopDesk'), t('pickUp'), price('desk'));
 
     const services = JURYAM_CONFIG.DELIVERY_SERVICES;
     document.getElementById('deliveryServiceField').style.display = services.length > 1 ? '' : 'none';
     document.getElementById('deliveryServices').innerHTML = services.map(key => {
         const r = delivery.wilaya ? getDeliveryRate(delivery.wilaya, key) : null;
         return deliveryOption('delivery_service', key, delivery.service === key, DELIVERY_RATES[key].label,
-            r ? `About ${daysLabel(r.days)}` : 'Select your wilaya', r ? `${r[delivery.method]} DA` : '—');
+            r ? `${t('about')} ${daysLabel(r.days)}` : t('selectWilaya'), r ? `${r[delivery.method]} DA` : '—');
     }).join('');
 
     // Stop-desk parcels are collected at the office, so a street address is optional.
     const address = document.getElementById('orderAddress');
     address.required = delivery.method === 'home';
-    document.querySelector('#addressField label').textContent = delivery.method === 'home' ? 'Address *' : 'Address (optional)';
+    document.querySelector('#addressField label').textContent = delivery.method === 'home' ? t('address') : t('addressOptional');
 
     const fee = getDeliveryFee();
     document.getElementById('checkoutPay').innerHTML = fee === null
-        ? '<span>Total to pay</span><span class="checkout-pending">Select your wilaya to see delivery</span>'
-        : `<span>Total to pay (incl. ${fee} DA delivery)</span><strong>${getCartTotal() + fee} DA</strong>`;
+        ? `<span>${t('totalToPay')}</span><span class="checkout-pending">${t('seeDelivery')}</span>`
+        : `<span>${t('totalToPayIncl', { fee })}</span><strong>${getCartTotal() + fee} DA</strong>`;
 }
 
 function handleDeliveryChange(e) {
@@ -834,11 +1022,17 @@ function addDeliveryNote() {
     const subtotal = document.querySelector('.cart-subtotal');
     if (!subtotal || document.querySelector('.cart-delivery-note')) return;
     subtotal.insertAdjacentHTML('afterend',
-        '<p class="cart-info cart-delivery-note" style="margin: -0.5rem 0 0.75rem; text-align: left;">Delivery fee is calculated at checkout from your wilaya.</p>');
+        `<p class="cart-info cart-delivery-note" style="margin: -0.5rem 0 0.75rem; text-align: left;" data-i18n="deliveryNote">${t('deliveryNote')}</p>`);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     injectModals();
     addDeliveryNote();
     updateCartUI();
+});
+
+// text built in code (cart lines, checkout totals, delivery options) is rebuilt in the new language
+document.addEventListener('langchange', () => {
+    updateCartSidebar();
+    if (document.getElementById('checkoutSummary')) updateCheckoutSummary();
 });

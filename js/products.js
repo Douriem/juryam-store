@@ -10,8 +10,8 @@ function renderProductCard(product, { eager = false, delay = 0 } = {}) {
             <div class="product-image-container">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 <img src="${escapeAttr(product.image)}" alt="${escapeAttr(product.name)}" class="product-image" loading="${eager ? 'eager' : 'lazy'}" decoding="async">
-                <button class="quick-add" onclick="event.stopPropagation(); openAddToCartModal('${product.id}')">
-                    ADD TO CART
+                <button class="quick-add" onclick="event.stopPropagation(); openAddToCartModal('${product.id}')" data-i18n="addToCart">
+                    ${t('addToCart')}
                 </button>
             </div>
             <div class="product-info">
@@ -71,9 +71,9 @@ async function withProducts(container, skeletonCount, render, retryAction) {
 
     if (!hasProducts() && productsError) {
         container.innerHTML = renderGridMessage(
-            'We couldn’t load the collection.',
-            'Please check your connection and try again.',
-            'TRY AGAIN',
+            t('loadError'),
+            t('loadErrorSub'),
+            t('tryAgain'),
             retryAction
         );
         return;
@@ -88,7 +88,7 @@ async function loadProducts(category) {
     await withProducts(grid, 4, () => {
         const products = sortNewestFirst(getProductsByCategory(category));
         if (products.length === 0) {
-            grid.innerHTML = renderGridMessage('No products available yet.', 'Check back soon!');
+            grid.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
             return;
         }
         grid.innerHTML = products.map((product, index) =>

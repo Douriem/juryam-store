@@ -425,9 +425,10 @@
             color: #d4a373;
         }
 
-        .footer-logo .crescent {
-            font-size: 1.8rem;
-            transform: rotate(-15deg);
+        .footer-logo img {
+            height: 64px;
+            width: auto;
+            display: block;
         }
 
         .social-links {
@@ -526,6 +527,7 @@
     <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/back-nav.css">
+    <link rel="stylesheet" href="css/page-menu.css">
 </head>
 <body>
     <!-- Cart Overlay -->
@@ -534,7 +536,7 @@
     <!-- Cart Sidebar -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h2>YOUR CART</h2>
+            <h2 data-i18n="cartTitle">YOUR CART</h2>
             <button class="close-cart" onclick="toggleCart()" aria-label="Close cart">
                 <svg class="close-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                     <path d="M18 6L6 18"></path>
@@ -544,16 +546,16 @@
         </div>
         <div class="cart-items" id="cartItems">
             <div class="empty-cart">
-                <p>Your cart is empty</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">Start adding some magic ✨</p>
+                <p data-i18n="emptyCart">Your cart is empty</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;" data-i18n="emptyCartSub">Start adding some magic ✨</p>
             </div>
         </div>
         <div class="cart-footer">
             <div class="cart-subtotal">
-                <span>SUBTOTAL</span>
+                <span data-i18n="subtotal">SUBTOTAL</span>
                 <span id="cartSubtotal">0 DA</span>
             </div>
-            <button class="btn-checkout" onclick="openCheckout()">CHECKOUT</button>
+            <button class="btn-checkout" onclick="openCheckout()" data-i18n="checkout">CHECKOUT</button>
         </div>
     </div>
 
@@ -563,7 +565,7 @@
             <img src="assets/desktop.png" alt="Juryam">
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#categories">CATEGORIES</a></li>
+            <li><a href="index.html#categories" data-i18n="navCategories">CATEGORIES</a></li>
         </ul>
         <div class="cart-icon" onclick="toggleCart()" role="button" aria-label="Open cart" tabindex="0">
             <svg class="cart-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
@@ -576,8 +578,8 @@
 
     <!-- Page Header -->
     <section class="page-header">
-        <h1>BRACELETS</h1>
-         <p>Symbolic bangles and charm bracelets</p>
+        <h1 data-i18n="catBracelets">BRACELETS</h1>
+         <p data-i18n="subBracelets">Symbolic bangles and charm bracelets</p>
     </section>
 
     <!-- Products Section -->
@@ -590,10 +592,9 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <span class="crescent">☽</span>
-                <span>JURYAM</span>
-            </div>
+            <a href="index.html" class="footer-logo">
+                <img src="assets/juryam-logo-mark.png" alt="Juryam">
+            </a>
             <div class="social-links">
                 <a href="https://www.instagram.com/juryamstore?mdxt=MWg5dXVvbDdsbjN1cw==" target="_blank" rel="noopener" class="social-link">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -609,15 +610,16 @@
                 </a>
             </div>
         </div>
-        <p class="footer-tagline">JURYAM © 2025 • Curated for Your Energy •
+        <p class="footer-tagline"><span data-i18n="footerTagline">JURYAM © 2025 • Curated for Your Energy</span> •
             <a href="https://douriemportfolio.netlify.app/" target="_blank" rel="noopener" class="footer-credit">
-                Made by DouriemDev
+                <span data-i18n="footerCredit">Made by DouriemDev</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
             </a>
         </p>
     </footer>
 
     <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/data.js"></script>
     <script src="js/delivery-rates.js"></script>
     <script src="js/cart.js"></script>
@@ -625,6 +627,7 @@
     <script src="js/checkout.js"></script>
     <script src="js/products.js"></script>
     <script src="js/back-nav.js"></script>
+    <script src="js/page-menu.js"></script>
     <script>loadProducts('bracelets');</script>
 </body>
 </html>

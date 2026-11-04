@@ -505,9 +505,9 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
-            max-width: 1040px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
@@ -694,6 +694,12 @@
             .categories-grid {
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 600px;
+            }
+            /* odd card out: same size as the others, centred on its own row */
+            .categories-card:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(50% - 0.45rem);
             }
         }
 
@@ -1058,7 +1064,7 @@
 
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h2 id="cartTitle">VOTRE PANIER</h2>
+            <h2 id="cartTitle" data-i18n="cartTitle">VOTRE PANIER</h2>
             <button class="close-cart" onclick="toggleCart()" aria-label="Close cart">
                 <svg class="close-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                     <path d="M18 6L6 18"></path>
@@ -1074,10 +1080,10 @@
         </div>
         <div class="cart-footer">
             <div class="cart-subtotal">
-                <span id="subtotalLabel">SOUS-TOTAL</span>
+                <span id="subtotalLabel" data-i18n="subtotal">SOUS-TOTAL</span>
                 <span id="cartSubtotal">0 DA</span>
             </div>
-            <button class="btn-checkout" onclick="openCheckout()">CHECKOUT</button>
+            <button class="btn-checkout" onclick="openCheckout()" data-i18n="checkout">CHECKOUT</button>
         </div>
     </div>
 
@@ -1124,6 +1130,7 @@
                     <a href="rings.html" onclick="closeMobileMenu()" data-i18n="catRings">BAGUES</a>
                     <a href="earrings.html" onclick="closeMobileMenu()" data-i18n="catEarrings">BOUCLES D'OREILLES</a>
                     <a href="bracelets.html" onclick="closeMobileMenu()" data-i18n="catBracelets">BRACELETS</a>
+                    <a href="sets.html" onclick="closeMobileMenu()" data-i18n="catSets">ENSEMBLES</a>
                     <a href="explore.html" onclick="closeMobileMenu()" class="submenu-all" data-i18n="shopAll">Toute la boutique</a>
                 </div>
             </div>
@@ -1217,6 +1224,13 @@
                     <p class="categories-count" data-category="bracelets"></p>
                 </div>
             </a>
+            <a href="sets.html" class="categories-card" style="transition-delay: 0.5s;">
+                <img src="assets/sets.jpg" alt="Sets" class="categories-image">
+                <div class="categories-overlay">
+                    <h3 class="categories-name" data-i18n="catSets">ENSEMBLES</h3>
+                    <p class="categories-count" data-category="sets"></p>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -1259,6 +1273,7 @@
     </footer>
 
     <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/data.js"></script>
     <script src="js/delivery-rates.js"></script>
     <script src="js/cart.js"></script>
@@ -1271,79 +1286,6 @@
     <script src="js/category-reveal.js"></script>
 
     <script>
-        let currentLang = 'fr';
-
-        const translations = {
-            fr: {
-                navAbout: 'À PROPOS',
-                navCategories: 'CATÉGORIES',
-                navContact: 'CONTACT',
-                shopAll: 'Toute la boutique',
-                heroTagline: 'Créé pour Votre Énergie',
-                heroBtn1: 'EXPLORER LES BIJOUX',
-                heroBtn2: 'VOIR CATÉGORIES',
-                aboutTitle: 'Notre Histoire',
-                aboutSub: "L'Art de l'Esprit Bohème",
-                aboutP1: "Juryam célèbre la beauté de l'artisanat bohème, où chaque pièce raconte une histoire d'esprit libre et de créativité sans limite. Inspirés par les traditions et l'esthétique naturelle, nos bijoux sont conçus pour ceux qui cherchent l'authenticité.",
-                aboutP2: "Chaque création est façonnée à la main avec amour, utilisant des matériaux naturels et des designs intemporels qui capturent l'essence de la liberté et de l'expression personnelle.",
-                exploreTitle: 'Explorer la Boutique',
-                exploreSub: 'Nos dernières créations, choisies pour vous',
-                showAll: 'TOUT VOIR',
-                showAllSub: 'Toute la collection',
-                categoriesTitle: 'Catégories',
-                categoriesSub: 'Explorez nos catégories soigneusement sélectionnées',
-                contactTitle: 'Contactez-Nous',
-                contactSub: 'Rejoignez Notre Tribu Créative',
-                contactText: 'Suivez notre voyage créatif et découvrez nos nouvelles créations. Nous sommes toujours ravis de partager notre passion avec des âmes similaires.',
-                footerTagline: 'JURYAM © 2025 • Créé pour Votre Énergie',
-                footerCredit: 'Réalisé par DouriemDev',
-                cartTitle: 'VOTRE PANIER',
-                emptyCart: 'Votre panier est vide',
-                emptyCartSub: 'Commencez à ajouter de la magie ✨',
-                subtotal: 'SOUS-TOTAL',
-                catNecklaces: 'COLLIERS',
-                catRings: 'BAGUES',
-                catEarrings: "BOUCLES D'OREILLES",
-                catBracelets: 'BRACELETS',
-                piece: 'pièce',
-                pieces: 'pièces'
-            },
-            en: {
-                navAbout: 'ABOUT',
-                navCategories: 'CATEGORIES',
-                navContact: 'CONTACT',
-                shopAll: 'Shop all',
-                heroTagline: 'Curated for Your Energy',
-                heroBtn1: 'EXPLORE JEWELRY',
-                heroBtn2: 'VIEW CATEGORIES',
-                aboutTitle: 'Our Story',
-                aboutSub: 'The Art of Bohemian Spirit',
-                aboutP1: 'Juryam celebrates the beauty of bohemian craftsmanship, where each piece tells a story of free spirit and limitless creativity. Inspired by traditions and natural aesthetics, our jewelry is designed for those seeking authenticity.',
-                aboutP2: 'Each creation is handcrafted with love, using natural materials and timeless designs that capture the essence of freedom and personal expression.',
-                exploreTitle: 'Explore the Store',
-                exploreSub: 'Our latest creations, curated for you',
-                showAll: 'SHOW ALL',
-                showAllSub: 'The full collection',
-                categoriesTitle: 'Categories',
-                categoriesSub: 'Explore our curated categories',
-                contactTitle: 'Contact Us',
-                contactSub: 'Join Our Creative Tribe',
-                contactText: 'Follow our creative journey and discover our new creations. We are always delighted to share our passion with like-minded souls.',
-                footerTagline: 'JURYAM © 2025 • Curated for Your Energy',
-                footerCredit: 'Made by DouriemDev',
-                cartTitle: 'YOUR CART',
-                emptyCart: 'Your cart is empty',
-                emptyCartSub: 'Start adding some magic ✨',
-                subtotal: 'SUBTOTAL',
-                catNecklaces: 'NECKLACES',
-                catRings: 'RINGS',
-                catEarrings: 'EARRINGS',
-                catBracelets: 'BRACELETS',
-                piece: 'piece',
-                pieces: 'pieces'
-            }
-        };
-
         function checkScroll() {
             const header = document.querySelectorAll('.section-header');
             const cards = document.querySelectorAll('.categories-card, #exploreTrack .product-card:not(.product-skeleton)');
@@ -1426,7 +1368,7 @@
         const exploreTrack = document.getElementById('exploreTrack');
 
         function showAllCard() {
-            const t = translations[currentLang];
+            const t = I18N[currentLang];
             return `
                 <a href="explore.html" class="show-all-card">
                     <span class="show-all-icon">
@@ -1442,7 +1384,7 @@
             return withProducts(exploreTrack, 4, () => {
                 const products = getStoreOrder().slice(0, 9);
                 if (products.length === 0) {
-                    exploreTrack.innerHTML = renderGridMessage('No products available yet.', 'Check back soon!');
+                    exploreTrack.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
                 } else {
                     exploreTrack.innerHTML = products.map((product, index) =>
                         renderProductCard(product, { delay: index * 0.08 })
@@ -1469,7 +1411,7 @@
 
         function updateCategoryCounts() {
             if (!hasProducts()) return;
-            const t = translations[currentLang];
+            const t = I18N[currentLang];
             document.querySelectorAll('.categories-count[data-category]').forEach(el => {
                 const count = getProductsByCategory(el.dataset.category).length;
                 el.textContent = `${count} ${count === 1 ? t.piece : t.pieces}`;
@@ -1479,30 +1421,7 @@
         loadExploreCarousel();
         productsReady.then(updateCategoryCounts);
 
-        document.querySelectorAll('.lang-toggle').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                currentLang = currentLang === 'fr' ? 'en' : 'fr';
-                const newText = currentLang === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN';
-                document.querySelectorAll('.lang-toggle').forEach(btn => btn.textContent = newText);
-
-                const t = translations[currentLang];
-
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const value = t[el.dataset.i18n];
-                    if (value !== undefined) el.textContent = value;
-                });
-                updateCategoryCounts();
-
-                document.getElementById('cartTitle').textContent = t.cartTitle;
-                const emptyCartText = document.getElementById('emptyCartText');
-                const emptyCartSub = document.getElementById('emptyCartSub');
-                if (emptyCartText) emptyCartText.textContent = t.emptyCart;
-                if (emptyCartSub) emptyCartSub.textContent = t.emptyCartSub;
-                document.getElementById('subtotalLabel').textContent = t.subtotal;
-
-                document.documentElement.lang = currentLang;
-            });
-        });
+        document.addEventListener('langchange', updateCategoryCounts);
     </script>
 </body>
 </html>

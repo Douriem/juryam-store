@@ -2,7 +2,7 @@ const API = 'https://api.github.com';
 const REPO = JURYAM_CONFIG.GITHUB_REPO;
 const BRANCH = JURYAM_CONFIG.GITHUB_BRANCH;
 const TOKEN_KEY = 'juryam_admin_token';
-const ID_PREFIX = { necklaces: 'neck', rings: 'ring', earrings: 'ear', bracelets: 'brac' };
+const ID_PREFIX = { necklaces: 'neck', rings: 'ring', earrings: 'ear', bracelets: 'brac', sets: 'set' };
 const CATEGORIES = Object.keys(ID_PREFIX);
 
 let products = {};

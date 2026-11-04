@@ -60,3 +60,38 @@
         gap: 0.25rem;
     }
 }
+
+/* Swipe-to-go-back arrow (touch screens) */
+.swipe-back-hint {
+    position: fixed;
+    top: 50%;
+    left: -44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    color: #d4a373;
+    z-index: 5000;
+    opacity: 0;
+    transform: translate(0, -50%) scale(0.7);
+    pointer-events: none;
+    transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.swipe-back-hint svg {
+    width: 22px;
+    height: 22px;
+}
+
+.swipe-back-hint.visible {
+    opacity: 1;
+}
+
+.swipe-back-hint.ready {
+    background: #d4a373;
+    color: #0a0a0a;
+}

@@ -9,7 +9,7 @@ async function submitOrder(event) {
 
     const btn = document.getElementById('sendOrderBtn');
     btn.disabled = true;
-    btn.textContent = 'SENDING...';
+    btn.textContent = t('sending');
 
     const form = document.getElementById('checkoutForm');
     const formData = new FormData(form);
@@ -35,12 +35,12 @@ async function submitOrder(event) {
             clearCart();
             showOrderConfirmation();
         } else {
-            alert('Something went wrong. Please try again or contact us on Instagram.');
+            alert(t('orderFailed'));
         }
     } catch {
-        alert('Could not send order. Please check your connection and try again.');
+        alert(t('orderOffline'));
     } finally {
         btn.disabled = false;
-        btn.textContent = 'SEND ORDER';
+        btn.textContent = t('sendOrder');
     }
 }
