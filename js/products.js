@@ -5,14 +5,19 @@ function escapeAttr(value) {
 // Shared product card markup (category pages, homepage carousel, Explore page).
 // Images below the first row load lazily.
 function renderProductCard(product, { eager = false, delay = 0 } = {}) {
+    const soldOut = isSoldOut(product);
+    const open = soldOut ? '' : ` onclick="openAddToCartModal('${product.id}')"`;
+    const badge = soldOut
+        ? `<div class="product-badge" data-i18n="outOfStock">${t('outOfStock')}</div>`
+        : product.badge ? `<div class="product-badge">${product.badge}</div>` : '';
     return `
-        <div class="product-card" style="transition-delay: ${delay}s;" onclick="openAddToCartModal('${product.id}')">
+        <div class="product-card${soldOut ? ' sold-out' : ''}" style="transition-delay: ${delay}s;"${open}>
             <div class="product-image-container">
-                ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                ${badge}
                 <img src="${escapeAttr(product.image)}" alt="${escapeAttr(product.name)}" class="product-image" loading="${eager ? 'eager' : 'lazy'}" decoding="async">
-                <button class="quick-add" onclick="event.stopPropagation(); openAddToCartModal('${product.id}')" data-i18n="addToCart">
+                ${soldOut ? '' : `<button class="quick-add" onclick="event.stopPropagation(); openAddToCartModal('${product.id}')" data-i18n="addToCart">
                     ${t('addToCart')}
-                </button>
+                </button>`}
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>

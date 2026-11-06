@@ -7,7 +7,7 @@
       "image": "assets/necklace1.png",
       "description": "Delicate crescent moon pendant.",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_3",
@@ -16,7 +16,7 @@
       "image": "assets/necklace3.png",
       "description": "Stunning labradorite stone.",
       "category": "necklaces",
-      "badge": null
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_4",
@@ -25,7 +25,7 @@
       "image": "assets/pearl-crystal-necklace.png",
       "description": "Natural stone and pearl necklace.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [
         {
           "id": "gold-gold-plated",
@@ -357,7 +357,7 @@
       "image": "assets/lilac-rain-necklace-1793811229524.jpeg",
       "description": "A long Y-drop of lilac, mint and crystal beads.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-04T16:53:49.524Z"
     },

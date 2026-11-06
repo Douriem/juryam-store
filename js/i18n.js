@@ -107,6 +107,7 @@ const I18N = {
 
         // bundle promos
         fromPrice: 'À partir de',
+        outOfStock: 'RUPTURE DE STOCK',
         offer: 'Offre :',
         promo: 'Promo',
         tier_skinny: 'bracelets fins',
@@ -212,6 +213,7 @@ const I18N = {
         orderOffline: 'Could not send order. Please check your connection and try again.',
 
         fromPrice: 'From',
+        outOfStock: 'OUT OF STOCK',
         offer: 'Offer:',
         promo: 'Promo',
         tier_skinny: 'skinny bracelets',

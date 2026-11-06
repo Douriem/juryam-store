@@ -77,10 +77,16 @@ function getProductTimestamp(product) {
 }
 
 // Category pages: dated products newest first, undated ones after in their listed order.
+// Set from the admin page with the "OUT OF STOCK" badge
+function isSoldOut(product) {
+    return product.badge === 'OUT OF STOCK';
+}
+
+// Newest first, pieces that are out of stock at the end
 function sortNewestFirst(products) {
     return products
         .map((p, i) => ({ p, i, t: getProductTimestamp(p) }))
-        .sort((a, b) => (a.t === null) - (b.t === null) || (b.t || 0) - (a.t || 0) || a.i - b.i)
+        .sort((a, b) => isSoldOut(a.p) - isSoldOut(b.p) || (a.t === null) - (b.t === null) || (b.t || 0) - (a.t || 0) || a.i - b.i)
         .map(x => x.p);
 }
 
