@@ -36,6 +36,7 @@ const I18N = {
         catEarrings: "BOUCLES D'OREILLES",
         catBracelets: 'BRACELETS',
         catSets: 'ENSEMBLES',
+        catGoth: 'GOTH',
         piece: 'pièce',
         pieces: 'pièces',
 
@@ -47,6 +48,7 @@ const I18N = {
         subEarrings: 'Pendants élégants et puces mystiques',
         subBracelets: 'Joncs symboliques et bracelets à breloques',
         subSets: 'Des pièces assorties, faites pour être portées ensemble',
+        subGoth: 'Velours, cuir et pierres sombres',
         addToCart: 'AJOUTER AU PANIER',
         noProducts: 'Aucun produit pour le moment.',
         checkBack: 'Revenez bientôt !',
@@ -146,6 +148,7 @@ const I18N = {
         catEarrings: 'EARRINGS',
         catBracelets: 'BRACELETS',
         catSets: 'SETS',
+        catGoth: 'GOTH',
         piece: 'piece',
         pieces: 'pieces',
 
@@ -156,6 +159,7 @@ const I18N = {
         subEarrings: 'Elegant drops and mystical studs',
         subBracelets: 'Symbolic bangles and charm bracelets',
         subSets: 'Matching pieces, made to be worn together',
+        subGoth: 'Velvet, leather and dark stones',
         addToCart: 'ADD TO CART',
         noProducts: 'No products available yet.',
         checkBack: 'Check back soon!',

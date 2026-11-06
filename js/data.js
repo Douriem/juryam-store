@@ -45,8 +45,14 @@ function hasProducts() {
     return Object.keys(PRODUCTS).length > 0;
 }
 
+// A product lives in one category but can also be listed in others (e.g. alsoIn: ["goth"]).
 function getProductsByCategory(category) {
-    return PRODUCTS[category] || [];
+    const extra = [];
+    for (const other in PRODUCTS) {
+        if (other === category) continue;
+        PRODUCTS[other].forEach(p => { if ((p.alsoIn || []).includes(category)) extra.push(p); });
+    }
+    return (PRODUCTS[category] || []).concat(extra);
 }
 
 function getProductById(productId) {

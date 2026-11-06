@@ -135,10 +135,8 @@ sharedStyles.textContent = `
     }
 
     .product-card.sold-out { cursor: default; }
-    .product-card.sold-out .product-image { filter: grayscale(0.85) brightness(0.45); }
     .product-card.sold-out:hover .product-image { transform: none; }
-    .product-card.sold-out .product-badge { z-index: 2; background: #3a3a3a; color: #f5f5f0; }
-    .product-card.sold-out .product-price { opacity: 0.55; }
+    .product-card.sold-out .product-badge { z-index: 2; }
 
     .variant-row { margin-bottom: 0.75rem; }
     .variant-row .qty-controls { margin-top: 0.5rem; }

@@ -2,7 +2,7 @@ const API = 'https://api.github.com';
 const REPO = JURYAM_CONFIG.GITHUB_REPO;
 const BRANCH = JURYAM_CONFIG.GITHUB_BRANCH;
 const TOKEN_KEY = 'juryam_admin_token';
-const ID_PREFIX = { necklaces: 'neck', rings: 'ring', earrings: 'ear', bracelets: 'brac', sets: 'set' };
+const ID_PREFIX = { necklaces: 'neck', rings: 'ring', earrings: 'ear', bracelets: 'brac', sets: 'set', goth: 'goth' };
 const CATEGORIES = Object.keys(ID_PREFIX);
 
 let products = {};
@@ -157,6 +157,7 @@ function openForm(product) {
     $('fCategory').value = product ? product.category : 'necklaces';
     $('fBadge').value = product && product.badge ? product.badge : '';
     $('fDesc').value = product ? product.description || '' : '';
+    $('fAlsoGoth').checked = !!(product && (product.alsoIn || []).includes('goth'));
     $('fVariants').value = product && product.variants ? product.variants.map(v => v.label).join('\n') : '';
     $('fImage').value = '';
     $('fImage').required = !product;
@@ -248,6 +249,7 @@ async function saveProduct(event) {
         const variants = parseVariants().map(v => ({ ...previous.find(o => o.id === v.id), ...v }));
         if (variants.length) product.variants = variants;
         if (existing && existing.bundles) product.bundles = existing.bundles;
+        if ($('fAlsoGoth').checked && category !== 'goth') product.alsoIn = ['goth'];
 
         data[category] = data[category] || [];
         data[category].push(product);

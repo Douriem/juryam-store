@@ -370,7 +370,10 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:51.524Z"
+      "createdAt": "2026-11-04T16:53:51.524Z",
+      "alsoIn": [
+        "goth"
+      ]
     },
     {
       "id": "neck_30",
@@ -381,7 +384,10 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:52.524Z"
+      "createdAt": "2026-11-04T16:53:52.524Z",
+      "alsoIn": [
+        "goth"
+      ]
     },
     {
       "id": "neck_31",
@@ -390,9 +396,12 @@
       "image": "assets/tigers-heart-necklace-1793811233524.jpeg",
       "description": "Black bead chain with a tiger's eye heart pendant.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:53.524Z"
+      "createdAt": "2026-11-04T16:53:53.524Z",
+      "alsoIn": [
+        "goth"
+      ]
     },
     {
       "id": "neck_32",

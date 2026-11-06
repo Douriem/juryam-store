@@ -111,7 +111,7 @@ async function loadProducts(category) {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
 
-    await withProducts(grid, 4, () => {
+    await withProducts(grid, 6, () => {
         const products = sortNewestFirst(getProductsByCategory(category));
         if (products.length === 0) {
             grid.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
