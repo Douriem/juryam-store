@@ -11,12 +11,27 @@
     },
     {
       "id": "neck_3",
-      "name": "love potion",
-      "price": 450,
-      "image": "assets/necklace3.png",
-      "description": "Stunning labradorite stone.",
+      "name": "Love Potion",
+      "price": 600,
+      "image": "assets/love-potion-necklace-1794084029982.jpeg",
+      "description": "A shell heart with a silver open-heart overlay, on a triple cord. Now in red; the pink one is sold out.",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "red",
+          "label": "Red",
+          "image": "assets/love-potion-necklace-1794084029982.jpeg",
+          "swatch": "#b3122a"
+        },
+        {
+          "id": "pink",
+          "label": "Pink",
+          "image": "assets/necklace3.png",
+          "swatch": "#e58fb0",
+          "soldOut": true
+        }
+      ]
     },
     {
       "id": "neck_4",

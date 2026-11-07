@@ -52,7 +52,7 @@ function renderSwatches(product) {
     const colours = (product.variants || []).filter(v => v.swatch);
     if (!colours.length) return '';
     return `<span class="product-swatches" title="${colours.length} colours">${colours.map(v =>
-        `<span class="swatch" style="background:${v.swatch}" aria-label="${escapeAttr(v.label)}"></span>`).join('')}</span>`;
+        `<span class="swatch${v.soldOut ? ' sold' : ''}" style="background:${v.swatch}" aria-label="${escapeAttr(v.label)}${v.soldOut ? ' (sold out)' : ''}"></span>`).join('')}</span>`;
 }
 
 function renderSkeletonCard() {

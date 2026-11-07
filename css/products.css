@@ -429,3 +429,7 @@
     .carousel .product-swatches { gap: 3px; margin-top: 0.3em; }
     .carousel .product-swatches .swatch { width: 7px; height: 7px; }
 }
+
+/* A sold-out colour's swatch gets a thin slash */
+.product-swatches .swatch.sold { position: relative; opacity: 0.75; }
+.product-swatches .swatch.sold::after { content: ''; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1.5px; background: #e07a7a; transform: translateX(-50%) rotate(45deg); }

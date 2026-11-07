@@ -138,6 +138,24 @@ sharedStyles.textContent = `
     .product-card.sold-out:hover .product-image { transform: none; }
     .product-card.sold-out .product-badge { z-index: 2; }
 
+    /* A colour that's sold out: still shown (photo and swatch), but it can't be picked */
+    .size-btn.sold-out { cursor: not-allowed; border-style: dashed; }
+    .size-btn.sold-out .variant-name { text-decoration: line-through; text-decoration-color: rgba(201, 201, 196, 0.6); }
+    .size-btn .sold-tag { margin-left: 0.4rem; font-size: 0.7em; letter-spacing: 0.5px; color: #e07a7a; text-transform: uppercase; }
+    .photo-viewer-names .size-btn.active .sold-tag { color: #7a1f1f; }
+    .photo-viewer-sold {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        padding: 0.4rem 0.9rem;
+        background: #3a3a3a;
+        color: #f5f5f0;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+        pointer-events: none;
+    }
+
     .variant-row { margin-bottom: 0.75rem; }
     .variant-row .qty-controls { margin-top: 0.5rem; }
     .variant-totals {
@@ -595,6 +613,7 @@ function injectModals() {
             <button class="photo-viewer-close" onclick="closePhotoViewer()" aria-label="Close">&times;</button>
             <div class="photo-viewer-frame">
                 <div class="photo-viewer-track" id="photoViewerTrack"></div>
+                <span class="photo-viewer-sold" id="photoViewerSold" data-i18n="outOfStock" hidden>${t('outOfStock')}</span>
                 <button class="photo-viewer-arrow prev" onclick="stepPhotoViewer(-1)" aria-label="Previous photo">&#8249;</button>
                 <button class="photo-viewer-arrow next" onclick="stepPhotoViewer(1)" aria-label="Next photo">&#8250;</button>
             </div>
@@ -634,6 +653,15 @@ function injectModals() {
     });
 }
 
+// Colour button text; a sold-out colour keeps its name, struck through, with a short tag
+function variantButtonLabel(v) {
+    const swatch = v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : '';
+    const price = v.price ? ` · ${v.price} DA` : '';
+    return v.soldOut
+        ? `${swatch}<span class="variant-name">${v.label}</span><span class="sold-tag" data-i18n="soldOutShort">${t('soldOutShort')}</span>`
+        : `${swatch}${v.label}${price}`;
+}
+
 /* Photo viewer: the main photo first, then each variant's own photo */
 let viewerSlides = [];
 let viewerIndex = 0;
@@ -662,7 +690,7 @@ function openPhotoViewer(src) {
     ).join('');
     document.getElementById('photoViewerNames').innerHTML = viewerSlides.length > 1 || (product.variants || []).length
         ? viewerSlides.flatMap((s, i) => s.variants.length
-            ? s.variants.map(v => `<button type="button" class="size-btn" data-slide="${i}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}${v.price ? ` · ${v.price} DA` : ''}</button>`)
+            ? s.variants.map(v => `<button type="button" class="size-btn${v.soldOut ? ' sold-out' : ''}" data-slide="${i}">${variantButtonLabel(v)}</button>`)
             : [`<button type="button" class="size-btn" data-slide="${i}">${t('viewerAll')}</button>`]).join('')
         : '';
     document.querySelectorAll('.photo-viewer-arrow').forEach(b => b.style.display = viewerSlides.length > 1 ? '' : 'none');
@@ -696,6 +724,8 @@ function markPhotoViewer() {
         const on = parseInt(btn.dataset.slide, 10) === viewerIndex;
         btn.classList.toggle('active', on);
     });
+    const slide = viewerSlides[viewerIndex];
+    document.getElementById('photoViewerSold').hidden = !(slide && slide.variants.length && slide.variants.every(v => v.soldOut));
     document.querySelector('.photo-viewer-arrow.prev').disabled = viewerIndex === 0;
     document.querySelector('.photo-viewer-arrow.next').disabled = viewerIndex === viewerSlides.length - 1;
     const thumb = document.querySelector('#modalProductPreview img');
@@ -743,7 +773,7 @@ function openAddToCartModal(productId) {
     document.getElementById('qtyField').style.display = hasVariants ? 'none' : 'block';
     if (hasVariants) {
         document.getElementById('variantOptions').innerHTML = product.variants.map(v =>
-            `<button type="button" class="size-btn" data-variant="${v.id}">${v.swatch ? `<span class="swatch" style="background:${v.swatch}"></span>` : ''}${v.label}${v.price ? ` · ${v.price} DA` : ''}</button>`
+            `<button type="button" class="size-btn${v.soldOut ? ' sold-out' : ''}" data-variant="${v.id}" aria-disabled="${!!v.soldOut}">${variantButtonLabel(v)}</button>`
         ).join('');
         renderVariantSelection();
     }
@@ -758,12 +788,13 @@ function handleVariantClick(e) {
     const optionBtn = e.target.closest('[data-variant]');
     if (optionBtn) {
         const id = optionBtn.dataset.variant;
-        if (id in modalVariantQty) delete modalVariantQty[id];
-        else modalVariantQty[id] = 1;
         const chosen = product.variants.find(v => v.id === id);
         if (chosen && chosen.image) {
             document.querySelector('#modalProductPreview img').src = chosen.image;
         }
+        if (chosen && chosen.soldOut) return;   // its photo shows, but it can't be added
+        if (id in modalVariantQty) delete modalVariantQty[id];
+        else modalVariantQty[id] = 1;
         renderVariantSelection();
         return;
     }
@@ -837,7 +868,7 @@ function confirmAddToCart() {
     }
 
     if (product.variants && product.variants.length) {
-        const chosen = product.variants.filter(v => v.id in modalVariantQty);
+        const chosen = product.variants.filter(v => v.id in modalVariantQty && !v.soldOut);
         if (chosen.length === 0) {
             alert(t('pickVariant'));
             return;
