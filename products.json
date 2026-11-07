@@ -16,7 +16,7 @@
       "image": "assets/necklace3.png",
       "description": "Stunning labradorite stone.",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "NEW"
     },
     {
       "id": "neck_4",
@@ -112,7 +112,7 @@
       "image": "assets/wild-bloom-necklace-1793206702461.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_12",
@@ -166,7 +166,7 @@
       "image": "assets/wild-horn-necklace-1793363352192.jpeg",
       "description": "Braided wooden beads with a polished black horn pendant.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:29:12.192000Z"
     },
     {
@@ -226,7 +226,7 @@
       "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
       "description": "Layered cords with faceted beads and two mandala medallions with drop charms. Available in scarlet and yellow.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [
         {
           "id": "scarlet",
@@ -346,7 +346,7 @@
       "image": "assets/indigo-tide-necklace-1793811228524.jpeg",
       "description": "A blue glass disc with lilac and cobalt bead drops on a fine chain.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-04T16:53:48.524Z"
     },
@@ -368,7 +368,7 @@
       "image": "assets/lilac-cameo-choker-1793811231524.jpeg",
       "description": "Black velvet choker with an oval lilac stone in an antique frame.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-04T16:53:51.524Z",
       "alsoIn": [
@@ -434,7 +434,7 @@
       "image": "assets/lagoon-pendant-necklace-1793823586886.jpeg",
       "description": "A turquoise glass disc with a silver serpent-link drop, on a double aqua cord.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-11-04T20:19:46.886Z"
     }
   ],
@@ -520,7 +520,7 @@
       "image": "assets/stardrop-1793206585439.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_9",
@@ -556,7 +556,7 @@
       "image": "assets/moonthread-earrings-1793363351192.jpeg",
       "description": "Silver thread woven into a teardrop around a filigree crescent.",
       "category": "earrings",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:29:11.192000Z"
     },
     {
@@ -577,7 +577,20 @@
       "description": "Smoky resin ovals holding fragments of natural stone.",
       "category": "earrings",
       "badge": "NEW",
-      "createdAt": "2026-10-30T12:29:14.192000Z"
+      "createdAt": "2026-10-30T12:29:14.192000Z",
+      "variants": [
+        {
+          "id": "smoky",
+          "label": "Smoky",
+          "image": "assets/stone-relic-earrings-1793363354192.jpeg",
+          "swatch": "#6f6357"
+        },
+        {
+          "id": "sea-blue",
+          "label": "Sea Blue",
+          "swatch": "#2f86a6"
+        }
+      ]
     },
     {
       "id": "ear_15",
@@ -586,7 +599,7 @@
       "image": "assets/rose-arch-earrings-1793363355192.jpeg",
       "description": "Rose-pink arches with faceted crystal drops.",
       "category": "earrings",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:29:15.192000Z"
     },
     {
@@ -606,7 +619,7 @@
       "image": "assets/sunflower-hoop-earrings-1793363357192.jpeg",
       "description": "Silver hoops with an amber stone and a flower charm.",
       "category": "earrings",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:29:17.192000Z"
     },
     {
@@ -635,7 +648,7 @@
       "image": "assets/garden-spell-earrings-1793207082339.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     }
   ],
   "bracelets": [
