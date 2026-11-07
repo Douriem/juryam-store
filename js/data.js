@@ -97,7 +97,7 @@ function sortNewestFirst(products) {
 }
 
 // Newest first; products without a date follow in a shuffled order that stays
-// fixed for the whole browsing session.
+// fixed for the whole browsing session. Sold-out pieces always come last.
 function getStoreOrder() {
     const all = getAllProducts().filter((p, i, arr) => arr.findIndex(q => q.id === p.id) === i);
     const dated = all.filter(p => getProductTimestamp(p) !== null)
@@ -110,7 +110,8 @@ function getStoreOrder() {
         const j = Math.floor(random() * (i + 1));
         [undated[i], undated[j]] = [undated[j], undated[i]];
     }
-    return dated.concat(undated);
+    const ordered = dated.concat(undated);
+    return ordered.filter(p => !isSoldOut(p)).concat(ordered.filter(isSoldOut));
 }
 
 function getSessionSeed() {
