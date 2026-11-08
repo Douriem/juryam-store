@@ -35,7 +35,7 @@
     },
     {
       "id": "neck_4",
-      "name": "Crystal Necklace",
+      "name": "Stone Necklace",
       "price": 1400,
       "image": "assets/pearl-crystal-necklace.png",
       "description": "Natural stone and pearl necklace.",
@@ -683,12 +683,12 @@
   "bracelets": [
     {
       "id": "brac_1",
-      "name": "crystal bracelet",
+      "name": "Stone Bracelet",
       "price": 700,
       "image": "assets/crystals.jpeg",
       "description": "Oxidized silver serpent.",
       "category": "bracelets",
-      "badge": null,
+      "badge": "OUT OF STOCK",
       "variants": [
         {
           "id": "purple-amethyst",
