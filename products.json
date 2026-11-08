@@ -158,12 +158,26 @@
     },
     {
       "id": "neck_15",
-      "name": "Violet Oracle Necklace",
+      "name": "Oracle Necklace",
       "price": 700,
       "image": "assets/violet-oracle-necklace-1793207430451.jpeg",
-      "description": "",
+      "description": "A silver diamond pendant stamped with four flowers, on ribbon and bead cords. Available in violet and black.",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "violet",
+          "label": "Violet",
+          "image": "assets/violet-oracle-necklace-1793207430451.jpeg",
+          "swatch": "#5b2a9e"
+        },
+        {
+          "id": "black",
+          "label": "Black",
+          "image": "assets/oracle-necklace-black-1794084029983.jpeg",
+          "swatch": "#1c1c1c"
+        }
+      ]
     },
     {
       "id": "neck_16",
