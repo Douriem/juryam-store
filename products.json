@@ -665,10 +665,24 @@
       "id": "ear_19",
       "name": "Sparkle Bloom Earrings",
       "price": 700,
-      "image": "assets/sparkle-bloom-earrings-1793206975439.jpeg",
+      "image": "assets/sparkle-bloom-earrings-gold-1794170000001.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "gold",
+          "label": "Gold",
+          "image": "assets/sparkle-bloom-earrings-gold-1794170000001.jpeg",
+          "swatch": "#c9a227"
+        },
+        {
+          "id": "silver",
+          "label": "Silver",
+          "image": "assets/sparkle-bloom-earrings-silver-1794170000002.jpeg",
+          "swatch": "#b8b8b8"
+        }
+      ]
     },
     {
       "id": "ear_20",
