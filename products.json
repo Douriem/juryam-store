@@ -465,6 +465,16 @@
       "category": "necklaces",
       "badge": "OUT OF STOCK",
       "createdAt": "2026-11-04T20:19:46.886Z"
+    },
+    {
+      "id": "neck_34",
+      "name": "Silver Cascade Necklace",
+      "price": 700,
+      "image": "assets/silver-cascade-necklace-1794190000001.jpeg",
+      "description": "Two silver chains of filigree triangle charms, with a long Y-drop.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-09T19:00:00.000Z"
     }
   ],
   "rings": [
@@ -602,22 +612,23 @@
       "id": "ear_14",
       "name": "Stone Relic Earrings",
       "price": 600,
-      "image": "assets/stone-relic-earrings-1793363354192.jpeg",
-      "description": "Smoky resin ovals holding fragments of natural stone.",
+      "image": "assets/stone-relic-earrings-sea-blue-1794190000002.jpeg",
+      "description": "Resin ovals holding fragments of natural stone. Available in sea blue and smoky.",
       "category": "earrings",
       "badge": "NEW",
       "createdAt": "2026-10-30T12:29:14.192000Z",
       "variants": [
         {
+          "id": "sea-blue",
+          "label": "Sea Blue",
+          "swatch": "#2f86a6",
+          "image": "assets/stone-relic-earrings-sea-blue-1794190000002.jpeg"
+        },
+        {
           "id": "smoky",
           "label": "Smoky",
           "image": "assets/stone-relic-earrings-1793363354192.jpeg",
           "swatch": "#6f6357"
-        },
-        {
-          "id": "sea-blue",
-          "label": "Sea Blue",
-          "swatch": "#2f86a6"
         }
       ]
     },
