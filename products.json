@@ -703,6 +703,30 @@
       "description": "",
       "category": "earrings",
       "badge": "OUT OF STOCK"
+    },
+    {
+      "id": "ear_21",
+      "name": "Serpent Eye Earrings",
+      "price": 700,
+      "image": "assets/serpent-eye-earrings-amber-1794270000001.jpeg",
+      "description": "Round discs with a snakeskin print under a glossy finish. Available in amber and purple.",
+      "category": "earrings",
+      "badge": "NEW",
+      "createdAt": "2026-11-10T12:00:00.000Z",
+      "variants": [
+        {
+          "id": "amber",
+          "label": "Amber",
+          "image": "assets/serpent-eye-earrings-amber-1794270000001.jpeg",
+          "swatch": "#c8871f"
+        },
+        {
+          "id": "purple",
+          "label": "Purple",
+          "image": "assets/serpent-eye-earrings-purple-1794270000002.jpeg",
+          "swatch": "#8e3fb5"
+        }
+      ]
     }
   ],
   "bracelets": [
