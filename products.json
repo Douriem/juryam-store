@@ -481,10 +481,36 @@
       "name": "Sorbet Bead Necklace",
       "price": 900,
       "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
-      "description": "Chunky pastel beads in lilac, sage and sand, layered with a long silver chain of carved charms.",
+      "description": "Chunky pastel beads layered with a long silver chain of carved charms. Choose lilac pink, blue, beige or a mix.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-12T12:00:00.000Z"
+      "createdAt": "2026-11-12T12:00:00.000Z",
+      "variants": [
+        {
+          "id": "mix",
+          "label": "Mix",
+          "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
+          "swatch": "#b9a6b8"
+        },
+        {
+          "id": "lilac-pink",
+          "label": "Lilac Pink",
+          "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
+          "swatch": "#c49ab8"
+        },
+        {
+          "id": "blue",
+          "label": "Blue",
+          "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
+          "swatch": "#a9c4c4"
+        },
+        {
+          "id": "beige",
+          "label": "Beige",
+          "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
+          "swatch": "#cbb48e"
+        }
+      ]
     }
   ],
   "rings": [
