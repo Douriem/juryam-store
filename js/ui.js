@@ -283,11 +283,14 @@ sharedStyles.textContent = `
         border-color: #d4a373;
         background: rgba(212, 163, 115, 0.1);
     }
+    .delivery-option.unavailable { opacity: 0.45; cursor: not-allowed; }
     .delivery-option:has(input:focus-visible) { outline: 1px solid #d4a373; outline-offset: 2px; }
     .delivery-option-title { color: #f5f5f0; font-size: 0.9rem; }
     .delivery-option-meta { color: #c9c9c4; font-size: 0.78rem; }
     .delivery-option-price { color: #d4a373; font-size: 0.95rem; margin-top: 0.15rem; }
     .delivery-hint { color: #8a8a85; font-size: 0.8rem; margin-top: 0.4rem; font-style: italic; }
+    .delivery-hint.pick-wilaya { color: #d4a373; font-style: normal; margin: 0 0 0.5rem; }
+    .delivery-hint[hidden] { display: none; }
 
     .checkout-pay {
         display: flex;
@@ -578,6 +581,7 @@ function injectModals() {
                         </div>
                         <div class="modal-field">
                             <label data-i18n="deliveryField">${t('deliveryField')}</label>
+                            <p class="delivery-hint pick-wilaya" id="deliveryHint"></p>
                             <div class="delivery-options" id="deliveryMethods"></div>
                         </div>
                         <div class="modal-field" id="deliveryServiceField">
@@ -775,6 +779,9 @@ function openAddToCartModal(productId) {
         document.getElementById('variantOptions').innerHTML = product.variants.map(v =>
             `<button type="button" class="size-btn${v.soldOut ? ' sold-out' : ''}" data-variant="${v.id}" aria-disabled="${!!v.soldOut}">${variantButtonLabel(v)}</button>`
         ).join('');
+        // Start with the first colour in stock picked, so "Add to cart" works in one tap
+        const first = product.variants.find(v => !v.soldOut);
+        if (first) modalVariantQty[first.id] = 1;
         renderVariantSelection();
     }
 
@@ -1017,10 +1024,10 @@ function wilayaOptions() {
         .join('');
 }
 
-function deliveryOption(name, value, checked, title, meta, price) {
+function deliveryOption(name, value, checked, title, meta, price, disabled = false) {
     return `
-        <label class="delivery-option">
-            <input type="radio" name="${name}" value="${value}" ${checked ? 'checked' : ''}>
+        <label class="delivery-option${disabled ? ' unavailable' : ''}">
+            <input type="radio" name="${name}" value="${value}" ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}>
             <span class="delivery-option-title">${title}</span>
             <span class="delivery-option-meta">${meta}</span>
             <span class="delivery-option-price">${price}</span>
@@ -1037,19 +1044,32 @@ function renderDeliveryChoices() {
     const methods = document.getElementById('deliveryMethods');
     if (!methods) return;
 
+    const services = JURYAM_CONFIG.DELIVERY_SERVICES;
+    // Some couriers have no stop-desk in far wilayas: move to one that does, or to home delivery
+    const hasDesk = key => { const r = getDeliveryRate(delivery.wilaya, key); return r && r.desk != null; };
+    if (delivery.wilaya && delivery.method === 'desk' && !hasDesk(delivery.service)) {
+        const other = services.find(hasDesk);
+        if (other) delivery.service = other; else delivery.method = 'home';
+    }
+
     const rate = delivery.wilaya ? getDeliveryRate(delivery.wilaya, delivery.service) : null;
-    const price = key => rate ? `${rate[key]} DA` : '—';
+    const price = key => !delivery.wilaya ? t('pickWilayaShort') : rate && rate[key] != null ? `${rate[key]} DA` : '—';
+    // Until a wilaya is picked, say so plainly instead of showing empty prices
+    const hint = document.getElementById('deliveryHint');
+    hint.hidden = Boolean(delivery.wilaya);
+    hint.textContent = t('pickWilayaHint');
+    const noDeskAnywhere = delivery.wilaya && !services.some(hasDesk);
 
     methods.innerHTML =
         deliveryOption('delivery_method', 'home', delivery.method === 'home', t('homeDelivery'), t('toAddress'), price('home')) +
-        deliveryOption('delivery_method', 'desk', delivery.method === 'desk', t('stopDesk'), t('pickUp'), price('desk'));
+        deliveryOption('delivery_method', 'desk', delivery.method === 'desk', t('stopDesk'), noDeskAnywhere ? t('noStopDesk') : t('pickUp'), price('desk'), noDeskAnywhere);
 
-    const services = JURYAM_CONFIG.DELIVERY_SERVICES;
     document.getElementById('deliveryServiceField').style.display = services.length > 1 ? '' : 'none';
     document.getElementById('deliveryServices').innerHTML = services.map(key => {
         const r = delivery.wilaya ? getDeliveryRate(delivery.wilaya, key) : null;
+        const off = Boolean(r) && r[delivery.method] == null;
         return deliveryOption('delivery_service', key, delivery.service === key, DELIVERY_RATES[key].label,
-            r ? `${t('about')} ${daysLabel(r.days)}` : t('selectWilaya'), r ? `${r[delivery.method]} DA` : '—');
+            !r ? '' : off ? t('noStopDesk') : `${t('about')} ${daysLabel(r.days)}`, !r ? t('pickWilayaShort') : off ? '—' : `${r[delivery.method]} DA`, off);
     }).join('');
 
     // Stop-desk parcels are collected at the office, so a street address is optional.

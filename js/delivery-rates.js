@@ -1,12 +1,12 @@
 /*
- * Delivery prices — copied from the courier's price sheet "Tarifs Juryam" (Guepex, departure: Alger).
+ * Delivery prices — copied from each courier's price sheet (Guepex "Tarifs Juryam" and Anderson, departure: Alger).
  * To update prices, edit the numbers below; nothing else needs to change.
  *
  * Each row: [wilaya, wilaya code, zone, home delivery (DA), stop-desk (DA), delay (days)]
  */
 const DELIVERY_RATES = {
     ecommerce: {
-        label: 'Express',
+        label: 'Guepex Express',
         rows: [
             ["Alger",                16, 0,  590,  450, 1],
             ["Blida",                 9, 1,  700,  550, 1],
@@ -69,7 +69,7 @@ const DELIVERY_RATES = {
         ]
     },
     economique: {
-        label: 'Economy',
+        label: 'Guepex Economy',
         rows: [
             ["Alger",                16, 0,  500,  400, 2],
             ["Blida",                 9, 1,  550,  450, 2],
@@ -130,6 +130,69 @@ const DELIVERY_RATES = {
             ["In Guezzam",           54, 5, 1500, 1300, 6],
             ["Djanet",               56, 5, 1500, 1300, 7],
         ]
+    },
+    anderson: {
+        // Anderson E-Commerce Logistics price sheet (departure: Alger). null = no stop-desk in that wilaya.
+        label: 'Anderson',
+        rows: [
+            ["Adrar",                1, 0,  1650,   850, 5],
+            ["Chlef",                2, 0,   700,   450, 1],
+            ["Laghouat",             3, 0,   850,   450, 1],
+            ["Oum El Bouaghi",       4, 0,   850,   450, 1],
+            ["Batna",                5, 0,   850,   450, 1],
+            ["Béjaïa",               6, 0,   850,   450, 1],
+            ["Biskra",               7, 0,   850,   650, 1],
+            ["Béchar",               8, 0,  1200,   650, 3],
+            ["Blida",                9, 0,   650,   400, 1],
+            ["Bouira",              10, 0,   650,   450, 1],
+            ["Tamanrasset",         11, 0,  1800,  1000, 5],
+            ["Tébessa",             12, 0,   850,   450, 1],
+            ["Tlemcen",             13, 0,   850,   450, 1],
+            ["Tiaret",              14, 0,   850,   450, 1],
+            ["Tizi Ouzou",          15, 0,   650,   450, 1],
+            ["Alger",               16, 0,   450,   300, 1],
+            ["Djelfa",              17, 0,   850,   450, 1],
+            ["Jijel",               18, 0,   850,   450, 1],
+            ["Sétif",               19, 0,   850,   450, 1],
+            ["Saïda",               20, 0,   850,   450, 1],
+            ["Skikda",              21, 0,   850,   450, 1],
+            ["Sidi Bel Abbès",      22, 0,   850,   450, 1],
+            ["Annaba",              23, 0,   850,   450, 1],
+            ["Guelma",              24, 0,   850,   450, 1],
+            ["Constantine",         25, 0,   850,   450, 1],
+            ["Médéa",               26, 0,   650,   450, 1],
+            ["Mostaganem",          27, 0,   850,   450, 1],
+            ["M'Sila",              28, 0,   850,   450, 1],
+            ["Mascara",             29, 0,   850,   450, 1],
+            ["Ouargla",             30, 0,  1000,   500, 2],
+            ["Oran",                31, 0,   850,   450, 1],
+            ["El Bayadh",           32, 0,   850,   450, 2],
+            ["Illizi",              33, 0,  1700,   850, 9],
+            ["Bordj Bou Arreridj",  34, 0,   650,   450, 1],
+            ["Boumerdès",           35, 0,   650,   400, 1],
+            ["El Tarf",             36, 0,   850,   550, 1],
+            ["Tindouf",             37, 0,  1650,  null, 5],
+            ["Tissemsilt",          38, 0,   850,   450, 1],
+            ["El Oued",             39, 0,   950,   600, 2],
+            ["Khenchela",           40, 0,   850,   450, 1],
+            ["Souk Ahras",          41, 0,   850,   450, 1],
+            ["Tipaza",              42, 0,   650,   450, 1],
+            ["Mila",                43, 0,   850,   450, 1],
+            ["Aïn Defla",           44, 0,   650,   450, 1],
+            ["Naâma",               45, 0,   950,   500, 1],
+            ["Aïn Témouchent",      46, 0,   850,   450, 1],
+            ["Ghardaïa",            47, 0,   950,   650, 2],
+            ["Relizane",            48, 0,   850,   450, 1],
+            ["Timimoun",            49, 0,  1650,  null, 5],
+            ["Bordj Badji Mokhtar", 50, 0,  2000,  null, 10],
+            ["Ouled Djellal",       51, 0,   950,   450, 1],
+            ["Béni Abbès",          52, 0,  1300,  null, 3],
+            ["In Salah",            53, 0,  1650,   850, 5],
+            ["In Guezzam",          54, 0,  2000,  null, 5],
+            ["Touggourt",           55, 0,   950,   500, 2],
+            ["Djanet",              56, 0,  2000,  1000, 9],
+            ["El M'Ghair",          57, 0,   950,   500, 5],
+            ["El Menia",            58, 0,   950,  null, 5],
+        ]
     }
 };
-

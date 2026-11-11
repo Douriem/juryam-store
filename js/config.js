@@ -2,7 +2,7 @@ const JURYAM_CONFIG = {
     CART_STORAGE_KEY: 'juryam_cart',
     // Courier price lists offered at checkout (keys of DELIVERY_RATES in js/delivery-rates.js).
     // The first one is preselected; list only one to hide the choice.
-    DELIVERY_SERVICES: ['ecommerce', 'economique'],
+    DELIVERY_SERVICES: ['ecommerce', 'economique', 'anderson'],
     // Repo the admin dashboard commits products.json and images to
     GITHUB_REPO: 'Douriem/juryam-store',
     GITHUB_BRANCH: 'main',
