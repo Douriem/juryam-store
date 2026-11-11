@@ -475,6 +475,16 @@
       "category": "necklaces",
       "badge": "NEW",
       "createdAt": "2026-11-09T19:00:00.000Z"
+    },
+    {
+      "id": "neck_35",
+      "name": "Sorbet Bead Necklace",
+      "price": 900,
+      "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
+      "description": "Chunky pastel beads in lilac, sage and sand, layered with a long silver chain of carved charms.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-12T12:00:00.000Z"
     }
   ],
   "rings": [
