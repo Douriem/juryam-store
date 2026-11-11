@@ -505,7 +505,7 @@
       "image": "assets/earrings4.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_3",
@@ -514,7 +514,7 @@
       "image": "assets/earrings3.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_4",
@@ -523,7 +523,7 @@
       "image": "assets/earrings2.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_5",
@@ -541,7 +541,7 @@
       "image": "assets/earrings1.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_7",
@@ -554,12 +554,33 @@
     },
     {
       "id": "ear_8",
-      "name": "stardrop",
+      "name": "Arch Drop Earrings",
       "price": 700,
       "image": "assets/stardrop-1793206585439.jpeg",
-      "description": "",
+      "description": "A small arch and bead above a faceted crystal drop. Available in bronze, blue and pink.",
       "category": "earrings",
-      "badge": null
+      "badge": "NEW",
+      "createdAt": "2026-11-11T12:00:00.000Z",
+      "variants": [
+        {
+          "id": "bronze",
+          "label": "Bronze",
+          "image": "assets/stardrop-1793206585439.jpeg",
+          "swatch": "#8a7450"
+        },
+        {
+          "id": "blue",
+          "label": "Blue",
+          "image": "assets/arch-drop-earrings-blue-1794330000001.jpeg",
+          "swatch": "#7fa3a8"
+        },
+        {
+          "id": "pink",
+          "label": "Pink",
+          "image": "assets/rose-arch-earrings-1793363355192.jpeg",
+          "swatch": "#b5546a"
+        }
+      ]
     },
     {
       "id": "ear_9",
@@ -631,26 +652,6 @@
           "swatch": "#6f6357"
         }
       ]
-    },
-    {
-      "id": "ear_15",
-      "name": "Rose Arch Earrings",
-      "price": 600,
-      "image": "assets/rose-arch-earrings-1793363355192.jpeg",
-      "description": "Rose-pink arches with faceted crystal drops.",
-      "category": "earrings",
-      "badge": null,
-      "createdAt": "2026-10-30T12:29:15.192000Z"
-    },
-    {
-      "id": "ear_16",
-      "name": "Starlit Bead Hoops",
-      "price": 600,
-      "image": "assets/starlit-bead-hoops-1793363356192.jpeg",
-      "description": "Star-carved beads strung with pink glass seed beads.",
-      "category": "earrings",
-      "badge": "NEW",
-      "createdAt": "2026-10-30T12:29:16.192000Z"
     },
     {
       "id": "ear_17",
