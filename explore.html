@@ -668,7 +668,7 @@
         function loadStore() {
             const grid = document.getElementById('productsGrid');
             return withProducts(grid, BATCH_SIZE, () => {
-                storeOrder = getStoreOrder();
+                storeOrder = getStoreOrder('bracelets');
                 shownCount = 0;
                 grid.innerHTML = '';
                 if (storeOrder.length === 0) {

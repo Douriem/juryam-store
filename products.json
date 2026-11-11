@@ -559,7 +559,7 @@
       "image": "assets/stardrop-1793206585439.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": null
     },
     {
       "id": "ear_9",
@@ -639,7 +639,7 @@
       "image": "assets/rose-arch-earrings-1793363355192.jpeg",
       "description": "Rose-pink arches with faceted crystal drops.",
       "category": "earrings",
-      "badge": "OUT OF STOCK",
+      "badge": null,
       "createdAt": "2026-10-30T12:29:15.192000Z"
     },
     {

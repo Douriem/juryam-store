@@ -98,7 +98,8 @@ function sortNewestFirst(products) {
 
 // Newest first; products without a date follow in a shuffled order that stays
 // fixed for the whole browsing session. Sold-out pieces always come last.
-function getStoreOrder() {
+// firstCategory: in-stock pieces of that category lead the list (Explore puts bracelets first, they sell most)
+function getStoreOrder(firstCategory) {
     const all = getAllProducts().filter((p, i, arr) => arr.findIndex(q => q.id === p.id) === i);
     const dated = all.filter(p => getProductTimestamp(p) !== null)
         .sort((a, b) => getProductTimestamp(b) - getProductTimestamp(a));
@@ -111,7 +112,9 @@ function getStoreOrder() {
         [undated[i], undated[j]] = [undated[j], undated[i]];
     }
     const ordered = dated.concat(undated);
-    return ordered.filter(p => !isSoldOut(p)).concat(ordered.filter(isSoldOut));
+    const inStock = ordered.filter(p => !isSoldOut(p));
+    const lead = firstCategory ? inStock.filter(p => p.category === firstCategory) : [];
+    return lead.concat(inStock.filter(p => !lead.includes(p)), ordered.filter(isSoldOut));
 }
 
 function getSessionSeed() {
