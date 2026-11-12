@@ -7,5 +7,8 @@ const JURYAM_CONFIG = {
     GITHUB_REPO: 'Douriem/juryam-store',
     GITHUB_BRANCH: 'main',
     // Replace with your Formspree form URL (connect to Google Sheets in Formspree dashboard)
-    FORMSPREE_URL: 'https://formspree.io/f/mbdeqbql'
+    FORMSPREE_URL: 'https://formspree.io/f/mbdeqbql',
+    // JURYAM server that puts website orders in the ledger's "New orders" box (e.g. 'https://api.juryam.com').
+    // Empty = off; orders still go to Formspree either way.
+    ORDERS_API_URL: ''
 };

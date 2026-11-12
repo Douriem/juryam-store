@@ -288,6 +288,7 @@ sharedStyles.textContent = `
     .delivery-option-title { color: #f5f5f0; font-size: 0.9rem; }
     .delivery-option-meta { color: #c9c9c4; font-size: 0.78rem; }
     .delivery-option-price { color: #d4a373; font-size: 0.95rem; margin-top: 0.15rem; }
+    .order-number { color: #d4a373; font-size: 1.05rem; letter-spacing: 1px; margin-top: 0.8rem; }
     .delivery-hint { color: #8a8a85; font-size: 0.8rem; margin-top: 0.4rem; font-style: italic; }
     .delivery-hint.pick-wilaya { color: #d4a373; font-style: normal; margin: 0 0 0.5rem; }
     .delivery-hint[hidden] { display: none; }
@@ -608,6 +609,7 @@ function injectModals() {
                 <div class="modal-body order-confirmation">
                     <div class="confirm-icon">✅</div>
                     <h3 data-i18n-html="orderReceived">${t('orderReceived')}</h3>
+                    <p class="order-number" id="orderNumberLine" hidden></p>
                     <button class="modal-btn modal-btn-primary" style="margin-top:1.5rem; width:100%;" onclick="closeConfirmation()" data-i18n="continueShopping">${t('continueShopping')}</button>
                 </div>
             </div>
@@ -1092,8 +1094,11 @@ function handleDeliveryChange(e) {
     updateCheckoutSummary();
 }
 
-function showOrderConfirmation() {
+function showOrderConfirmation(orderNumber) {
     closeCheckout();
+    const line = document.getElementById('orderNumberLine');
+    line.hidden = !orderNumber;
+    line.textContent = orderNumber ? t('yourOrderNumber', { number: orderNumber }) : '';
     document.getElementById('checkoutForm').reset();
     delivery.wilaya = null;
     delivery.method = 'home';
