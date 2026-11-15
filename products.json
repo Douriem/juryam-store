@@ -511,6 +511,36 @@
           "swatch": "#cbb48e"
         }
       ]
+    },
+    {
+      "id": "neck_36",
+      "name": "Verdant Medallion Necklace",
+      "price": 700,
+      "image": "assets/verdant-medallion-necklace-green-1794500000001.jpeg",
+      "description": "Soft green cords with pearl beads, carved charms and an ornate silver medallion. Choose green, blue or pink.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-16T12:00:00.000Z",
+      "variants": [
+        {
+          "id": "green",
+          "label": "Green",
+          "image": "assets/verdant-medallion-necklace-green-1794500000001.jpeg",
+          "swatch": "#9cbf5a"
+        },
+        {
+          "id": "blue",
+          "label": "Blue",
+          "image": "assets/verdant-medallion-necklace-green-1794500000001.jpeg",
+          "swatch": "#7fa6c9"
+        },
+        {
+          "id": "pink",
+          "label": "Pink",
+          "image": "assets/verdant-medallion-necklace-green-1794500000001.jpeg",
+          "swatch": "#d79ab0"
+        }
+      ]
     }
   ],
   "rings": [
