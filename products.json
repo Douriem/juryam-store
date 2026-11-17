@@ -118,7 +118,7 @@
       "image": "assets/midnight-gaze-1793206364967.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_9",
@@ -154,7 +154,7 @@
       "image": "assets/luna-necklace-1793207319267.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_15",
@@ -186,7 +186,7 @@
       "image": "assets/dusk-necklace-1793207559089.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "neck_17",
@@ -199,40 +199,24 @@
       "createdAt": "2026-10-30T12:29:12.192000Z"
     },
     {
-      "id": "neck_18",
-      "name": "Fairy Moss Necklace",
-      "price": 700,
-      "image": "assets/fairy-moss-necklace-1793363782390.jpeg",
-      "description": "Silver filigree pendant with a chiffon bloom and green bead tassels.",
-      "category": "necklaces",
-      "badge": "NEW",
-      "createdAt": "2026-10-30T12:36:22.390000Z"
-    },
-    {
       "id": "neck_19",
       "name": "Bluebell Charm Necklace",
       "price": 700,
       "image": "assets/bluebell-charm-necklace-1793363783390.jpeg",
       "description": "Sky-blue glass charms on a waxed cord, with a lampwork flower centre.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:36:23.390000Z"
     },
     {
       "id": "neck_20",
       "name": "Crystal Fang Necklace",
       "price": 700,
-      "image": "assets/crystal-fang-necklace-orange-1793363784390.jpeg",
+      "image": "assets/crystal-fang-necklace-pink-1793363784390.jpeg",
       "description": "Faceted crystal chain with a fang pendant and crystal drop. Available in orange, pink and blue.",
       "category": "necklaces",
       "badge": "NEW",
       "variants": [
-        {
-          "id": "orange",
-          "label": "Orange",
-          "image": "assets/crystal-fang-necklace-orange-1793363784390.jpeg",
-          "swatch": "#c27a43"
-        },
         {
           "id": "pink",
           "label": "Pink",
@@ -244,6 +228,13 @@
           "label": "Blue",
           "image": "assets/crystal-fang-necklace-blue-1793363784390.jpeg",
           "swatch": "#5f97bd"
+        },
+        {
+          "id": "orange",
+          "label": "Orange",
+          "image": "assets/crystal-fang-necklace-orange-1793363784390.jpeg",
+          "swatch": "#c27a43",
+          "soldOut": true
         }
       ],
       "createdAt": "2026-10-30T12:36:24.390000Z"
@@ -255,7 +246,7 @@
       "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
       "description": "Layered cords with faceted beads and two mandala medallions with drop charms. Available in scarlet and yellow.",
       "category": "necklaces",
-      "badge": "OUT OF STOCK",
+      "badge": "NEW",
       "variants": [
         {
           "id": "scarlet",
@@ -279,7 +270,7 @@
       "image": "assets/ripple-necklace-crimson-1793811220524.jpeg",
       "description": "Three beaded rings around a small stone on a braided cord. Available in crimson and midnight.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [
         {
           "id": "crimson",
@@ -562,7 +553,7 @@
       "image": "assets/earrings6.png",
       "description": "crystals hearts.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_2",
@@ -616,24 +607,18 @@
       "image": "assets/heartlight-1793206452197.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_8",
       "name": "Arch Drop Earrings",
       "price": 700,
-      "image": "assets/stardrop-1793206585439.jpeg",
+      "image": "assets/arch-drop-earrings-blue-1794330000001.jpeg",
       "description": "A small arch and bead above a faceted crystal drop. Available in bronze, blue and pink.",
       "category": "earrings",
       "badge": "NEW",
       "createdAt": "2026-11-11T12:00:00.000Z",
       "variants": [
-        {
-          "id": "bronze",
-          "label": "Bronze",
-          "image": "assets/stardrop-1793206585439.jpeg",
-          "swatch": "#8a7450"
-        },
         {
           "id": "blue",
           "label": "Blue",
@@ -645,6 +630,13 @@
           "label": "Pink",
           "image": "assets/rose-arch-earrings-1793363355192.jpeg",
           "swatch": "#b5546a"
+        },
+        {
+          "id": "bronze",
+          "label": "Bronze",
+          "image": "assets/stardrop-1793206585439.jpeg",
+          "swatch": "#8a7450",
+          "soldOut": true
         }
       ]
     },
@@ -673,7 +665,7 @@
       "image": "assets/sibyl-earrings-1793208021389.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "OUT OF STOCK"
     },
     {
       "id": "ear_12",
@@ -692,7 +684,7 @@
       "image": "assets/moon-spiral-earrings-1793363353192.jpeg",
       "description": "Hand-woven silver spirals with a crystal heart.",
       "category": "earrings",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-10-30T12:29:13.192000Z"
     },
     {
@@ -775,23 +767,24 @@
       "id": "ear_21",
       "name": "Serpent Eye Earrings",
       "price": 700,
-      "image": "assets/serpent-eye-earrings-amber-1794270000001.jpeg",
+      "image": "assets/serpent-eye-earrings-purple-1794270000002.jpeg",
       "description": "Round discs with a snakeskin print under a glossy finish. Available in amber and purple.",
       "category": "earrings",
       "badge": "NEW",
       "createdAt": "2026-11-10T12:00:00.000Z",
       "variants": [
         {
-          "id": "amber",
-          "label": "Amber",
-          "image": "assets/serpent-eye-earrings-amber-1794270000001.jpeg",
-          "swatch": "#c8871f"
-        },
-        {
           "id": "purple",
           "label": "Purple",
           "image": "assets/serpent-eye-earrings-purple-1794270000002.jpeg",
           "swatch": "#8e3fb5"
+        },
+        {
+          "id": "amber",
+          "label": "Amber",
+          "image": "assets/serpent-eye-earrings-amber-1794270000001.jpeg",
+          "swatch": "#c8871f",
+          "soldOut": true
         }
       ]
     }
