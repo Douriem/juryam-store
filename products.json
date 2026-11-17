@@ -258,7 +258,10 @@
           "id": "yellow",
           "label": "Yellow",
           "image": "assets/necklace2.png",
-          "swatch": "#d4b23c"
+          "swatch": "#d4b23c",
+          "photos": [
+            "assets/scarlet-mandala-necklace-yellow-1794600000001.jpeg"
+          ]
         }
       ],
       "createdAt": "2026-11-04T16:53:39.524Z"

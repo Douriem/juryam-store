@@ -682,6 +682,11 @@ function photoViewerSlides(product) {
     const variants = product.variants || [];
     if (!variants.some(v => v.image === product.image)) add(product.image, null);
     variants.forEach(v => add(v.image || product.image, v));
+    // A colour can have more photos ("photos": [...]); they follow its main photo
+    variants.forEach(v => (v.photos || []).forEach(image => {
+        const main = slides.findIndex(s => s.variants.includes(v));
+        if (!slides.some(s => s.image === image)) slides.splice(main + 1 + slides.filter(s => s.extraOf === v).length, 0, { image, variants: [v], extraOf: v });
+    }));
     return slides;
 }
 
@@ -695,7 +700,7 @@ function openPhotoViewer(src) {
         `<img src="${s.image}" alt="${escapeAttr(s.variants.length ? `${product.name} - ${s.variants.map(v => v.label).join(' / ')}` : product.name)}">`
     ).join('');
     document.getElementById('photoViewerNames').innerHTML = viewerSlides.length > 1 || (product.variants || []).length
-        ? viewerSlides.flatMap((s, i) => s.variants.length
+        ? viewerSlides.flatMap((s, i) => s.extraOf ? [] : s.variants.length
             ? s.variants.map(v => `<button type="button" class="size-btn${v.soldOut ? ' sold-out' : ''}" data-slide="${i}">${variantButtonLabel(v)}</button>`)
             : [`<button type="button" class="size-btn" data-slide="${i}">${t('viewerAll')}</button>`]).join('')
         : '';
@@ -727,7 +732,9 @@ function syncPhotoViewer() {
 
 function markPhotoViewer() {
     document.querySelectorAll('#photoViewerNames [data-slide]').forEach(btn => {
-        const on = parseInt(btn.dataset.slide, 10) === viewerIndex;
+        const cur = viewerSlides[viewerIndex];
+        const own = cur && cur.extraOf ? viewerSlides.findIndex(s => !s.extraOf && s.variants.includes(cur.extraOf)) : viewerIndex;
+        const on = parseInt(btn.dataset.slide, 10) === own;
         btn.classList.toggle('active', on);
     });
     const slide = viewerSlides[viewerIndex];
