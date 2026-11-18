@@ -244,7 +244,7 @@
       "name": "Scarlet Mandala Necklace",
       "price": 850,
       "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
-      "description": "Layered cords with faceted beads and two mandala medallions with drop charms. Available in scarlet and yellow.",
+      "description": "Layered cords with faceted beads and two mandala medallions with drop charms. Available in scarlet, yellow and purple.",
       "category": "necklaces",
       "badge": "NEW",
       "variants": [
@@ -262,6 +262,12 @@
           "photos": [
             "assets/scarlet-mandala-necklace-yellow-1794600000001.jpeg"
           ]
+        },
+        {
+          "id": "purple",
+          "label": "Purple",
+          "image": "assets/scarlet-mandala-necklace-purple-1794700000011.jpeg",
+          "swatch": "#8a3fd1"
         }
       ],
       "createdAt": "2026-11-04T16:53:39.524Z"
@@ -535,6 +541,120 @@
           "swatch": "#d79ab0"
         }
       ]
+    },
+    {
+      "id": "neck_37",
+      "name": "Triskel Shell Necklace",
+      "price": 800,
+      "image": "assets/triskel-shell-necklace-1794700000001.jpeg",
+      "description": "A round mother-of-pearl pendant with a carved triskel set in dark wood, on an adjustable black cord with wooden beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_38",
+      "name": "Butterfly Garden Necklace",
+      "price": 800,
+      "image": "assets/butterfly-garden-necklace-1794700000002.jpeg",
+      "description": "A green enamel butterfly among pastel flowers, pearl drops and a beaded tassel, on a silver chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_39",
+      "name": "Moonshell Necklace",
+      "price": 700,
+      "image": "assets/moonshell-necklace-1794700000003.jpeg",
+      "description": "A large white mother-of-pearl oval threaded with black cords and glass, amber and stone beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_40",
+      "name": "Halo Shell Necklace",
+      "price": 800,
+      "image": "assets/halo-shell-necklace-violet-1794700000004.jpeg",
+      "description": "A mother-of-pearl ring wrapped in thread, on knotted suede cords with small beads. Available in violet and brown.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "variants": [
+        {
+          "id": "violet",
+          "label": "Violet",
+          "image": "assets/halo-shell-necklace-violet-1794700000004.jpeg",
+          "swatch": "#5b2a8a"
+        },
+        {
+          "id": "brown",
+          "label": "Brown",
+          "image": "assets/halo-shell-necklace-violet-1794700000004.jpeg",
+          "swatch": "#7a5236"
+        }
+      ]
+    },
+    {
+      "id": "neck_41",
+      "name": "Norse Disc Necklace",
+      "price": 800,
+      "image": "assets/norse-disc-necklace-1794700000005.jpeg",
+      "description": "A hammered silver disc on a black cord with antique silver beads. Low-key and unisex.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_42",
+      "name": "Honey Amulet Necklace",
+      "price": 915,
+      "image": "assets/honey-amulet-necklace-1794700000012.jpeg",
+      "description": "A carved amulet disc on a brass bail, with long honey beads and dark wooden beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_43",
+      "name": "Sahara Ring Necklace",
+      "price": 800,
+      "image": "assets/sahara-ring-necklace-1794700000013.jpeg",
+      "description": "A hammered silver ring on strands of tiny brown beads, finished with wooden beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_44",
+      "name": "Driftwood Shell Necklace",
+      "price": 800,
+      "image": "assets/driftwood-shell-necklace-1794700000014.jpeg",
+      "description": "Five wood and mother-of-pearl striped tiles on a black cord with wooden beads.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_45",
+      "name": "Ivory Stone Pendant",
+      "price": 700,
+      "image": "assets/ivory-stone-pendant-necklace-1794700000015.jpeg",
+      "description": "A round ivory-tone pendant in silver with a line of clear crystals, on a brown leather cord.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_46",
+      "name": "Citrine Lariat Necklace",
+      "price": 1200,
+      "image": "assets/citrine-lariat-necklace-1794700000016.jpeg",
+      "description": "Layered brown cords with silver beads and yellow crystals, ending in a long tassel.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T12:00:00.000Z"
     }
   ],
   "rings": [
