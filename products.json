@@ -655,6 +655,16 @@
       "category": "necklaces",
       "badge": "NEW",
       "createdAt": "2026-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "neck_47",
+      "name": "Andalus Tile Necklace",
+      "price": 700,
+      "image": "assets/andalus-tile-necklace-1795030686341.jpeg",
+      "description": "",
+      "category": "necklaces",
+      "badge": "NEW",
+      "createdAt": "2026-11-18T19:38:09.009Z"
     }
   ],
   "rings": [
