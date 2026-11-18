@@ -45,7 +45,8 @@ function addToCart(productId, quantity, size, variant, silent) {
             size: size || null,
             variant: variant ? variant.label : null,
             price: variant && variant.price ? variant.price : product.price,
-            tier: variant && variant.tier ? variant.tier : null,
+            // "all" bundles cover every colour of the piece; named tiers only their own colours
+            tier: variant && variant.tier ? variant.tier : (product.bundles && product.bundles.all ? 'all' : null),
             image: variant && variant.image ? variant.image : product.image
         });
     }
@@ -84,7 +85,7 @@ function getCartSubtotal() {
 }
 
 // Bundle promos: a product can price several pieces of one tier together, e.g.
-// "bundles": { "python": { "2": 1300, "3": 1800 } }. Colours can be mixed inside a tier,
+// "bundles": { "python": { "2": 1300, "3": 1800 } }, or { "all": { "2": 1300 } } for any colour. Colours can be mixed inside a tier,
 // and the pieces are split into whichever bundles come out cheapest.
 function bundlePrice(unit, count, bundles) {
     const best = [0];

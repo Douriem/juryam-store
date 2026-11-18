@@ -846,7 +846,7 @@ function renderVariantSelection() {
         `).join('');
 
     const picked = product.variants.filter(v => v.id in modalVariantQty).map(v => ({
-        id: product.id, tier: v.tier, price: v.price || product.price, quantity: modalVariantQty[v.id], bundles: product.bundles
+        id: product.id, tier: v.tier || (product.bundles && product.bundles.all ? 'all' : null), price: v.price || product.price, quantity: modalVariantQty[v.id], bundles: product.bundles
     }));
     const totalQty = picked.reduce((total, item) => total + item.quantity, 0);
     const fullPrice = picked.reduce((total, item) => total + item.price * item.quantity, 0);

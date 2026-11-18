@@ -117,6 +117,7 @@ const I18N = {
         soldOutShort: 'épuisé',
         offer: 'Offre :',
         promo: 'Promo',
+        tier_all: 'pièces',
         tier_skinny: 'bracelets fins',
         tier_bone: 'joncs en os',
         tier_python: 'joncs python'
@@ -230,6 +231,7 @@ const I18N = {
         soldOutShort: 'sold out',
         offer: 'Offer:',
         promo: 'Promo',
+        tier_all: 'pieces',
         tier_skinny: 'skinny bracelets',
         tier_bone: 'bone bangles',
         tier_python: 'python bangles'
