@@ -1613,6 +1613,41 @@
   ],
   "piercings": [
     {
+      "id": "pier_3",
+      "name": "Fake Lip Ring",
+      "price": 1200,
+      "image": "assets/fake-lip-ring-all1-1796100000001.jpeg",
+      "photos": [
+        "assets/fake-lip-ring-all2-1796100000002.jpeg"
+      ],
+      "description": "A clip-on lip ring, no piercing needed. Slide to see each style and pick yours: bead, spikes, double or bar.",
+      "category": "piercings",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "bead",
+          "label": "Bead",
+          "image": "assets/fake-lip-ring-bead-1796100000003.jpeg"
+        },
+        {
+          "id": "spikes",
+          "label": "Spikes",
+          "image": "assets/fake-lip-ring-spike-1796100000004.jpeg"
+        },
+        {
+          "id": "double",
+          "label": "Double",
+          "image": "assets/fake-lip-ring-double-1796100000005.jpeg"
+        },
+        {
+          "id": "bar",
+          "label": "Bar",
+          "image": "assets/fake-lip-ring-bar-1796100000006.jpeg"
+        }
+      ],
+      "createdAt": "2026-11-23T18:00:00.000Z"
+    },
+    {
       "id": "pier_1",
       "name": "Pink Kitty Belly Ring",
       "price": 1200,
