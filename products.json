@@ -675,7 +675,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:00:00.000Z",
+      "createdAt": "2026-11-23T13:41:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -689,9 +689,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:01:00.000Z",
+      "createdAt": "2026-11-23T13:50:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/sacred-flame-necklace-book-1795600000021.jpeg"
       ]
     },
     {
@@ -703,23 +706,29 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:02:00.000Z",
+      "createdAt": "2026-11-23T13:35:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/memento-skull-cord-book-1795600000022.jpeg"
       ]
     },
     {
       "id": "neck_51",
       "name": "Vampire Cameo Necklace",
-      "price": 1000,
+      "price": 950,
       "image": "assets/vampire-cameo-necklace-1795400000012.jpeg",
       "description": "Blood-red oval cameo with a silver bat and crescent moon in an ornate frame.",
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:03:00.000Z",
+      "createdAt": "2026-11-23T13:56:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/vampire-cameo-necklace-book-1795600000018.jpeg"
       ]
     },
     {
@@ -731,23 +740,29 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:04:00.000Z",
+      "createdAt": "2026-11-23T13:58:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/thorned-heart-necklace-book-1795600000020.jpeg"
       ]
     },
     {
       "id": "neck_53",
       "name": "Black Widow Rosary",
-      "price": 1100,
+      "price": 950,
       "image": "assets/black-widow-rosary-1795400000014.jpeg",
       "description": "Black bead rosary chain with a silver spider and a black stone body.",
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:05:00.000Z",
+      "createdAt": "2026-11-23T13:38:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/black-widow-rosary-book-1795600000019.jpeg"
       ]
     },
     {
@@ -759,9 +774,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:06:00.000Z",
+      "createdAt": "2026-11-23T13:40:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/nightwing-bat-necklace-book-1795600000023.jpeg"
       ]
     },
     {
@@ -773,9 +791,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:07:00.000Z",
+      "createdAt": "2026-11-23T13:59:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/crimson-reliquary-necklace-book-1795600000017.jpeg"
       ]
     },
     {
@@ -787,9 +808,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:08:00.000Z",
+      "createdAt": "2026-11-23T13:57:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/rose-relic-heart-necklace-book-1795600000003.jpeg"
       ]
     },
     {
@@ -801,7 +825,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:09:00.000Z",
+      "createdAt": "2026-11-23T13:51:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -815,9 +839,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:10:00.000Z",
+      "createdAt": "2026-11-23T13:52:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/pink-starcross-necklace-book-1795600000004.jpeg"
       ]
     },
     {
@@ -829,9 +856,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:11:00.000Z",
+      "createdAt": "2026-11-23T13:54:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/seraph-wings-necklace-book-1795600000002.jpeg"
       ]
     },
     {
@@ -843,9 +873,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:12:00.000Z",
+      "createdAt": "2026-11-23T13:53:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/rose-cathedral-cross-book-1795600000001.jpeg"
       ]
     },
     {
@@ -857,9 +890,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:13:00.000Z",
+      "createdAt": "2026-11-23T13:44:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/azure-wing-choker-book-1795600000016.jpeg"
       ]
     },
     {
@@ -871,7 +907,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:14:00.000Z",
+      "createdAt": "2026-11-23T13:42:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -885,9 +921,13 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:15:00.000Z",
+      "createdAt": "2026-11-23T13:37:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/reaper-moon-necklace-book1-1795600000006.jpeg",
+        "assets/reaper-moon-necklace-book2-1795600000007.jpeg"
       ]
     },
     {
@@ -899,23 +939,29 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:16:00.000Z",
+      "createdAt": "2026-11-23T13:46:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/moon-fairy-necklace-book-1795600000008.jpeg"
       ]
     },
     {
       "id": "neck_65",
-      "name": "Emerald Dragonfly Necklace",
+      "name": "Forest Fae Dragonfly Necklace",
       "price": 1200,
-      "image": "assets/emerald-dragonfly-necklace-1795400000026.jpeg",
-      "description": "Silver dragonflies with green beads and a dark green stone centre.",
+      "image": "assets/forest-fae-dragonfly-necklace-1795400000026.jpeg",
+      "description": "Silver dragonflies linked with green crystal beads around a green stone, like something a forest fairy would wear.",
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:17:00.000Z",
+      "createdAt": "2026-11-23T13:45:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/forest-fae-dragonfly-necklace-book-1795600000005.jpeg"
       ]
     },
     {
@@ -927,7 +973,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:18:00.000Z",
+      "createdAt": "2026-11-23T13:43:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -941,9 +987,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:19:00.000Z",
+      "createdAt": "2026-11-23T13:39:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/deaths-head-moth-necklace-book-1795600000009.jpeg"
       ]
     },
     {
@@ -955,9 +1004,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:20:00.000Z",
+      "createdAt": "2026-11-23T13:33:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/north-star-necklace-book-1795600000014.jpeg"
       ]
     },
     {
@@ -969,9 +1021,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:21:00.000Z",
+      "createdAt": "2026-11-23T13:32:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/spiral-star-charm-book-1795600000011.jpeg"
       ]
     },
     {
@@ -983,9 +1038,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:22:00.000Z",
+      "createdAt": "2026-11-23T13:30:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/sol-spiral-necklace-book-1795600000013.jpeg"
       ]
     },
     {
@@ -997,9 +1055,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:23:00.000Z",
+      "createdAt": "2026-11-23T13:31:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/swirl-star-necklace-book-1795600000015.jpeg"
       ]
     },
     {
@@ -1011,9 +1072,12 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:24:00.000Z",
+      "createdAt": "2026-11-23T13:29:00.000Z",
       "alsoIn": [
         "goth"
+      ],
+      "photos": [
+        "assets/vortex-necklace-book-1795600000010.jpeg"
       ]
     },
     {
@@ -1025,7 +1089,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:25:00.000Z",
+      "createdAt": "2026-11-23T13:28:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -1039,7 +1103,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:26:00.000Z",
+      "createdAt": "2026-11-23T13:27:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -1053,7 +1117,7 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:27:00.000Z",
+      "createdAt": "2026-11-23T13:34:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -1067,7 +1131,72 @@
       "category": "necklaces",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T12:28:00.000Z",
+      "createdAt": "2026-11-23T13:36:00.000Z",
+      "alsoIn": [
+        "goth"
+      ],
+      "photos": [
+        "assets/serpent-coil-necklace-book-1795600000012.jpeg"
+      ]
+    },
+    {
+      "id": "neck_78",
+      "name": "Heirloom Heart Locket",
+      "price": 1000,
+      "image": "assets/rose-heart-locket-1795500000002.jpeg",
+      "description": "A silver heart locket in three styles: an embossed rose, an engraved Victorian heart, or delicate openwork filigree. Slide to pick yours.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "rose",
+          "label": "Rose",
+          "image": "assets/rose-heart-locket-1795500000002.jpeg"
+        },
+        {
+          "id": "victorian",
+          "label": "Victorian",
+          "image": "assets/victorian-heart-locket-1795500000003.jpeg"
+        },
+        {
+          "id": "filigree",
+          "label": "Filigree",
+          "image": "assets/filigree-heart-locket-1795500000001.jpeg"
+        }
+      ],
+      "createdAt": "2026-11-23T13:49:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_80",
+      "name": "Sanguine Fleur Cross",
+      "price": 1100,
+      "image": "assets/sanguine-fleur-cross-1795500000004.jpeg",
+      "description": "A large silver fleur-de-lis cross with a blood-red stone at its heart.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T13:55:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_81",
+      "name": "Bloodstone Cameo Necklace",
+      "price": 1000,
+      "image": "assets/bloodstone-cameo-necklace-1-1795600000024.jpeg",
+      "photos": [
+        "assets/bloodstone-cameo-necklace-2-1795600000025.jpeg",
+        "assets/bloodstone-cameo-necklace-3-1795600000026.jpeg"
+      ],
+      "description": "A deep red oval stone in a Victorian silver filigree frame, on a fine chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T14:00:00.000Z",
       "alsoIn": [
         "goth"
       ]
@@ -1480,6 +1609,73 @@
       "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-04T16:53:50.524Z"
+    }
+  ],
+  "piercings": [
+    {
+      "id": "pier_1",
+      "name": "Pink Kitty Belly Ring",
+      "price": 1200,
+      "image": "assets/pink-kitty-belly-ring-1795700000001.jpeg",
+      "description": "Curved belly bar with a pink crystal and a sparkly kitty charm wearing a pink bow.",
+      "category": "piercings",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T15:00:00.000Z"
+    },
+    {
+      "id": "pier_2",
+      "name": "Butterfly Bloom Belly Ring",
+      "price": 1200,
+      "image": "assets/butterfly-bloom-belly-ring-silver-1795700000002.jpeg",
+      "description": "A crystal butterfly with a little flower drop on a curved belly bar. Pick silver or gold.",
+      "category": "piercings",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "silver",
+          "label": "Silver",
+          "image": "assets/butterfly-bloom-belly-ring-silver-1795700000002.jpeg",
+          "swatch": "#c9c9c4"
+        },
+        {
+          "id": "gold",
+          "label": "Gold",
+          "image": "assets/butterfly-bloom-belly-ring-gold-1795700000003.jpeg",
+          "swatch": "#d4af37"
+        }
+      ],
+      "createdAt": "2026-11-23T15:01:00.000Z"
+    }
+  ],
+  "hair": [
+    {
+      "id": "hair_1",
+      "name": "Fae Wing Hair Stick",
+      "price": 750,
+      "image": "assets/fae-wing-hair-stick-1795700000004.jpeg",
+      "photos": [
+        "assets/opal-hair-sticks-pair-1795700000006.jpeg"
+      ],
+      "description": "Silver hair stick with opal wings and dangling chains.",
+      "category": "hair",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T15:01:00.000Z"
+    },
+    {
+      "id": "hair_2",
+      "name": "Moonstone Drop Hair Stick",
+      "price": 750,
+      "image": "assets/moonstone-drop-hair-stick-1795700000005.jpeg",
+      "photos": [
+        "assets/opal-hair-sticks-pair-1795700000006.jpeg"
+      ],
+      "description": "Silver hair stick with an opal moonstone and dangling chains.",
+      "category": "hair",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T15:00:00.000Z"
     }
   ]
 }

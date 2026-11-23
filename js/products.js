@@ -14,6 +14,7 @@ function renderProductCard(product, { eager = false, delay = 0 } = {}) {
         <div class="product-card${soldOut ? ' sold-out' : ''}" style="transition-delay: ${delay}s;"${open}>
             <div class="product-image-container">
                 ${badge}
+                ${morePhotosHint(product)}
                 <img src="${escapeAttr(product.image)}" alt="${escapeAttr(product.name)}" class="product-image" loading="${eager ? 'eager' : 'lazy'}" decoding="async">
                 ${soldOut ? '' : `<button class="quick-add" onclick="event.stopPropagation(); openAddToCartModal('${product.id}')" data-i18n="addToCart">
                     ${t('addToCart')}
@@ -25,6 +26,13 @@ function renderProductCard(product, { eager = false, delay = 0 } = {}) {
             </div>
         </div>
     `;
+}
+
+// A small light icon on the photo when there are more photos to swipe through
+function morePhotosHint(product) {
+    const n = typeof photoViewerSlides === 'function' ? photoViewerSlides(product).length : 1;
+    if (n < 2) return '';
+    return `<span class="more-photos" aria-label="${n} photos"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="13" height="13" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/></svg>${n}</span>`;
 }
 
 // Products whose styles are priced differently show their lowest price

@@ -134,6 +134,18 @@ sharedStyles.textContent = `
         font-size: 0.9rem;
     }
 
+    .more-photos {
+        position: absolute; top: 12px; left: 12px; z-index: 2;
+        display: inline-flex; align-items: center; gap: 4px;
+        padding: 3px 7px; border-radius: 999px;
+        background: rgba(10, 10, 10, 0.45); color: rgba(255, 255, 255, 0.85);
+        font-size: 0.7rem; line-height: 1; pointer-events: none;
+        backdrop-filter: blur(2px);
+    }
+    .carousel .more-photos { top: 6px; left: 6px; padding: 2px 5px; font-size: 0.6rem; }
+    .modal-product .more-photos { top: 4px; left: 4px; padding: 2px 5px; font-size: 0.6rem; }
+    .modal-product { position: relative; }
+
     .product-card.sold-out { cursor: default; }
     .product-card.sold-out:hover .product-image { transform: none; }
     .product-card.sold-out .product-badge { z-index: 2; }
@@ -682,6 +694,10 @@ function photoViewerSlides(product) {
     const variants = product.variants || [];
     if (!variants.some(v => v.image === product.image)) add(product.image, null);
     variants.forEach(v => add(v.image || product.image, v));
+    // The piece itself can have more photos ("photos": [...]); they follow its main photo
+    (product.photos || []).forEach(image => {
+        if (!slides.some(s => s.image === image)) slides.splice(1 + slides.filter(s => s.extraOf === product).length, 0, { image, variants: [], extraOf: product });
+    });
     // A colour can have more photos ("photos": [...]); they follow its main photo
     variants.forEach(v => (v.photos || []).forEach(image => {
         const main = slides.findIndex(s => s.variants.includes(v));
@@ -759,6 +775,7 @@ function openAddToCartModal(productId) {
     modalVariantQty = {};
 
     document.getElementById('modalProductPreview').innerHTML = `
+        ${morePhotosHint(product)}
         <img src="${product.image}" alt="${product.name}">
         <div class="modal-product-info">
             <h4>${product.name}</h4>

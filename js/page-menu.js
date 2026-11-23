@@ -7,6 +7,8 @@ const PAGE_MENU_CATEGORIES = [
     ['bracelets.html', 'catBracelets'],
     ['sets.html', 'catSets'],
     ['goth.html', 'catGoth'],
+    ['piercings.html', 'catPiercings'],
+    ['hair.html', 'catHair'],
 ];
 
 function setPageMenu(open) {
