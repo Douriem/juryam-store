@@ -14,7 +14,7 @@ async function sendToOrdersApi(formData, rate) {
                 wilaya_code: rate.code, wilaya: rate.name, commune: formData.get('commune'),
                 address: formData.get('address'), notes: formData.get('notes'),
                 method: delivery.method, courier: DELIVERY_RATES[delivery.service].label,
-                items: cart.map(item => ({ product_id: item.id, name: item.name, variant: item.variant, tier: item.tier,
+                items: cart.map(item => ({ product_id: item.id, name: cartItemName(item), variant: item.variant, tier: item.tier,
                     size: item.size, price: item.price, quantity: item.quantity })),
                 subtotal: getCartSubtotal(), discount: getCartDiscount(), delivery: getDeliveryFee(), total: getOrderTotal()
             })

@@ -252,7 +252,8 @@
           "id": "scarlet",
           "label": "Scarlet",
           "image": "assets/scarlet-mandala-necklace-1793811219524.jpeg",
-          "swatch": "#9b1c2c"
+          "swatch": "#9b1c2c",
+          "soldOut": true
         },
         {
           "id": "yellow",
@@ -267,7 +268,8 @@
           "id": "purple",
           "label": "Purple",
           "image": "assets/scarlet-mandala-necklace-purple-1794700000011.jpeg",
-          "swatch": "#8a3fd1"
+          "swatch": "#8a3fd1",
+          "soldOut": true
         }
       ],
       "createdAt": "2026-11-04T16:53:39.524Z"
@@ -687,7 +689,7 @@
       "image": "assets/sacred-flame-necklace-1795400000010.jpeg",
       "description": "Black cord with a silver sacred heart wrapped in rays and a deep red centre.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-23T13:50:00.000Z",
       "alsoIn": [

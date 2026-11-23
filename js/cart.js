@@ -158,10 +158,15 @@ function clearCart() {
     updateCartUI();
 }
 
+// The piece's name with the chosen colour/style, e.g. "Scarlet Mandala Necklace – Yellow"
+function cartItemName(item) {
+    return item.variant ? `${item.name} – ${item.variant}` : item.name;
+}
+
 function formatCartSummary() {
     return cart.map(item => {
-        const sizeText = (item.size ? ` (Size ${item.size})` : '') + (item.variant ? ` (${item.variant})` : '');
-        return `${item.name}${sizeText} × ${item.quantity} — ${item.price * item.quantity} DA`;
+        const sizeText = item.size ? ` (Size ${item.size})` : '';
+        return `${cartItemName(item)}${sizeText} × ${item.quantity} — ${item.price * item.quantity} DA`;
     }).concat(getCartPromos().map(promo =>
         `Promo ${promo.count} ${I18N.en['tier_' + promo.tier] || promo.tier} — −${promo.amount} DA`
     )).join('\n');

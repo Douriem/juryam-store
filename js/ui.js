@@ -950,9 +950,8 @@ function updateCartSidebar() {
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-details">
-                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-name">${cartItemName(item)}</div>
                 ${item.size ? `<div class="cart-item-size">${t('size')} ${item.size}</div>` : ''}
-                ${item.variant ? `<div class="cart-item-size">${item.variant}</div>` : ''}
                 <div class="cart-item-price">${item.price} DA</div>
                 <div class="cart-item-controls">
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity - 1})">−</button>
@@ -1028,7 +1027,7 @@ function updateCheckoutSummary() {
         <h4>${t('yourOrder')}</h4>
         ${cart.map(item => `
             <div class="checkout-item">
-                <span>${item.name}${item.size ? ` (${t('size')} ${item.size})` : ''}${item.variant ? ` (${item.variant})` : ''} × ${item.quantity}</span>
+                <span>${cartItemName(item)}${item.size ? ` (${t('size')} ${item.size})` : ''} × ${item.quantity}</span>
                 <span>${item.price * item.quantity} DA</span>
             </div>
         `).join('')}
