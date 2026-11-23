@@ -1676,6 +1676,39 @@
       "badge": "NEW",
       "variants": [],
       "createdAt": "2026-11-23T15:00:00.000Z"
+    },
+    {
+      "id": "hair_3",
+      "name": "Hair Cuff Pack · 20 pieces",
+      "price": 650,
+      "image": "assets/hair-cuff-pack-silver-2-1795800000002.jpeg",
+      "description": "20 random hair cuffs and rings for braids and locs. Pick silver, gold or a mix of both.",
+      "category": "hair",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "silver",
+          "label": "Silver",
+          "image": "assets/hair-cuff-pack-silver-2-1795800000002.jpeg",
+          "swatch": "#c9c9c4",
+          "photos": [
+            "assets/hair-cuff-pack-silver-1795800000001.jpeg"
+          ]
+        },
+        {
+          "id": "gold",
+          "label": "Gold",
+          "image": "assets/hair-cuff-pack-gold-1795800000003.jpeg",
+          "swatch": "#d4af37"
+        },
+        {
+          "id": "mixed",
+          "label": "Mixed",
+          "image": "assets/hair-cuff-pack-mixed-1795800000004.jpeg",
+          "swatch": "linear-gradient(90deg,#c9c9c4 50%,#d4af37 50%)"
+        }
+      ],
+      "createdAt": "2026-11-23T16:00:00.000Z"
     }
   ]
 }
