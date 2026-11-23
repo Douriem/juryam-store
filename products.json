@@ -1710,5 +1710,147 @@
       ],
       "createdAt": "2026-11-23T16:00:00.000Z"
     }
+  ],
+  "tattoos": [
+    {
+      "id": "tat_3",
+      "name": "Sacred Spine Tattoo",
+      "price": 1800,
+      "image": "assets/spine-tattoo-set-1796000000001.jpeg",
+      "photos": [
+        "assets/spine-tattoo-set-2-1796000000002.jpeg",
+        "assets/spine-tattoo-set-designs-1796000000003.jpeg"
+      ],
+      "description": "A delicate dotted spine tattoo with lotus and star details, made to run down the back.",
+      "category": "tattoos",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T17:03:00.000Z"
+    },
+    {
+      "id": "tat_4",
+      "name": "Lower Back Tattoo",
+      "price": 1800,
+      "image": "assets/lower-back-tattoo-all-1796000000004.jpeg",
+      "photos": [],
+      "description": "18 lower back designs, from tribal to roses and butterflies. Slide through and pick your favourite.",
+      "category": "tattoos",
+      "badge": "NEW",
+      "variants": [
+        {
+          "id": "hibiscus-vine",
+          "label": "Hibiscus Vine",
+          "image": "assets/lower-back-tattoo-hibiscus-vine-1796000000005.jpeg"
+        },
+        {
+          "id": "rose-trio",
+          "label": "Rose Trio",
+          "image": "assets/lower-back-tattoo-rose-trio-1796000000006.jpeg"
+        },
+        {
+          "id": "butterfly-lace",
+          "label": "Butterfly Lace",
+          "image": "assets/lower-back-tattoo-butterfly-lace-1796000000007.jpeg"
+        },
+        {
+          "id": "tribal-bloom",
+          "label": "Tribal Bloom",
+          "image": "assets/lower-back-tattoo-tribal-bloom-1796000000008.jpeg"
+        },
+        {
+          "id": "tribal-eye",
+          "label": "Tribal Eye",
+          "image": "assets/lower-back-tattoo-tribal-eye-1796000000009.jpeg"
+        },
+        {
+          "id": "tribal-lotus",
+          "label": "Tribal Lotus",
+          "image": "assets/lower-back-tattoo-tribal-lotus-1796000000010.jpeg"
+        },
+        {
+          "id": "lily-garden",
+          "label": "Lily Garden",
+          "image": "assets/lower-back-tattoo-lily-garden-1796000000011.jpeg"
+        },
+        {
+          "id": "butterfly-swirl",
+          "label": "Butterfly Swirl",
+          "image": "assets/lower-back-tattoo-butterfly-swirl-1796000000012.jpeg"
+        },
+        {
+          "id": "twin-butterflies",
+          "label": "Twin Butterflies",
+          "image": "assets/lower-back-tattoo-twin-butterflies-1796000000013.jpeg"
+        },
+        {
+          "id": "spider-web",
+          "label": "Spider Web",
+          "image": "assets/lower-back-tattoo-spider-web-1796000000014.jpeg"
+        },
+        {
+          "id": "scorpion",
+          "label": "Scorpion",
+          "image": "assets/lower-back-tattoo-scorpion-1796000000015.jpeg"
+        },
+        {
+          "id": "tribal-crown",
+          "label": "Tribal Crown",
+          "image": "assets/lower-back-tattoo-tribal-crown-1796000000016.jpeg"
+        },
+        {
+          "id": "batwing",
+          "label": "Batwing",
+          "image": "assets/lower-back-tattoo-batwing-1796000000017.jpeg"
+        },
+        {
+          "id": "tribal-butterfly",
+          "label": "Tribal Butterfly",
+          "image": "assets/lower-back-tattoo-tribal-butterfly-1796000000018.jpeg"
+        },
+        {
+          "id": "tribal-heart",
+          "label": "Tribal Heart",
+          "image": "assets/lower-back-tattoo-tribal-heart-1796000000019.jpeg"
+        },
+        {
+          "id": "fleur-tribal",
+          "label": "Fleur Tribal",
+          "image": "assets/lower-back-tattoo-fleur-tribal-1796000000020.jpeg"
+        },
+        {
+          "id": "tribal-monarch",
+          "label": "Tribal Monarch",
+          "image": "assets/lower-back-tattoo-tribal-monarch-1796000000021.jpeg"
+        },
+        {
+          "id": "rose-vine",
+          "label": "Rose Vine",
+          "image": "assets/lower-back-tattoo-rose-vine-1796000000022.jpeg"
+        }
+      ],
+      "createdAt": "2026-11-23T17:02:00.000Z"
+    },
+    {
+      "id": "tat_1",
+      "name": "Born to Die Tattoo",
+      "price": 1200,
+      "image": "assets/born-to-die-tattoo-1795900000001.jpeg",
+      "description": "A temporary \"Born to Die\" script tattoo, perfect along the hand or wrist.",
+      "category": "tattoos",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T17:01:00.000Z"
+    },
+    {
+      "id": "tat_2",
+      "name": "Gothic Sword Leg Tattoo",
+      "price": 2500,
+      "image": "assets/gothic-sword-leg-tattoo-1795900000002.jpeg",
+      "description": "A long temporary tattoo of an ornate gothic sword that runs down the leg.",
+      "category": "tattoos",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T17:00:00.000Z"
+    }
   ]
 }

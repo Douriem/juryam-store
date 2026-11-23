@@ -9,6 +9,7 @@ const PAGE_MENU_CATEGORIES = [
     ['goth.html', 'catGoth'],
     ['piercings.html', 'catPiercings'],
     ['hair.html', 'catHair'],
+    ['tattoos.html', 'catTattoos'],
 ];
 
 function setPageMenu(open) {

@@ -39,6 +39,7 @@ const I18N = {
         catGoth: 'ALT/GOTH',
         catPiercings: 'PIERCINGS',
         catHair: 'ACCESSOIRES CHEVEUX',
+        catTattoos: 'FAUX TATOUAGES',
         piece: 'pièce',
         pieces: 'pièces',
 
@@ -53,6 +54,7 @@ const I18N = {
         subGoth: 'Velours, cuir et pierres sombres',
         subPiercings: 'Bijoux de nombril qui brillent',
         subHair: 'Pics et bagues à cheveux',
+        subTattoos: 'Des tatouages éphémères, sans engagement',
         addToCart: 'AJOUTER AU PANIER',
         noProducts: 'Aucun produit pour le moment.',
         checkBack: 'Revenez bientôt !',
@@ -161,6 +163,7 @@ const I18N = {
         catGoth: 'ALT/GOTH',
         catPiercings: 'PIERCINGS',
         catHair: 'HAIR ACCESSORIES',
+        catTattoos: 'FAKE TATTOOS',
         piece: 'piece',
         pieces: 'pieces',
 
@@ -174,6 +177,7 @@ const I18N = {
         subGoth: 'Velvet, leather and dark stones',
         subPiercings: 'Sparkly belly rings',
         subHair: 'Hair sticks and hair cuffs',
+        subTattoos: 'Temporary tattoos, no commitment',
         addToCart: 'ADD TO CART',
         noProducts: 'No products available yet.',
         checkBack: 'Check back soon!',
