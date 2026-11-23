@@ -679,6 +679,398 @@
       "alsoIn": [
         "goth"
       ]
+    },
+    {
+      "id": "neck_49",
+      "name": "Sacred Flame Necklace",
+      "price": 700,
+      "image": "assets/sacred-flame-necklace-1795400000010.jpeg",
+      "description": "Black cord with a silver sacred heart wrapped in rays and a deep red centre.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:01:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_50",
+      "name": "Memento Skull Cord",
+      "price": 700,
+      "image": "assets/memento-skull-cord-1795400000011.jpeg",
+      "description": "A polished silver skull on a black cord.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:02:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_51",
+      "name": "Vampire Cameo Necklace",
+      "price": 1000,
+      "image": "assets/vampire-cameo-necklace-1795400000012.jpeg",
+      "description": "Blood-red oval cameo with a silver bat and crescent moon in an ornate frame.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:03:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_52",
+      "name": "Thorned Heart Necklace",
+      "price": 950,
+      "image": "assets/thorned-heart-necklace-1795400000013.jpeg",
+      "description": "A faceted red heart caged in spiky silver thorns.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:04:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_53",
+      "name": "Black Widow Rosary",
+      "price": 1100,
+      "image": "assets/black-widow-rosary-1795400000014.jpeg",
+      "description": "Black bead rosary chain with a silver spider and a black stone body.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:05:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_54",
+      "name": "Nightwing Bat Necklace",
+      "price": 900,
+      "image": "assets/nightwing-bat-necklace-1795400000015.jpeg",
+      "description": "A detailed silver bat with spread wings on a fine chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:06:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_55",
+      "name": "Crimson Reliquary Necklace",
+      "price": 1300,
+      "image": "assets/crimson-reliquary-necklace-1795400000016.jpeg",
+      "description": "Ornate silver statement piece with red hearts, blood-drop charms and a red oval stone.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:07:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_56",
+      "name": "Rose Relic Heart Necklace",
+      "price": 900,
+      "image": "assets/rose-relic-heart-necklace-1795400000017.jpeg",
+      "description": "A light pink enamel heart with a tiny silver cross, framed in roses and thorns.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:08:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_57",
+      "name": "Crimson Fleur Cross",
+      "price": 900,
+      "image": "assets/crimson-fleur-cross-1795400000018.jpeg",
+      "description": "A gothic fleur-de-lis cross with a red stone at its heart.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:09:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_58",
+      "name": "Pink Starcross Necklace",
+      "price": 900,
+      "image": "assets/pink-starcross-necklace-1795400000019.jpeg",
+      "description": "A pointed silver cross filled with light pink enamel and a pink heart stone.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:10:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_59",
+      "name": "Seraph Wings Necklace",
+      "price": 1200,
+      "image": "assets/seraph-wings-necklace-1795400000020.jpeg",
+      "description": "Iridescent angel wings around a pink heart stone over an ornate silver cross.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:11:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_60",
+      "name": "Rose Cathedral Cross",
+      "price": 1200,
+      "image": "assets/rose-cathedral-cross-1795400000021.jpeg",
+      "description": "A large baroque silver cross set with pink stones.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:12:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_61",
+      "name": "Azure Wing Choker",
+      "price": 1200,
+      "image": "assets/azure-wing-choker-1795400000022.jpeg",
+      "description": "Layered black cords with silver rings and a blue butterfly pendant.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:13:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_62",
+      "name": "Moon Goddess Medallion",
+      "price": 1100,
+      "image": "assets/moon-goddess-medallion-1795400000023.jpeg",
+      "description": "A round antique-silver medallion with a moon goddess among flowers.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:14:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_63",
+      "name": "Reaper Moon Necklace",
+      "price": 1100,
+      "image": "assets/reaper-moon-necklace-1795400000024.jpeg",
+      "description": "A hooded figure resting on a vine-wrapped crescent moon.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:15:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_64",
+      "name": "Moon Fairy Necklace",
+      "price": 1100,
+      "image": "assets/moon-fairy-necklace-1795400000025.jpeg",
+      "description": "A little fairy sitting inside a silver crescent moon.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:16:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_65",
+      "name": "Emerald Dragonfly Necklace",
+      "price": 1200,
+      "image": "assets/emerald-dragonfly-necklace-1795400000026.jpeg",
+      "description": "Silver dragonflies with green beads and a dark green stone centre.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:17:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_66",
+      "name": "Selene Moth Necklace",
+      "price": 900,
+      "image": "assets/selene-moth-necklace-1795400000027.jpeg",
+      "description": "A silver luna moth with long sweeping tails.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:18:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_67",
+      "name": "Death's-Head Moth Necklace",
+      "price": 900,
+      "image": "assets/deaths-head-moth-necklace-1795400000028.jpeg",
+      "description": "A detailed silver death's-head moth.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:19:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_68",
+      "name": "North Star Necklace",
+      "price": 700,
+      "image": "assets/north-star-necklace-1795400000029.jpeg",
+      "description": "A smooth four-point sparkle star with a little star beside it, on a box chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:20:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_69",
+      "name": "Spiral Star Charm",
+      "price": 800,
+      "image": "assets/spiral-star-charm-1795400000030.jpeg",
+      "description": "A silver star with a spiral centre and dotted border.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:21:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_70",
+      "name": "Sol Spiral Necklace",
+      "price": 800,
+      "image": "assets/sol-spiral-necklace-1795400000031.jpeg",
+      "description": "A spiral sun with flame rays on a box chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:22:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_71",
+      "name": "Swirl Star Necklace",
+      "price": 800,
+      "image": "assets/swirl-star-necklace-1795400000032.jpeg",
+      "description": "A puffy silver star with a swirl centre.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:23:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_72",
+      "name": "Vortex Necklace",
+      "price": 700,
+      "image": "assets/vortex-necklace-1795400000033.jpeg",
+      "description": "A smooth silver spiral disc on a box chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:24:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_73",
+      "name": "Double Star Necklace",
+      "price": 600,
+      "image": "assets/double-star-necklace-1795400000034.jpeg",
+      "description": "An open star outlined twice in silver.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:25:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_74",
+      "name": "Shooting Star Necklace",
+      "price": 600,
+      "image": "assets/shooting-star-necklace-1795400000035.jpeg",
+      "description": "An open silver star with a tiny star tucked in its corner.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:26:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_75",
+      "name": "Silver Skull Necklace",
+      "price": 800,
+      "image": "assets/silver-skull-necklace-1795400000036.jpeg",
+      "description": "A solid silver skull on a box chain.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:27:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "neck_76",
+      "name": "Serpent Coil Necklace",
+      "price": 800,
+      "image": "assets/serpent-coil-necklace-1795400000037.jpeg",
+      "description": "A coiled silver serpent with scale details.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:28:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
     }
   ],
   "rings": [
