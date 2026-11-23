@@ -903,7 +903,7 @@
     {
       "id": "neck_62",
       "name": "Moon Goddess Medallion",
-      "price": 1100,
+      "price": 900,
       "image": "assets/moon-goddess-medallion-1795400000023.jpeg",
       "description": "A round antique-silver medallion with a moon goddess among flowers.",
       "category": "necklaces",
@@ -917,7 +917,7 @@
     {
       "id": "neck_63",
       "name": "Reaper Moon Necklace",
-      "price": 1100,
+      "price": 900,
       "image": "assets/reaper-moon-necklace-1795400000024.jpeg",
       "description": "A hooded figure resting on a vine-wrapped crescent moon.",
       "category": "necklaces",
@@ -935,7 +935,7 @@
     {
       "id": "neck_64",
       "name": "Moon Fairy Necklace",
-      "price": 1100,
+      "price": 900,
       "image": "assets/moon-fairy-necklace-1795400000025.jpeg",
       "description": "A little fairy sitting inside a silver crescent moon.",
       "category": "necklaces",
@@ -1196,7 +1196,7 @@
       ],
       "description": "A deep red oval stone in a Victorian silver filigree frame, on a fine chain.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-23T14:00:00.000Z",
       "alsoIn": [
