@@ -665,6 +665,20 @@
       "category": "necklaces",
       "badge": "NEW",
       "createdAt": "2026-11-18T19:38:09.009Z"
+    },
+    {
+      "id": "neck_48",
+      "name": "Besties Sun and Moon Necklace",
+      "price": 2200,
+      "image": "assets/besties-sun-and-moon-necklace-1795400000001.jpeg",
+      "description": "A matching pair for you and your bestie: a gold sun and a silver moon that fit together, each on its own chain. Sold as a pair.",
+      "category": "necklaces",
+      "badge": "NEW",
+      "variants": [],
+      "createdAt": "2026-11-23T12:00:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
     }
   ],
   "rings": [

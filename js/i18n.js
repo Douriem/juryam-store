@@ -36,7 +36,7 @@ const I18N = {
         catEarrings: "BOUCLES D'OREILLES",
         catBracelets: 'BRACELETS',
         catSets: 'ENSEMBLES',
-        catGoth: 'GOTH',
+        catGoth: 'ALT/GOTH',
         piece: 'pièce',
         pieces: 'pièces',
 
@@ -154,7 +154,7 @@ const I18N = {
         catEarrings: 'EARRINGS',
         catBracelets: 'BRACELETS',
         catSets: 'SETS',
-        catGoth: 'GOTH',
+        catGoth: 'ALT/GOTH',
         piece: 'piece',
         pieces: 'pieces',
 
