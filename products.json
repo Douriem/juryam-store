@@ -1326,7 +1326,7 @@
       "id": "ring_2",
       "name": "Aurora Opal Ring",
       "price": 500,
-      "image": "assets/ring-aurora-opal-ring.jpg",
+      "image": "assets/ring-aurora-opal-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1342,7 +1342,7 @@
       "id": "ring_3",
       "name": "Lotus Ring",
       "price": 500,
-      "image": "assets/ring-lotus-ring.jpg",
+      "image": "assets/ring-lotus-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1358,7 +1358,7 @@
       "id": "ring_4",
       "name": "Curb Chain Ring",
       "price": 500,
-      "image": "assets/ring-curb-chain-ring.jpg",
+      "image": "assets/ring-curb-chain-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1374,7 +1374,7 @@
       "id": "ring_5",
       "name": "Love Heart Ring",
       "price": 500,
-      "image": "assets/ring-love-heart-ring.jpg",
+      "image": "assets/ring-love-heart-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1390,7 +1390,7 @@
       "id": "ring_6",
       "name": "Marcasite Band Ring",
       "price": 500,
-      "image": "assets/ring-marcasite-band-ring.jpg",
+      "image": "assets/ring-marcasite-band-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1406,7 +1406,7 @@
       "id": "ring_7",
       "name": "Spiral Opal Signet",
       "price": 500,
-      "image": "assets/ring-spiral-opal-signet.jpg",
+      "image": "assets/ring-spiral-opal-signet.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1422,7 +1422,7 @@
       "id": "ring_8",
       "name": "Onyx Bloom Ring",
       "price": 500,
-      "image": "assets/ring-onyx-bloom-ring.jpg",
+      "image": "assets/ring-onyx-bloom-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1438,7 +1438,7 @@
       "id": "ring_9",
       "name": "Beaded Band Ring",
       "price": 200,
-      "image": "assets/ring-beaded-band-ring.jpg",
+      "image": "assets/ring-beaded-band-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1454,7 +1454,7 @@
       "id": "ring_10",
       "name": "Onyx Filigree Ring",
       "price": 500,
-      "image": "assets/ring-onyx-filigree-ring.jpg",
+      "image": "assets/ring-onyx-filigree-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1470,7 +1470,7 @@
       "id": "ring_11",
       "name": "Leaf Crown Ring",
       "price": 300,
-      "image": "assets/ring-leaf-crown-ring.jpg",
+      "image": "assets/ring-leaf-crown-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1486,7 +1486,7 @@
       "id": "ring_12",
       "name": "Little Rose Ring",
       "price": 300,
-      "image": "assets/ring-little-rose-ring.jpg",
+      "image": "assets/ring-little-rose-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1502,7 +1502,7 @@
       "id": "ring_13",
       "name": "Moon Flower Band",
       "price": 300,
-      "image": "assets/ring-moon-flower-band.jpg",
+      "image": "assets/ring-moon-flower-band.jpg?v=2",
       "photos": [
         "assets/ring-board-1.jpg"
       ],
@@ -1518,7 +1518,7 @@
       "id": "ring_14",
       "name": "Coffin Ring",
       "price": 500,
-      "image": "assets/ring-coffin-ring.jpg",
+      "image": "assets/ring-coffin-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1534,7 +1534,7 @@
       "id": "ring_15",
       "name": "Red Rose Ring",
       "price": 500,
-      "image": "assets/ring-red-rose-ring.jpg",
+      "image": "assets/ring-red-rose-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1550,7 +1550,7 @@
       "id": "ring_16",
       "name": "Marcasite Infinity Ring",
       "price": 500,
-      "image": "assets/ring-marcasite-infinity-ring.jpg",
+      "image": "assets/ring-marcasite-infinity-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1566,7 +1566,7 @@
       "id": "ring_17",
       "name": "Dotted Flower Band",
       "price": 200,
-      "image": "assets/ring-dotted-flower-band.jpg",
+      "image": "assets/ring-dotted-flower-band.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1582,7 +1582,7 @@
       "id": "ring_18",
       "name": "Skeleton Hands Heart Ring",
       "price": 500,
-      "image": "assets/ring-skeleton-hands-heart-ring.jpg",
+      "image": "assets/ring-skeleton-hands-heart-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1598,7 +1598,7 @@
       "id": "ring_19",
       "name": "Twin Hearts Ring",
       "price": 500,
-      "image": "assets/ring-twin-hearts-ring.jpg",
+      "image": "assets/ring-twin-hearts-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1614,7 +1614,7 @@
       "id": "ring_20",
       "name": "Sweetheart Signet Ring",
       "price": 300,
-      "image": "assets/ring-sweetheart-signet-ring.jpg",
+      "image": "assets/ring-sweetheart-signet-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1630,7 +1630,7 @@
       "id": "ring_21",
       "name": "Twin Elephants Ring",
       "price": 300,
-      "image": "assets/ring-twin-elephants-ring.jpg",
+      "image": "assets/ring-twin-elephants-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1646,7 +1646,7 @@
       "id": "ring_22",
       "name": "Crimson Butterfly Ring",
       "price": 500,
-      "image": "assets/ring-crimson-butterfly-ring.jpg",
+      "image": "assets/ring-crimson-butterfly-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1662,7 +1662,7 @@
       "id": "ring_23",
       "name": "Ruby Teardrop Ring",
       "price": 300,
-      "image": "assets/ring-ruby-teardrop-ring.jpg",
+      "image": "assets/ring-ruby-teardrop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1678,7 +1678,7 @@
       "id": "ring_24",
       "name": "Chevron Ring",
       "price": 300,
-      "image": "assets/ring-chevron-ring.jpg",
+      "image": "assets/ring-chevron-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1694,7 +1694,7 @@
       "id": "ring_25",
       "name": "Flower Tile Ring",
       "price": 300,
-      "image": "assets/ring-flower-tile-ring.jpg",
+      "image": "assets/ring-flower-tile-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-2.jpg"
       ],
@@ -1710,7 +1710,7 @@
       "id": "ring_26",
       "name": "Spider Ring",
       "price": 400,
-      "image": "assets/ring-spider-ring.jpg",
+      "image": "assets/ring-spider-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1726,7 +1726,7 @@
       "id": "ring_27",
       "name": "Rose Vine Ring",
       "price": 400,
-      "image": "assets/ring-rose-vine-ring.jpg",
+      "image": "assets/ring-rose-vine-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1742,7 +1742,7 @@
       "id": "ring_28",
       "name": "Wire Heart Ring",
       "price": 400,
-      "image": "assets/ring-wire-heart-ring.jpg",
+      "image": "assets/ring-wire-heart-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1758,7 +1758,7 @@
       "id": "ring_29",
       "name": "Daisy Chain Ring",
       "price": 400,
-      "image": "assets/ring-daisy-chain-ring.jpg",
+      "image": "assets/ring-daisy-chain-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1774,7 +1774,7 @@
       "id": "ring_30",
       "name": "Opal Cameo Ring",
       "price": 400,
-      "image": "assets/ring-opal-cameo-ring.jpg",
+      "image": "assets/ring-opal-cameo-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1790,7 +1790,7 @@
       "id": "ring_31",
       "name": "Rose Swirl Ring",
       "price": 400,
-      "image": "assets/ring-rose-swirl-ring.jpg",
+      "image": "assets/ring-rose-swirl-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1806,7 +1806,7 @@
       "id": "ring_32",
       "name": "Long-Stem Rose Ring",
       "price": 400,
-      "image": "assets/ring-long-stem-rose-ring.jpg",
+      "image": "assets/ring-long-stem-rose-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1822,7 +1822,7 @@
       "id": "ring_33",
       "name": "Star Band Ring",
       "price": 200,
-      "image": "assets/ring-star-band-ring.jpg",
+      "image": "assets/ring-star-band-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1838,7 +1838,7 @@
       "id": "ring_34",
       "name": "Scarlet Diamond Ring",
       "price": 400,
-      "image": "assets/ring-scarlet-diamond-ring.jpg",
+      "image": "assets/ring-scarlet-diamond-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1854,7 +1854,7 @@
       "id": "ring_35",
       "name": "Seashell Ring",
       "price": 400,
-      "image": "assets/ring-seashell-ring.jpg",
+      "image": "assets/ring-seashell-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1870,7 +1870,7 @@
       "id": "ring_36",
       "name": "Crimson Teardrop Ring",
       "price": 400,
-      "image": "assets/ring-crimson-teardrop-ring.jpg",
+      "image": "assets/ring-crimson-teardrop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1886,7 +1886,7 @@
       "id": "ring_37",
       "name": "Opal Teardrop Ring",
       "price": 400,
-      "image": "assets/ring-opal-teardrop-ring.jpg",
+      "image": "assets/ring-opal-teardrop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-3.jpg"
       ],
@@ -1902,7 +1902,7 @@
       "id": "ring_38",
       "name": "Sunburst Opal Ring",
       "price": 400,
-      "image": "assets/ring-sunburst-opal-ring.jpg",
+      "image": "assets/ring-sunburst-opal-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1918,7 +1918,7 @@
       "id": "ring_39",
       "name": "Opal Drop Ring",
       "price": 400,
-      "image": "assets/ring-opal-drop-ring.jpg",
+      "image": "assets/ring-opal-drop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1934,7 +1934,7 @@
       "id": "ring_40",
       "name": "Om Ring",
       "price": 400,
-      "image": "assets/ring-om-ring.jpg",
+      "image": "assets/ring-om-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1950,7 +1950,7 @@
       "id": "ring_41",
       "name": "Butterfly Band Ring",
       "price": 400,
-      "image": "assets/ring-butterfly-band-ring.jpg",
+      "image": "assets/ring-butterfly-band-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1966,7 +1966,7 @@
       "id": "ring_42",
       "name": "Rose Cluster Ring",
       "price": 400,
-      "image": "assets/ring-rose-cluster-ring.jpg",
+      "image": "assets/ring-rose-cluster-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1982,7 +1982,7 @@
       "id": "ring_43",
       "name": "Crystal Teardrop Ring",
       "price": 400,
-      "image": "assets/ring-crystal-teardrop-ring.jpg",
+      "image": "assets/ring-crystal-teardrop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -1998,7 +1998,7 @@
       "id": "ring_44",
       "name": "Little Flower Ring",
       "price": 200,
-      "image": "assets/ring-little-flower-ring.jpg",
+      "image": "assets/ring-little-flower-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -2014,7 +2014,7 @@
       "id": "ring_45",
       "name": "Sunflower Ring",
       "price": 200,
-      "image": "assets/ring-sunflower-ring.jpg",
+      "image": "assets/ring-sunflower-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -2030,7 +2030,7 @@
       "id": "ring_46",
       "name": "Grand Opal Teardrop Ring",
       "price": 400,
-      "image": "assets/ring-grand-opal-teardrop-ring.jpg",
+      "image": "assets/ring-grand-opal-teardrop-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -2046,7 +2046,7 @@
       "id": "ring_47",
       "name": "Crystal Dot Band",
       "price": 400,
-      "image": "assets/ring-crystal-dot-band.jpg",
+      "image": "assets/ring-crystal-dot-band.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -2062,7 +2062,7 @@
       "id": "ring_48",
       "name": "Turquoise Trio Ring",
       "price": 400,
-      "image": "assets/ring-turquoise-trio-ring.jpg",
+      "image": "assets/ring-turquoise-trio-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
@@ -2078,7 +2078,7 @@
       "id": "ring_49",
       "name": "Rose & Leaf Ring",
       "price": 400,
-      "image": "assets/ring-rose-leaf-ring.jpg",
+      "image": "assets/ring-rose-leaf-ring.jpg?v=2",
       "photos": [
         "assets/ring-board-4.jpg"
       ],
