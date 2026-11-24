@@ -854,7 +854,7 @@ function openAddToCartModal(productId) {
     if (product.category === 'rings') {
         sizeField.style.display = 'block';
         // Ring sizes in mm (inner diameter)
-        sizeOptions.innerHTML = [18, 19].map(size =>
+        sizeOptions.innerHTML = [17, 18, 19].map(size =>
             `<button type="button" class="size-btn" onclick="selectSize(${size})">${size} mm</button>`
         ).join('');
     } else {
