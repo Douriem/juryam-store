@@ -531,7 +531,7 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -542,6 +542,7 @@
             overflow: hidden;
             cursor: pointer;
             aspect-ratio: 3/4;
+            container-type: inline-size;
             border: 1px solid rgba(212, 163, 115, 0.1);
             transition: all 0.4s;
             opacity: 0;
@@ -575,7 +576,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+            padding: 2rem 1rem 1.5rem;
             background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
             transition: all 0.4s;
         }
@@ -586,8 +588,10 @@
 
         .categories-name {
             color: #d4a373;
-            font-size: 1.3rem;
-            letter-spacing: 2px;
+            /* shrinks with the card so long names (BOUCLES D'OREILLES, ACCESSOIRES CHEVEUX) fit */
+            font-size: clamp(0.8rem, 7cqi, 1.3rem);
+            letter-spacing: 1.5px;
+            line-height: 1.25;
             margin-bottom: 0.5rem;
         }
 
