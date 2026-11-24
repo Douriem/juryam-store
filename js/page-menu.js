@@ -6,6 +6,7 @@ const PAGE_MENU_CATEGORIES = [
     ['earrings.html', 'catEarrings'],
     ['bracelets.html', 'catBracelets'],
     ['sets.html', 'catSets'],
+    ['boho.html', 'catBoho'],
     ['goth.html', 'catGoth'],
     ['piercings.html', 'catPiercings'],
     ['hair.html', 'catHair'],

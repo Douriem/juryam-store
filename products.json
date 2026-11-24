@@ -7,7 +7,10 @@
       "image": "assets/necklace1.png",
       "description": "Delicate crescent moon pendant.",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_3",
@@ -31,6 +34,9 @@
           "swatch": "#e58fb0",
           "soldOut": true
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -82,6 +88,9 @@
           "id": "multicolor-natural-stones",
           "label": "Multicolor / Natural Stones"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -91,7 +100,10 @@
       "image": "assets/mystical-necklace-1793184837216.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "NEW",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_6",
@@ -100,7 +112,10 @@
       "image": "assets/native-american-necklace-1793184955676.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": null
+      "badge": null,
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_7",
@@ -109,7 +124,10 @@
       "image": "assets/enchanted-necklace-1793206256532.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": null
+      "badge": null,
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_8",
@@ -118,7 +136,10 @@
       "image": "assets/midnight-gaze-1793206364967.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_9",
@@ -127,7 +148,10 @@
       "image": "assets/wild-bloom-necklace-1793206702461.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_12",
@@ -136,7 +160,10 @@
       "image": "assets/midnight-shimmer-necklace-1793207146490.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "NEW",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_13",
@@ -145,7 +172,10 @@
       "image": "assets/eclipse-hoop-necklace-1793207244428.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "NEW"
+      "badge": "NEW",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_14",
@@ -154,7 +184,10 @@
       "image": "assets/luna-necklace-1793207319267.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_15",
@@ -177,6 +210,9 @@
           "image": "assets/oracle-necklace-black-1794084029983.jpeg",
           "swatch": "#1c1c1c"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -186,7 +222,10 @@
       "image": "assets/dusk-necklace-1793207559089.jpeg",
       "description": "",
       "category": "necklaces",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_17",
@@ -196,7 +235,10 @@
       "description": "Braided wooden beads with a polished black horn pendant.",
       "category": "necklaces",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-10-30T12:29:12.192000Z"
+      "createdAt": "2026-10-30T12:29:12.192000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_19",
@@ -206,7 +248,10 @@
       "description": "Sky-blue glass charms on a waxed cord, with a lampwork flower centre.",
       "category": "necklaces",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-10-30T12:36:23.390000Z"
+      "createdAt": "2026-10-30T12:36:23.390000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_20",
@@ -237,7 +282,10 @@
           "soldOut": true
         }
       ],
-      "createdAt": "2026-10-30T12:36:24.390000Z"
+      "createdAt": "2026-10-30T12:36:24.390000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_21",
@@ -272,7 +320,10 @@
           "soldOut": true
         }
       ],
-      "createdAt": "2026-11-04T16:53:39.524Z"
+      "createdAt": "2026-11-04T16:53:39.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_22",
@@ -296,7 +347,10 @@
           "swatch": "#2e3038"
         }
       ],
-      "createdAt": "2026-11-04T16:53:40.524Z"
+      "createdAt": "2026-11-04T16:53:40.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_23",
@@ -320,7 +374,10 @@
           "swatch": "#c9a63a"
         }
       ],
-      "createdAt": "2026-11-04T16:53:42.524Z"
+      "createdAt": "2026-11-04T16:53:42.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_24",
@@ -344,7 +401,10 @@
           "swatch": "#9fd3b5"
         }
       ],
-      "createdAt": "2026-11-04T16:53:44.524Z"
+      "createdAt": "2026-11-04T16:53:44.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_25",
@@ -368,7 +428,10 @@
           "swatch": "#9cc79a"
         }
       ],
-      "createdAt": "2026-11-04T16:53:46.524Z"
+      "createdAt": "2026-11-04T16:53:46.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_26",
@@ -379,7 +442,10 @@
       "category": "necklaces",
       "badge": "OUT OF STOCK",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:48.524Z"
+      "createdAt": "2026-11-04T16:53:48.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_27",
@@ -390,7 +456,10 @@
       "category": "necklaces",
       "badge": "OUT OF STOCK",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:49.524Z"
+      "createdAt": "2026-11-04T16:53:49.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_29",
@@ -456,7 +525,10 @@
           "swatch": "#ece8de"
         }
       ],
-      "createdAt": "2026-11-04T16:53:54.524Z"
+      "createdAt": "2026-11-04T16:53:54.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_33",
@@ -466,7 +538,10 @@
       "description": "A turquoise glass disc with a silver serpent-link drop, on a double aqua cord.",
       "category": "necklaces",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-11-04T20:19:46.886Z"
+      "createdAt": "2026-11-04T20:19:46.886Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_34",
@@ -476,7 +551,10 @@
       "description": "Two silver chains of filigree triangle charms, with a long Y-drop.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-09T19:00:00.000Z"
+      "createdAt": "2026-11-09T19:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_35",
@@ -512,6 +590,9 @@
           "image": "assets/sorbet-bead-necklace-1794400000001.jpeg",
           "swatch": "#cbb48e"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -542,6 +623,9 @@
           "image": "assets/verdant-medallion-necklace-green-1794500000001.jpeg",
           "swatch": "#d79ab0"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -552,7 +636,10 @@
       "description": "A round mother-of-pearl pendant with a carved triskel set in dark wood, on an adjustable black cord with wooden beads.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_38",
@@ -562,7 +649,10 @@
       "description": "A green enamel butterfly among pastel flowers, pearl drops and a beaded tassel, on a silver chain.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_39",
@@ -572,7 +662,10 @@
       "description": "A large white mother-of-pearl oval threaded with black cords and glass, amber and stone beads.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_40",
@@ -596,6 +689,9 @@
           "image": "assets/halo-shell-necklace-violet-1794700000004.jpeg",
           "swatch": "#7a5236"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -606,7 +702,10 @@
       "description": "A hammered silver disc on a black cord with antique silver beads. Low-key and unisex.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_42",
@@ -616,7 +715,10 @@
       "description": "A carved amulet disc on a brass bail, with long honey beads and dark wooden beads.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_43",
@@ -626,7 +728,10 @@
       "description": "A hammered silver ring on strands of tiny brown beads, finished with wooden beads.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_44",
@@ -636,7 +741,10 @@
       "description": "Five wood and mother-of-pearl striped tiles on a black cord with wooden beads.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_45",
@@ -646,7 +754,10 @@
       "description": "A round ivory-tone pendant in silver with a line of clear crystals, on a brown leather cord.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_46",
@@ -656,7 +767,10 @@
       "description": "Layered brown cords with silver beads and yellow crystals, ending in a long tassel.",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T12:00:00.000Z"
+      "createdAt": "2026-11-18T12:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_47",
@@ -666,7 +780,10 @@
       "description": "",
       "category": "necklaces",
       "badge": "NEW",
-      "createdAt": "2026-11-18T19:38:09.009Z"
+      "createdAt": "2026-11-18T19:38:09.009Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "neck_48",
@@ -1212,7 +1329,10 @@
       "image": "assets/rings.png",
       "description": "Hand-forged brass ring.",
       "category": "rings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     }
   ],
   "earrings": [
@@ -1223,7 +1343,10 @@
       "image": "assets/earrings6.png",
       "description": "crystals hearts.",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_2",
@@ -1232,7 +1355,10 @@
       "image": "assets/earrings4.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_3",
@@ -1241,7 +1367,10 @@
       "image": "assets/earrings3.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_4",
@@ -1250,7 +1379,10 @@
       "image": "assets/earrings2.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_5",
@@ -1259,7 +1391,10 @@
       "image": "assets/earrings5.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "NEW",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_6",
@@ -1268,7 +1403,10 @@
       "image": "assets/earrings1.png",
       "description": "Elegant quartz crystals.",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_7",
@@ -1308,6 +1446,9 @@
           "swatch": "#8a7450",
           "soldOut": true
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -1326,7 +1467,10 @@
       "image": "assets/fiery-red-earrings-1793207681737.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "NEW"
+      "badge": "NEW",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_11",
@@ -1335,7 +1479,10 @@
       "image": "assets/sibyl-earrings-1793208021389.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_12",
@@ -1345,7 +1492,10 @@
       "description": "Silver thread woven into a teardrop around a filigree crescent.",
       "category": "earrings",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-10-30T12:29:11.192000Z"
+      "createdAt": "2026-10-30T12:29:11.192000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_13",
@@ -1355,7 +1505,10 @@
       "description": "Hand-woven silver spirals with a crystal heart.",
       "category": "earrings",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-10-30T12:29:13.192000Z"
+      "createdAt": "2026-10-30T12:29:13.192000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_14",
@@ -1379,6 +1532,9 @@
           "image": "assets/stone-relic-earrings-1793363354192.jpeg",
           "swatch": "#6f6357"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -1389,7 +1545,10 @@
       "description": "Silver hoops with an amber stone and a flower charm.",
       "category": "earrings",
       "badge": "OUT OF STOCK",
-      "createdAt": "2026-10-30T12:29:17.192000Z"
+      "createdAt": "2026-10-30T12:29:17.192000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_18",
@@ -1399,7 +1558,10 @@
       "description": "Large hoops layered with silver and denim discs.",
       "category": "earrings",
       "badge": "NEW",
-      "createdAt": "2026-10-30T12:29:18.192000Z"
+      "createdAt": "2026-10-30T12:29:18.192000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_19",
@@ -1422,6 +1584,9 @@
           "image": "assets/sparkle-bloom-earrings-silver-1794170000002.jpeg",
           "swatch": "#b8b8b8"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -1431,7 +1596,10 @@
       "image": "assets/garden-spell-earrings-1793207082339.jpeg",
       "description": "",
       "category": "earrings",
-      "badge": "OUT OF STOCK"
+      "badge": "OUT OF STOCK",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "ear_21",
@@ -1456,6 +1624,9 @@
           "swatch": "#c8871f",
           "soldOut": true
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     }
   ],
@@ -1509,6 +1680,9 @@
           "id": "natural-natural-stone",
           "label": "Natural / Natural Stone"
         }
+      ],
+      "alsoIn": [
+        "boho"
       ]
     },
     {
@@ -1597,7 +1771,10 @@
           "3": 1800
         }
       },
-      "createdAt": "2026-11-04T16:53:55.524Z"
+      "createdAt": "2026-11-04T16:53:55.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     }
   ],
   "sets": [
@@ -1610,7 +1787,10 @@
       "category": "sets",
       "badge": "OUT OF STOCK",
       "variants": [],
-      "createdAt": "2026-11-04T16:53:50.524Z"
+      "createdAt": "2026-11-04T16:53:50.524Z",
+      "alsoIn": [
+        "boho"
+      ]
     }
   ],
   "piercings": [
@@ -1698,7 +1878,10 @@
       "category": "hair",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T15:01:00.000Z"
+      "createdAt": "2026-11-23T15:01:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "hair_2",
@@ -1712,7 +1895,10 @@
       "category": "hair",
       "badge": "NEW",
       "variants": [],
-      "createdAt": "2026-11-23T15:00:00.000Z"
+      "createdAt": "2026-11-23T15:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     },
     {
       "id": "hair_3",
@@ -1745,7 +1931,10 @@
           "swatch": "linear-gradient(90deg,#c9c9c4 50%,#d4af37 50%)"
         }
       ],
-      "createdAt": "2026-11-23T16:00:00.000Z"
+      "createdAt": "2026-11-23T16:00:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
     }
   ],
   "tattoos": [
