@@ -33,9 +33,9 @@ function addToCart(productId, quantity, size, variant, silent) {
 
     const qty = Math.max(1, quantity || 1);
     const cartKey = getCartItemKey(productId, size, variant);
-    const existingItem = cart.find(item => item.cartKey === cartKey);
+    const existingItem = cart.find(item => item.cartKey === cartKey && !item.free);
 
-    if (existingItem) {
+    if (existingItem && !existingItem.free) {
         existingItem.quantity += qty;
     } else {
         cart.push({
@@ -120,6 +120,55 @@ function getCartTotal() {
     return getCartSubtotal() - getCartDiscount();
 }
 
+// Free rings: an order of 1000 DA or more (before delivery) gets 1 ring of the customer's choice,
+// 1500 DA or more gets 2. Free rings sit in the cart with price 0 and free: true.
+const FREE_RING_TIERS = [[1500, 2], [1000, 1]];
+
+function getFreeRingsAllowed() {
+    const paid = getCartTotal();
+    const tier = FREE_RING_TIERS.find(([min]) => paid >= min);
+    return tier ? tier[1] : 0;
+}
+
+function getFreeRings() {
+    return cart.filter(item => item.free);
+}
+
+// Amount still needed for the next free ring, or null when both are unlocked.
+function getNextFreeRingGap() {
+    const paid = getCartTotal();
+    const next = FREE_RING_TIERS.slice().reverse().find(([min]) => paid < min);
+    return next ? next[0] - paid : null;
+}
+
+function addFreeRing(productId) {
+    const product = getProductById(productId);
+    if (!product || getFreeRings().length >= getFreeRingsAllowed()) return;
+    cart.push({
+        ...product,
+        cartKey: `${productId}_free${Date.now()}`,
+        quantity: 1,
+        size: null,
+        variant: null,
+        tier: null,
+        free: true,
+        price: 0
+    });
+    saveCart();
+    updateCartUI();
+    updateCheckoutSummary();
+}
+
+// Drop free rings the order no longer earns (e.g. after removing a piece).
+function trimFreeRings() {
+    let extra = getFreeRings().length - getFreeRingsAllowed();
+    if (extra <= 0) return;
+    for (let i = cart.length - 1; i >= 0 && extra > 0; i--) {
+        if (cart[i].free) { cart.splice(i, 1); extra--; }
+    }
+    saveCart();
+}
+
 function getCartCount() {
     return cart.reduce((count, item) => count + item.quantity, 0);
 }
@@ -159,8 +208,13 @@ function clearCart() {
 }
 
 // The piece's name with the chosen colour/style, e.g. "Scarlet Mandala Necklace – Yellow"
-function cartItemName(item) {
+function cartItemLabel(item) {
     return item.variant ? `${item.name} – ${item.variant}` : item.name;
+}
+
+// Name sent with the order: free rings are marked so they are easy to spot.
+function cartItemName(item) {
+    return item.free ? `${cartItemLabel(item)} – FREE RING` : cartItemLabel(item);
 }
 
 function formatCartSummary() {

@@ -127,6 +127,47 @@ sharedStyles.textContent = `
     .price-was { color: #8a8a85; font-weight: 400; margin-right: 0.25rem; }
     .cart-promo,
     .checkout-promo { color: #d4a373; }
+    .free-tag { color: #d4a373; font-weight: 600; letter-spacing: 1px; }
+    .free-ring-box {
+        margin: 1rem 0 0.5rem; padding: 0.9rem 1rem;
+        border: 1px solid rgba(212, 163, 115, 0.35); border-radius: 6px;
+        background: rgba(212, 163, 115, 0.06);
+        color: #e8e3da; font-size: 0.9rem; line-height: 1.45;
+    }
+    .free-ring-box:empty { display: none; }
+    .free-ring-box p { margin: 0; }
+    .free-ring-box p + p, .free-ring-box button + p { margin-top: 0.5rem; }
+    .free-ring-gap { color: #c9c9c4; font-size: 0.85rem; }
+    .free-ring-btn {
+        margin-top: 0.6rem; width: 100%; padding: 0.65rem;
+        background: #d4a373; color: #0a0a0a; border: none; border-radius: 4px;
+        font: inherit; font-weight: 600; letter-spacing: 1px; cursor: pointer;
+    }
+    .free-ring-picker {
+        position: fixed; inset: 0; z-index: 3000;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex; align-items: center; justify-content: center; padding: 16px;
+    }
+    .free-ring-panel {
+        position: relative; width: min(760px, 100%); max-height: 88vh; overflow-y: auto;
+        background: #111; border: 1px solid rgba(212, 163, 115, 0.3); border-radius: 8px;
+        padding: 1.5rem 1.25rem;
+    }
+    .free-ring-panel h3 { color: #d4a373; text-align: center; margin: 0 0 0.25rem; letter-spacing: 2px; }
+    .free-ring-left { text-align: center; color: #c9c9c4; margin: 0 0 1rem; font-size: 0.9rem; }
+    .free-ring-close {
+        position: absolute; top: 8px; right: 12px; background: none; border: none;
+        color: #d4a373; font-size: 1.8rem; cursor: pointer; line-height: 1;
+    }
+    .free-ring-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
+    .free-ring-option {
+        background: #0a0a0a; border: 1px solid rgba(212, 163, 115, 0.15); border-radius: 6px;
+        padding: 0 0 0.5rem; cursor: pointer; color: #e8e3da; font: inherit; font-size: 0.8rem;
+        display: flex; flex-direction: column; gap: 0.4rem; overflow: hidden; text-align: center;
+    }
+    .free-ring-option:hover { border-color: #d4a373; }
+    .free-ring-option img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+    .free-ring-option span { padding: 0 0.4rem; }
     .cart-promo {
         display: flex;
         justify-content: space-between;
@@ -918,6 +959,7 @@ function confirmAddToCart() {
 }
 
 function updateCartUI() {
+    trimFreeRings();
     updateCartCount();
     updateCartSidebar();
 }
@@ -950,20 +992,69 @@ function updateCartSidebar() {
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-details">
-                <div class="cart-item-name">${cartItemName(item)}</div>
+                <div class="cart-item-name">${cartItemLabel(item)}</div>
                 ${item.size ? `<div class="cart-item-size">${t('size')} ${item.size}</div>` : ''}
-                <div class="cart-item-price">${item.price} DA</div>
-                <div class="cart-item-controls">
+                <div class="cart-item-price">${item.free ? `<span class="free-tag">🎁 ${t('freeLabel')}</span>` : `${item.price} DA`}</div>
+                ${item.free ? '' : `<div class="cart-item-controls">
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity - 1})">−</button>
                     <span>${item.quantity}</span>
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity + 1})">+</button>
-                </div>
+                </div>`}
                 <button class="remove-item" onclick="removeFromCart('${item.cartKey}')">${t('remove')}</button>
             </div>
         </div>
-    `).join('') + promoRows('cart-promo');
+    `).join('') + promoRows('cart-promo') + freeRingBox();
 
     if (cartSubtotal) cartSubtotal.textContent = `${getCartTotal()} DA`;
+}
+
+// The free-ring offer under the cart items: progress, or a button to pick the rings earned.
+function freeRingBox() {
+    const allowed = getFreeRingsAllowed();
+    const left = allowed - getFreeRings().length;
+    const gap = getNextFreeRingGap();
+    let html = '';
+    if (left > 0) {
+        html += `<p>${t(left === 1 ? 'freeRingUnlockedOne' : 'freeRingUnlockedTwo')}</p>
+            <button class="free-ring-btn" onclick="openFreeRingPicker()">${t('freeRingChoose')}</button>`;
+    } else if (allowed > 0) {
+        html += `<p>${t(allowed === 1 ? 'freeRingDone' : 'freeRingDoneTwo')}</p>`;
+    }
+    if (gap !== null) html += `<p class="free-ring-gap">${t(allowed === 0 ? 'freeRingGapFirst' : 'freeRingGapSecond', { n: gap })}</p>`;
+    return `<div class="free-ring-box">${html}</div>`;
+}
+
+function openFreeRingPicker() {
+    closeFreeRingPicker();
+    const rings = (PRODUCTS.rings || []).filter(p => p.badge !== 'OUT OF STOCK' && !(p.price > 600));
+    const left = getFreeRingsAllowed() - getFreeRings().length;
+    const overlay = document.createElement('div');
+    overlay.className = 'free-ring-picker';
+    overlay.onclick = e => { if (e.target === overlay) closeFreeRingPicker(); };
+    overlay.innerHTML = `
+        <div class="free-ring-panel" role="dialog" aria-label="${t('freeRingTitle')}">
+            <button class="free-ring-close" onclick="closeFreeRingPicker()" aria-label="Close">×</button>
+            <h3>${t('freeRingTitle')}</h3>
+            <p class="free-ring-left">${t(left === 1 ? 'freeRingLeftOne' : 'freeRingLeftTwo')}</p>
+            <div class="free-ring-grid">
+                ${rings.map(r => `
+                    <button class="free-ring-option" onclick="pickFreeRing('${r.id}')">
+                        <img src="${r.image}" alt="${r.name}" loading="lazy">
+                        <span>${r.name}</span>
+                    </button>`).join('')}
+            </div>
+        </div>`;
+    document.body.appendChild(overlay);
+}
+
+function closeFreeRingPicker() {
+    document.querySelectorAll('.free-ring-picker').forEach(el => el.remove());
+}
+
+function pickFreeRing(productId) {
+    addFreeRing(productId);
+    if (getFreeRings().length >= getFreeRingsAllowed()) closeFreeRingPicker();
+    else openFreeRingPicker();
 }
 
 function promoRows(className) {
@@ -1027,8 +1118,8 @@ function updateCheckoutSummary() {
         <h4>${t('yourOrder')}</h4>
         ${cart.map(item => `
             <div class="checkout-item">
-                <span>${cartItemName(item)}${item.size ? ` (${t('size')} ${item.size})` : ''} × ${item.quantity}</span>
-                <span>${item.price * item.quantity} DA</span>
+                <span>${cartItemLabel(item)}${item.size ? ` (${t('size')} ${item.size})` : ''} × ${item.quantity}</span>
+                <span>${item.free ? `🎁 ${t('freeLabel')}` : `${item.price * item.quantity} DA`}</span>
             </div>
         `).join('')}
         <div class="checkout-totals">

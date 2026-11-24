@@ -1323,6 +1323,774 @@
   ],
   "rings": [
     {
+      "id": "ring_2",
+      "name": "Aurora Opal Ring",
+      "price": 500,
+      "image": "assets/ring-aurora-opal-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A large oval opal full of rainbow flecks in an ornate filigree setting.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:48:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_3",
+      "name": "Lotus Ring",
+      "price": 500,
+      "image": "assets/ring-lotus-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "An open silver lotus flower on a fine band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:47:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_4",
+      "name": "Curb Chain Ring",
+      "price": 500,
+      "image": "assets/ring-curb-chain-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A chunky silver curb chain made into a ring.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:46:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_5",
+      "name": "Love Heart Ring",
+      "price": 500,
+      "image": "assets/ring-love-heart-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A filigree heart engraved with the word \"love\".",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:45:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_6",
+      "name": "Marcasite Band Ring",
+      "price": 500,
+      "image": "assets/ring-marcasite-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A wide antique band studded with tiny marcasite stones.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:44:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_7",
+      "name": "Spiral Opal Signet",
+      "price": 500,
+      "image": "assets/ring-spiral-opal-signet.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A small opal in a signet ring carved with swirls.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:43:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_8",
+      "name": "Onyx Bloom Ring",
+      "price": 500,
+      "image": "assets/ring-onyx-bloom-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A round black stone framed by little marcasite flowers.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:42:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_9",
+      "name": "Beaded Band Ring",
+      "price": 200,
+      "image": "assets/ring-beaded-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A slim stacking band with a beaded edge.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:41:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_10",
+      "name": "Onyx Filigree Ring",
+      "price": 500,
+      "image": "assets/ring-onyx-filigree-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A black diamond-shaped stone in a big lace-like marcasite setting.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:40:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_11",
+      "name": "Leaf Crown Ring",
+      "price": 300,
+      "image": "assets/ring-leaf-crown-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A delicate band of little leaves, like a tiny crown.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:39:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_12",
+      "name": "Little Rose Ring",
+      "price": 300,
+      "image": "assets/ring-little-rose-ring.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A small silver rose on a fine band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:38:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_13",
+      "name": "Moon Flower Band",
+      "price": 300,
+      "image": "assets/ring-moon-flower-band.jpg",
+      "photos": [
+        "assets/ring-board-1.jpg"
+      ],
+      "description": "A band of tiny flowers and moons in antique silver.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:37:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_14",
+      "name": "Coffin Ring",
+      "price": 500,
+      "image": "assets/ring-coffin-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A red enamel coffin inside an open silver bone frame.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:36:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_15",
+      "name": "Red Rose Ring",
+      "price": 500,
+      "image": "assets/ring-red-rose-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A big glossy red rose with a little spiral beside it.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:35:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_16",
+      "name": "Marcasite Infinity Ring",
+      "price": 500,
+      "image": "assets/ring-marcasite-infinity-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "Two marcasite swirls joined like an infinity sign.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:34:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_17",
+      "name": "Dotted Flower Band",
+      "price": 200,
+      "image": "assets/ring-dotted-flower-band.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A thin band with little flower dots along it.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:33:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_18",
+      "name": "Skeleton Hands Heart Ring",
+      "price": 500,
+      "image": "assets/ring-skeleton-hands-heart-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "Two skeleton hands holding a deep red heart stone.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:32:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_19",
+      "name": "Twin Hearts Ring",
+      "price": 500,
+      "image": "assets/ring-twin-hearts-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "Two open marcasite hearts side by side.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:31:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_20",
+      "name": "Sweetheart Signet Ring",
+      "price": 300,
+      "image": "assets/ring-sweetheart-signet-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A heart signet ring with dotted engraving.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:30:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_21",
+      "name": "Twin Elephants Ring",
+      "price": 300,
+      "image": "assets/ring-twin-elephants-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "Two little silver elephants facing each other.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:29:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_22",
+      "name": "Crimson Butterfly Ring",
+      "price": 500,
+      "image": "assets/ring-crimson-butterfly-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A large silver butterfly with deep red enamel wings.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:28:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_23",
+      "name": "Ruby Teardrop Ring",
+      "price": 300,
+      "image": "assets/ring-ruby-teardrop-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A dark red teardrop stone held in silver claws.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:27:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_24",
+      "name": "Chevron Ring",
+      "price": 300,
+      "image": "assets/ring-chevron-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A V-shaped beaded band, lovely for stacking.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:26:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_25",
+      "name": "Flower Tile Ring",
+      "price": 300,
+      "image": "assets/ring-flower-tile-ring.jpg",
+      "photos": [
+        "assets/ring-board-2.jpg"
+      ],
+      "description": "A diamond-shaped silver tile with a flower carved in it.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:25:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_26",
+      "name": "Spider Ring",
+      "price": 400,
+      "image": "assets/ring-spider-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A silver spider wrapped around your finger.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:24:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_27",
+      "name": "Rose Vine Ring",
+      "price": 400,
+      "image": "assets/ring-rose-vine-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A pink rose on a band of carved little flowers.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:23:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_28",
+      "name": "Wire Heart Ring",
+      "price": 400,
+      "image": "assets/ring-wire-heart-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "An open heart drawn in twisted silver wire.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:22:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_29",
+      "name": "Daisy Chain Ring",
+      "price": 400,
+      "image": "assets/ring-daisy-chain-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A band of little daisies in a row.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:21:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_30",
+      "name": "Opal Cameo Ring",
+      "price": 400,
+      "image": "assets/ring-opal-cameo-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "An oval opal in a rope-edged silver frame.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:20:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_31",
+      "name": "Rose Swirl Ring",
+      "price": 400,
+      "image": "assets/ring-rose-swirl-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A rose swirl on a braided vine band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:19:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_32",
+      "name": "Long-Stem Rose Ring",
+      "price": 400,
+      "image": "assets/ring-long-stem-rose-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A red rose on a long silver stem with leaves.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:18:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_33",
+      "name": "Star Band Ring",
+      "price": 200,
+      "image": "assets/ring-star-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A row of little silver stars.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:17:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_34",
+      "name": "Scarlet Diamond Ring",
+      "price": 400,
+      "image": "assets/ring-scarlet-diamond-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A red stone in a pointed marcasite diamond.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:16:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_35",
+      "name": "Seashell Ring",
+      "price": 400,
+      "image": "assets/ring-seashell-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "Two beaded seashells meeting on the band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:15:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_36",
+      "name": "Crimson Teardrop Ring",
+      "price": 400,
+      "image": "assets/ring-crimson-teardrop-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A big faceted red teardrop stone.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:14:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_37",
+      "name": "Opal Teardrop Ring",
+      "price": 400,
+      "image": "assets/ring-opal-teardrop-ring.jpg",
+      "photos": [
+        "assets/ring-board-3.jpg"
+      ],
+      "description": "A pearly opal teardrop on a carved band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:13:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_38",
+      "name": "Sunburst Opal Ring",
+      "price": 400,
+      "image": "assets/ring-sunburst-opal-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A round opal with a sunburst of tiny silver points.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:12:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_39",
+      "name": "Opal Drop Ring",
+      "price": 400,
+      "image": "assets/ring-opal-drop-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "An opal teardrop on a leafy carved band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:11:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_40",
+      "name": "Om Ring",
+      "price": 400,
+      "image": "assets/ring-om-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "The Om symbol in a round silver frame.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:10:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_41",
+      "name": "Butterfly Band Ring",
+      "price": 400,
+      "image": "assets/ring-butterfly-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A wide band engraved with a butterfly and flowers.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:09:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_42",
+      "name": "Rose Cluster Ring",
+      "price": 400,
+      "image": "assets/ring-rose-cluster-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "Little silver roses gathered on the band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:08:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_43",
+      "name": "Crystal Teardrop Ring",
+      "price": 400,
+      "image": "assets/ring-crystal-teardrop-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A clear crystal teardrop with a marcasite halo.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:07:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_44",
+      "name": "Little Flower Ring",
+      "price": 200,
+      "image": "assets/ring-little-flower-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A tiny silver flower on a wavy band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:06:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_45",
+      "name": "Sunflower Ring",
+      "price": 200,
+      "image": "assets/ring-sunflower-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "Two little sunflowers on a fine band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:05:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_46",
+      "name": "Grand Opal Teardrop Ring",
+      "price": 400,
+      "image": "assets/ring-grand-opal-teardrop-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A large opal teardrop on a carved band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:04:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_47",
+      "name": "Crystal Dot Band",
+      "price": 400,
+      "image": "assets/ring-crystal-dot-band.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A band with a small clear crystal and dotted details.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:03:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_48",
+      "name": "Turquoise Trio Ring",
+      "price": 400,
+      "image": "assets/ring-turquoise-trio-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "Three turquoise stones in an ornate silver shield.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:02:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_49",
+      "name": "Rose & Leaf Ring",
+      "price": 400,
+      "image": "assets/ring-rose-leaf-ring.jpg",
+      "photos": [
+        "assets/ring-board-4.jpg"
+      ],
+      "description": "A silver rose with a leaf curling around the finger.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-24T12:01:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
       "id": "ring_1",
       "name": "Golden Sun Ring",
       "price": 500,
