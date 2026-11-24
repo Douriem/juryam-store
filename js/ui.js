@@ -127,9 +127,8 @@ sharedStyles.textContent = `
     .price-was { color: #8a8a85; font-weight: 400; margin-right: 0.25rem; }
     .cart-promo,
     .checkout-promo { color: #d4a373; }
-    .products-grid.style-chooser { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
     .style-cat-card {
-        position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden;
+        position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; container-type: inline-size;
         border: 1px solid rgba(212, 163, 115, 0.15); text-decoration: none;
         animation: styleCatIn 0.5s ease both; animation-delay: var(--delay, 0s);
     }
@@ -137,11 +136,11 @@ sharedStyles.textContent = `
     .style-cat-card:hover img { transform: scale(1.06); }
     .style-cat-card:hover { border-color: rgba(212, 163, 115, 0.5); }
     .style-cat-overlay {
-        position: absolute; inset: auto 0 0 0; padding: 2rem 1rem 1.25rem;
+        position: absolute; inset: auto 0 0 0; padding: 2rem 0.8rem 1rem;
         background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
         display: flex; flex-direction: column; gap: 0.3rem;
     }
-    .style-cat-name { color: #d4a373; font-size: 1.15rem; letter-spacing: 1.5px; line-height: 1.25; }
+    .style-cat-name { color: #d4a373; font-size: clamp(0.8rem, 7cqi, 1.15rem); letter-spacing: 1.2px; line-height: 1.25; }
     .style-cat-count { color: #c9c9c4; font-size: 0.85rem; }
     @keyframes styleCatIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
     .style-back {
@@ -854,8 +853,9 @@ function openAddToCartModal(productId) {
 
     if (product.category === 'rings') {
         sizeField.style.display = 'block';
-        sizeOptions.innerHTML = [6, 7, 8, 9, 10, 11, 12].map(size =>
-            `<button type="button" class="size-btn" onclick="selectSize(${size})">${size}</button>`
+        // Ring sizes in mm (inner diameter)
+        sizeOptions.innerHTML = [18, 19].map(size =>
+            `<button type="button" class="size-btn" onclick="selectSize(${size})">${size} mm</button>`
         ).join('');
     } else {
         sizeField.style.display = 'none';
@@ -1016,7 +1016,7 @@ function updateCartSidebar() {
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-details">
                 <div class="cart-item-name">${cartItemLabel(item)}</div>
-                ${item.size ? `<div class="cart-item-size">${t('size')} ${item.size}</div>` : ''}
+                ${item.size ? `<div class="cart-item-size">${t('size')} ${item.size} mm</div>` : ''}
                 <div class="cart-item-price">${item.free ? `<span class="free-tag">🎁 ${t('freeLabel')}</span>` : `${item.price} DA`}</div>
                 ${item.free ? '' : `<div class="cart-item-controls">
                     <button onclick="updateQuantity('${item.cartKey}', ${item.quantity - 1})">−</button>
@@ -1141,7 +1141,7 @@ function updateCheckoutSummary() {
         <h4>${t('yourOrder')}</h4>
         ${cart.map(item => `
             <div class="checkout-item">
-                <span>${cartItemLabel(item)}${item.size ? ` (${t('size')} ${item.size})` : ''} × ${item.quantity}</span>
+                <span>${cartItemLabel(item)}${item.size ? ` (${t('size')} ${item.size} mm)` : ''} × ${item.quantity}</span>
                 <span>${item.free ? `🎁 ${t('freeLabel')}` : `${item.price * item.quantity} DA`}</span>
             </div>
         `).join('')}

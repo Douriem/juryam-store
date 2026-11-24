@@ -219,7 +219,7 @@ function cartItemName(item) {
 
 function formatCartSummary() {
     return cart.map(item => {
-        const sizeText = item.size ? ` (Size ${item.size})` : '';
+        const sizeText = item.size ? ` (Size ${item.size} mm)` : '';
         return `${cartItemName(item)}${sizeText} × ${item.quantity} — ${item.price * item.quantity} DA`;
     }).concat(getCartPromos().map(promo =>
         `Promo ${promo.count} ${I18N.en['tier_' + promo.tier] || promo.tier} — −${promo.amount} DA`
