@@ -127,6 +127,29 @@ sharedStyles.textContent = `
     .price-was { color: #8a8a85; font-weight: 400; margin-right: 0.25rem; }
     .cart-promo,
     .checkout-promo { color: #d4a373; }
+    .products-grid.style-chooser { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+    .style-cat-card {
+        position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden;
+        border: 1px solid rgba(212, 163, 115, 0.15); text-decoration: none;
+        animation: styleCatIn 0.5s ease both; animation-delay: var(--delay, 0s);
+    }
+    .style-cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+    .style-cat-card:hover img { transform: scale(1.06); }
+    .style-cat-card:hover { border-color: rgba(212, 163, 115, 0.5); }
+    .style-cat-overlay {
+        position: absolute; inset: auto 0 0 0; padding: 2rem 1rem 1.25rem;
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+        display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .style-cat-name { color: #d4a373; font-size: 1.15rem; letter-spacing: 1.5px; line-height: 1.25; }
+    .style-cat-count { color: #c9c9c4; font-size: 0.85rem; }
+    @keyframes styleCatIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .style-back {
+        display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 1.25rem;
+        color: #d4a373; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px;
+    }
+    .style-back[hidden] { display: none; }
+    .style-back::before { content: '←'; }
     .free-tag { color: #d4a373; font-weight: 600; letter-spacing: 1px; }
     .free-ring-box {
         margin: 1rem 0 0.5rem; padding: 0.9rem 1rem;

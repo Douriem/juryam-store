@@ -115,19 +115,83 @@ async function withProducts(container, skeletonCount, render, retryAction) {
     render();
 }
 
+// Style pages (Bohemian, Alt/Goth) first show which kinds of pieces they have;
+// picking one (#necklaces, #rings…) lists those pieces.
+const STYLE_PAGES = ['boho', 'goth'];
+const CATEGORY_ORDER = ['necklaces', 'earrings', 'rings', 'bracelets', 'sets', 'piercings', 'hair', 'tattoos'];
+const CATEGORY_LABEL_KEYS = {
+    necklaces: 'catNecklaces', rings: 'catRings', earrings: 'catEarrings', bracelets: 'catBracelets',
+    sets: 'catSets', piercings: 'catPiercings', hair: 'catHair', tattoos: 'catTattoos'
+};
+
+function sortForCategory(category, products) {
+    // Necklaces: random, bohemian pieces first
+    if (category === 'necklaces') return sortRandom(products, p => (p.alsoIn || []).includes('boho'), 3);
+    return sortNewestFirst(products);
+}
+
+function renderProductList(grid, products) {
+    if (products.length === 0) {
+        grid.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
+        return;
+    }
+    grid.innerHTML = products.map((product, index) =>
+        renderProductCard(product, { eager: index < 4, delay: Math.min(index, 8) * 0.1 })
+    ).join('');
+    revealCards(grid);
+}
+
+function renderStyleChooser(grid, style) {
+    const pieces = getProductsByCategory(style);
+    const groups = CATEGORY_ORDER
+        .map(cat => ({ cat, items: pieces.filter(p => p.category === cat) }))
+        .filter(g => g.items.length);
+    if (!groups.length) {
+        grid.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
+        return;
+    }
+    grid.innerHTML = groups.map((g, index) => {
+        const cover = sortRandom(g.items, null, 11)[0];
+        const count = g.items.length;
+        return `
+            <a class="style-cat-card" href="#${g.cat}" style="--delay:${Math.min(index, 8) * 0.08}s">
+                <img src="${cover.image}" alt="" loading="${index < 4 ? 'eager' : 'lazy'}">
+                <span class="style-cat-overlay">
+                    <span class="style-cat-name">${t(CATEGORY_LABEL_KEYS[g.cat])}</span>
+                    <span class="style-cat-count">${count} ${t(count === 1 ? 'piece' : 'pieces')}</span>
+                </span>
+            </a>`;
+    }).join('');
+}
+
+function renderStylePage(grid, style) {
+    const cat = decodeURIComponent(location.hash.slice(1));
+    const back = document.getElementById('styleBack');
+    if (cat && CATEGORY_LABEL_KEYS[cat]) {
+        grid.classList.remove('style-chooser');
+        const items = getProductsByCategory(style).filter(p => p.category === cat);
+        if (back) { back.hidden = false; back.querySelector('span').textContent = t(CATEGORY_LABEL_KEYS[cat]); }
+        renderProductList(grid, sortForCategory(cat, items));
+    } else {
+        grid.classList.add('style-chooser');
+        if (back) back.hidden = true;
+        renderStyleChooser(grid, style);
+    }
+}
+
 async function loadProducts(category) {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
 
     await withProducts(grid, 6, () => {
-        const products = sortNewestFirst(getProductsByCategory(category));
-        if (products.length === 0) {
-            grid.innerHTML = renderGridMessage(t('noProducts'), t('checkBack'));
+        if (STYLE_PAGES.includes(category)) {
+            if (!grid.dataset.styleBound) {
+                grid.dataset.styleBound = '1';
+                window.addEventListener('hashchange', () => { renderStylePage(grid, category); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            }
+            renderStylePage(grid, category);
             return;
         }
-        grid.innerHTML = products.map((product, index) =>
-            renderProductCard(product, { eager: index < 4, delay: Math.min(index, 8) * 0.1 })
-        ).join('');
-        revealCards(grid);
+        renderProductList(grid, sortForCategory(category, getProductsByCategory(category)));
     }, `retryProducts(); loadProducts('${category}')`);
 }

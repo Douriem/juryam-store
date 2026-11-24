@@ -96,25 +96,32 @@ function sortNewestFirst(products) {
         .map(x => x.p);
 }
 
-// Newest first; products without a date follow in a shuffled order that stays
-// fixed for the whole browsing session. Sold-out pieces always come last.
-// firstCategory: in-stock pieces of that category lead the list (Explore puts bracelets first, they sell most)
+// Shuffles a list in an order that stays the same for the whole browsing session,
+// so going back and forth between pages doesn't reshuffle what the shopper just saw.
+function sessionShuffle(list, salt = 0) {
+    const out = list.slice().sort((a, b) => String(a.id).localeCompare(String(b.id)));
+    const random = seededRandom(getSessionSeed() + salt);
+    for (let i = out.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+}
+
+// Random order (fixed per session), in-stock first, sold-out pieces last.
+// preferred(p): pieces that should lead the list, still shuffled among themselves.
+function sortRandom(products, preferred, salt = 0) {
+    const shuffled = sessionShuffle(products, salt);
+    const inStock = shuffled.filter(p => !isSoldOut(p));
+    const lead = preferred ? inStock.filter(preferred) : [];
+    return lead.concat(inStock.filter(p => !lead.includes(p)), shuffled.filter(isSoldOut));
+}
+
+// Explore / homepage carousel: every piece in a random order (fixed per session).
+// firstCategory: in-stock pieces of that category lead the list.
 function getStoreOrder(firstCategory) {
     const all = getAllProducts().filter((p, i, arr) => arr.findIndex(q => q.id === p.id) === i);
-    const dated = all.filter(p => getProductTimestamp(p) !== null)
-        .sort((a, b) => getProductTimestamp(b) - getProductTimestamp(a));
-    const undated = all.filter(p => getProductTimestamp(p) === null)
-        .sort((a, b) => a.id.localeCompare(b.id));
-
-    const random = seededRandom(getSessionSeed());
-    for (let i = undated.length - 1; i > 0; i--) {
-        const j = Math.floor(random() * (i + 1));
-        [undated[i], undated[j]] = [undated[j], undated[i]];
-    }
-    const ordered = dated.concat(undated);
-    const inStock = ordered.filter(p => !isSoldOut(p));
-    const lead = firstCategory ? inStock.filter(p => p.category === firstCategory) : [];
-    return lead.concat(inStock.filter(p => !lead.includes(p)), ordered.filter(isSoldOut));
+    return sortRandom(all, firstCategory ? p => p.category === firstCategory : null, 7);
 }
 
 function getSessionSeed() {
