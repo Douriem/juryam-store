@@ -119,6 +119,12 @@ async function withProducts(container, skeletonCount, render, retryAction) {
 // picking one (#necklaces, #rings…) lists those pieces.
 const STYLE_PAGES = ['boho', 'goth'];
 const CATEGORY_ORDER = ['necklaces', 'earrings', 'rings', 'bracelets', 'sets', 'piercings', 'hair', 'tattoos'];
+// Same pictures as the category cards on the homepage
+const CATEGORY_IMAGES = {
+    necklaces: 'assets/necklaces.png', rings: 'assets/rings.png', earrings: 'assets/earrings.png',
+    bracelets: 'assets/bracelets.png', sets: 'assets/sets-category.jpg', piercings: 'assets/piercings.jpg',
+    hair: 'assets/hair.jpg', tattoos: 'assets/tattoos-category.jpg?v=3'
+};
 const CATEGORY_LABEL_KEYS = {
     necklaces: 'catNecklaces', rings: 'catRings', earrings: 'catEarrings', bracelets: 'catBracelets',
     sets: 'catSets', piercings: 'catPiercings', hair: 'catHair', tattoos: 'catTattoos'
@@ -151,11 +157,10 @@ function renderStyleChooser(grid, style) {
         return;
     }
     grid.innerHTML = groups.map((g, index) => {
-        const cover = sortRandom(g.items, null, 11)[0];
         const count = g.items.length;
         return `
             <a class="style-cat-card" href="#${g.cat}" style="--delay:${Math.min(index, 8) * 0.08}s">
-                <img src="${cover.image}" alt="" loading="${index < 4 ? 'eager' : 'lazy'}">
+                <img src="${CATEGORY_IMAGES[g.cat]}" alt="" loading="${index < 4 ? 'eager' : 'lazy'}">
                 <span class="style-cat-overlay">
                     <span class="style-cat-name">${t(CATEGORY_LABEL_KEYS[g.cat])}</span>
                     <span class="style-cat-count">${count} ${t(count === 1 ? 'piece' : 'pieces')}</span>
