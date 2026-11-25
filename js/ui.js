@@ -1049,7 +1049,8 @@ function freeRingBox() {
 
 function openFreeRingPicker() {
     closeFreeRingPicker();
-    const rings = (PRODUCTS.rings || []).filter(p => p.badge !== 'OUT OF STOCK' && !(p.price > 600));
+    // Only the small rings (200 and 300 DA) can be picked as gifts
+    const rings = (PRODUCTS.rings || []).filter(p => p.badge !== 'OUT OF STOCK' && p.price <= 300);
     const left = getFreeRingsAllowed() - getFreeRings().length;
     const overlay = document.createElement('div');
     overlay.className = 'free-ring-picker';
