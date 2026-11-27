@@ -766,7 +766,7 @@
       "image": "assets/citrine-lariat-necklace-1794700000016.jpeg",
       "description": "Layered brown cords with silver beads and yellow crystals, ending in a long tassel.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-11-18T12:00:00.000Z",
       "alsoIn": [
         "boho"
@@ -2350,7 +2350,8 @@
           "id": "silver",
           "label": "Silver",
           "image": "assets/sparkle-bloom-earrings-silver-1794170000002.jpeg",
-          "swatch": "#b8b8b8"
+          "swatch": "#b8b8b8",
+          "soldOut": true
         }
       ],
       "alsoIn": [
