@@ -701,7 +701,7 @@
       "image": "assets/norse-disc-necklace-1794700000005.jpeg",
       "description": "A hammered silver disc on a black cord with antique silver beads. Low-key and unisex.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "createdAt": "2026-11-18T12:00:00.000Z",
       "alsoIn": [
         "boho"
@@ -823,7 +823,7 @@
       "image": "assets/memento-skull-cord-1795400000011.jpeg",
       "description": "A polished silver skull on a black cord.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-23T13:35:00.000Z",
       "alsoIn": [
@@ -874,7 +874,7 @@
       "image": "assets/black-widow-rosary-1795400000014.jpeg",
       "description": "Black bead rosary chain with a silver spider and a black stone body.",
       "category": "necklaces",
-      "badge": "NEW",
+      "badge": "OUT OF STOCK",
       "variants": [],
       "createdAt": "2026-11-23T13:38:00.000Z",
       "alsoIn": [
@@ -1322,6 +1322,150 @@
     }
   ],
   "rings": [
+    {
+      "id": "ring_50",
+      "name": "Scarlet Rose Ring",
+      "price": 400,
+      "image": "assets/ring-scarlet-rose-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A glossy red rose on a band carved with little flowers.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:09:00.000Z",
+      "alsoIn": [
+        "goth"
+      ]
+    },
+    {
+      "id": "ring_51",
+      "name": "Daisy Charm Ring",
+      "price": 200,
+      "image": "assets/ring-daisy-charm-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A tiny silver daisy on a fine band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:08:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_52",
+      "name": "Studded Band Ring",
+      "price": 200,
+      "image": "assets/ring-studded-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A slim band with a row of little silver dots.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:07:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_53",
+      "name": "Opal Peek Ring",
+      "price": 300,
+      "image": "assets/ring-opal-peek-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A small round opal on an open braided band.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:06:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_54",
+      "name": "Rose Duo Ring",
+      "price": 300,
+      "image": "assets/ring-rose-duo-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "Two little silver roses side by side.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:05:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_55",
+      "name": "Star Cut Band",
+      "price": 300,
+      "image": "assets/ring-star-cut-band.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A flat band with stars cut out of the silver.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:04:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_56",
+      "name": "Braided Band Ring",
+      "price": 200,
+      "image": "assets/ring-braided-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A twisted rope band, lovely for stacking.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:03:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_57",
+      "name": "Little Crown Ring",
+      "price": 300,
+      "image": "assets/ring-little-crown-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A dainty crown of little silver beads.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:02:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
+    {
+      "id": "ring_58",
+      "name": "Bubble Band Ring",
+      "price": 200,
+      "image": "assets/ring-bubble-band-ring.jpg",
+      "photos": [
+        "assets/ring-board-5.jpg"
+      ],
+      "description": "A band of round silver beads.",
+      "category": "rings",
+      "badge": "NEW",
+      "createdAt": "2026-11-27T12:01:00.000Z",
+      "alsoIn": [
+        "boho"
+      ]
+    },
     {
       "id": "ring_2",
       "name": "Aurora Opal Ring",
