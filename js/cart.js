@@ -120,12 +120,18 @@ function getCartTotal() {
     return getCartSubtotal() - getCartDiscount();
 }
 
-// Free rings: an order of 1000 DA or more (before delivery) gets 1 ring of the customer's choice,
-// 1500 DA or more gets 2. Free rings sit in the cart with price 0 and free: true.
+// Free rings: 1000 DA or more of rings gets 1 free ring of the customer's choice,
+// 1500 DA or more of rings gets 2. Free rings sit in the cart with price 0 and free: true.
 const FREE_RING_TIERS = [[1500, 2], [1000, 1]];
 
+// Only rings the customer pays for count toward free rings
+function getRingsTotal() {
+    return cart.filter(item => item.category === 'rings' && !item.free)
+        .reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
 function getFreeRingsAllowed() {
-    const paid = getCartTotal();
+    const paid = getRingsTotal();
     const tier = FREE_RING_TIERS.find(([min]) => paid >= min);
     return tier ? tier[1] : 0;
 }
@@ -136,7 +142,7 @@ function getFreeRings() {
 
 // Amount still needed for the next free ring, or null when both are unlocked.
 function getNextFreeRingGap() {
-    const paid = getCartTotal();
+    const paid = getRingsTotal();
     const next = FREE_RING_TIERS.slice().reverse().find(([min]) => paid < min);
     return next ? next[0] - paid : null;
 }
